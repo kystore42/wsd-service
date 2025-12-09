@@ -451,6 +451,200 @@
                 display: none;
             }
         }
+        
+        /* Testimonials Carousel */
+        .testimonials-carousel {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .testimonials-wrapper {
+            overflow: hidden;
+            position: relative;
+            border-radius: 20px;
+        }
+        
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: 0 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .testimonial-slide {
+                flex: 0 0 50%;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .testimonial-slide {
+                flex: 0 0 33.333%;
+            }
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(234, 88, 12, 0.1);
+            border: 2px solid #fed7aa;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(234, 88, 12, 0.05), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+        
+        .testimonial-card:hover::before {
+            left: 100%;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(234, 88, 12, 0.2);
+            border-color: #ea580c;
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 32px;
+        }
+        
+        .carousel-nav button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #fed7aa;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+        
+        .carousel-nav button.active {
+            width: 32px;
+            border-radius: 6px;
+            background: linear-gradient(90deg, #ea580c, #f59e0b);
+        }
+        
+        .carousel-nav button:hover {
+            background: #ea580c;
+        }
+        
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 2px solid #ea580c;
+            color: #ea580c;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .carousel-arrow:hover {
+            background: #ea580c;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-arrow.prev {
+            left: -60px;
+        }
+        
+        .carousel-arrow.next {
+            right: -60px;
+        }
+        
+        @media (max-width: 1280px) {
+            .carousel-arrow.prev {
+                left: 10px;
+            }
+            .carousel-arrow.next {
+                right: 10px;
+            }
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ea580c, #f59e0b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+            margin-right: 16px;
+        }
+        
+        .testimonial-stars {
+            color: #f59e0b;
+            font-size: 20px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-text {
+            color: #4b5563;
+            line-height: 1.7;
+            font-style: italic;
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-quote {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 80px;
+            color: #ffedd5;
+            font-family: Georgia, serif;
+            line-height: 1;
+            z-index: 0;
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800">
@@ -524,7 +718,7 @@
                 
                 <div class="md:w-1/2 z-10 space-y-4 text-center md:text-left">
                     <div class="inline-block px-3 py-1.5 bg-orange-100 rounded-full text-orange-700 font-semibold text-xs sm:text-sm mb-2">
-                        ✨ Professional Special Education Teacher
+                        <span data-i18n-key="professional_badge">✨ Professional Special Education Teacher</span>
                     </div>
                     <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4 leading-tight" data-i18n-key="heading_hero">
                         Empowering Children with Special Needs
@@ -536,7 +730,7 @@
                         <a href="#booking" class="inline-block bg-gradient-to-r from-orange-600 to-orange-500 text-white py-3 px-6 sm:py-4 sm:px-10 rounded-full hover:from-orange-700 hover:to-orange-600 active:scale-95 transition-all shadow-2xl hover:shadow-orange-500/50 font-bold text-base sm:text-lg text-center" data-i18n-key="nav_book">
                             Book a Consultation
                         </a>
-                        <a href="#testimonials" class="inline-block bg-white text-orange-600 border-2 border-orange-600 py-3 px-6 sm:py-4 sm:px-10 rounded-full hover:bg-orange-50 active:scale-95 transition-all shadow-lg font-bold text-base sm:text-lg text-center">
+                        <a href="#testimonials" class="inline-block bg-white text-orange-600 border-2 border-orange-600 py-3 px-6 sm:py-4 sm:px-10 rounded-full hover:bg-orange-50 active:scale-95 transition-all shadow-lg font-bold text-base sm:text-lg text-center" data-i18n-key="read_reviews">
                             Read Reviews ⭐
                         </a>
                     </div>
@@ -597,9 +791,9 @@
 
         <section id="testimonials" class="py-10 sm:py-16 md:py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-96 h-96 bg-orange-200 rounded-full filter blur-3xl opacity-30 -mr-48"></div>
-            <div class="absolute bottom-0 left-0 w-96 h-96 bg-amber-200 rounded-full filter blur-3xl opacity-30 -ml-48"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-156 bg-amber-200 rounded-full filter blur-3xl opacity-30 -ml-48"></div>
             <div class="container mx-auto px-4 sm:px-6 relative z-10">
-                <div class="text-center mb-12">
+                <div class="text-center mb-8">
                     <span class="inline-block px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full text-orange-700 font-bold text-sm mb-4">
                         ⭐ Success Stories
                     </span>
@@ -607,58 +801,107 @@
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n-key="testimonials_desc">Real stories from families I've worked with.</p>
                 </div>
                 
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-
-                    <div class="bg-white rounded-2xl shadow-lg p-5 sm:p-6 card-hover border-2 border-orange-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-                                A
+                <div class="testimonials-carousel">
+                    <button class="carousel-arrow prev" id="testimonialsCarouselPrev" aria-label="Previous">‹</button>
+                    <button class="carousel-arrow next" id="testimonialsCarouselNext" aria-label="Next">›</button>
+                    
+                    <div class="testimonials-wrapper">
+                        <div class="testimonials-track" id="testimonialsTrack">
+                            
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">A</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial1_name">Anna K.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial1_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial1_text">"Wonderful experience! My son now enjoys learning and his confidence has grown tremendously."</p>
+                                </div>
                             </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold text-base sm:text-lg text-gray-800" data-i18n-key="testimonial1_name">Anna K.</h4>
-                                <p class="text-xs sm:text-sm text-gray-500" data-i18n-key="testimonial1_role">Parent</p>
+                            
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">M</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial2_name">Maria S.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial2_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial2_text">"Professional and caring approach. My daughter's reading skills improved significantly!"</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="text-orange-500 text-lg sm:text-xl mb-2 sm:mb-3">⭐⭐⭐⭐⭐</div>
-                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed italic" data-i18n-key="testimonial1_text">"Wonderful experience! My son now enjoys learning and his confidence has grown tremendously."</p>
-                        <div class="mt-4 bg-orange-50 rounded-lg p-4 text-center text-sm text-gray-500 border-2 border-dashed border-orange-200">
-                            <span data-i18n-key="media_placeholder">📷 Photo/Video placeholder</span>
+                            
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">P</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial3_name">Piotr W.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial3_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial3_text">"Amazing results! My son can now focus better and his grades have improved."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">O</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial4_name">Oksana L.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial4_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial4_text">"My daughter struggled with reading, but now she reads confidently. Thank you for your patience!"</p>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">T</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial5_name">Tomasz K.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial5_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial5_text">"Exceptional teacher! Our son's behavior and academic performance improved dramatically."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">E</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial6_name">Elena M.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial6_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial6_text">"Highly recommend! A caring professional who truly understands children with special needs."</p>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
-
-                    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border-2 border-orange-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-                                M
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold text-lg text-gray-800" data-i18n-key="testimonial2_name">Maria S.</h4>
-                                <p class="text-sm text-gray-500" data-i18n-key="testimonial2_role">Parent</p>
-                            </div>
-                        </div>
-                        <div class="text-orange-500 text-xl mb-3">⭐⭐⭐⭐⭐</div>
-                        <p class="text-gray-600 leading-relaxed italic" data-i18n-key="testimonial2_text">"Professional and caring approach. My daughter's reading skills improved significantly!"</p>
-                        <div class="mt-4 bg-orange-50 rounded-lg p-4 text-center text-sm text-gray-500 border-2 border-dashed border-orange-200">
-                            <span data-i18n-key="media_placeholder">📷 Photo/Video placeholder</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border-2 border-orange-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white text-2xl font-bold">
-                                P
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-semibold text-lg text-gray-800" data-i18n-key="testimonial3_name">Piotr W.</h4>
-                                <p class="text-sm text-gray-500" data-i18n-key="testimonial3_role">Parent</p>
-                            </div>
-                        </div>
-                        <div class="text-orange-500 text-xl mb-3">⭐⭐⭐⭐⭐</div>
-                        <p class="text-gray-600 leading-relaxed italic" data-i18n-key="testimonial3_text">"Amazing results! My son can now focus better and his grades have improved."</p>
-                        <div class="mt-4 bg-orange-50 rounded-lg p-4 text-center text-sm text-gray-500 border-2 border-dashed border-orange-200">
-                            <span data-i18n-key="media_placeholder">📷 Photo/Video placeholder</span>
-                        </div>
-                    </div>
+                    
+                    <div class="carousel-nav" id="testimonialsCarouselNav"></div>
                 </div>
             </div>
         </section>
@@ -788,139 +1031,5 @@
     <script src="translations.js"></script>
     <script src="main.js"></script>
     
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const navMenu = document.getElementById('navMenu');
-        const mobileOverlay = document.getElementById('mobileMenuOverlay');
-        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
-        const menuIcon = document.getElementById('menuIcon');
-        
-        function openMobileMenu() {
-            if (window.innerWidth < 768) {
-                navMenu.classList.remove('hidden');
-                navMenu.classList.add('active');
-                mobileOverlay.classList.add('active');
-                menuIcon.textContent = '×';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-        
-        function closeMobileMenu() {
-            navMenu.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            menuIcon.textContent = '☰';
-            document.body.style.overflow = 'auto';
-            setTimeout(() => {
-                if (window.innerWidth < 768) {
-                    navMenu.classList.add('hidden');
-                }
-            }, 400);
-        }
-        
-        menuBtn?.addEventListener('click', function() {
-            if (navMenu.classList.contains('active')) {
-                closeMobileMenu();
-            } else {
-                openMobileMenu();
-            }
-        });
-        
-        mobileCloseBtn?.addEventListener('click', closeMobileMenu);
-        mobileOverlay?.addEventListener('click', closeMobileMenu);
-        
-        document.querySelectorAll('#navMenu a').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth < 768) {
-                    closeMobileMenu();
-                }
-            });
-        });
-        
-        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const lang = this.getAttribute('data-mobile-lang');
-                setLanguage(lang);
-                
-                document.querySelectorAll('.mobile-lang-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                updateActiveLanguage(lang);
-            });
-        });
-        
-        window.addEventListener('DOMContentLoaded', function() {
-            const currentLang = localStorage.getItem('siteLang') || 'en';
-            document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
-                if (btn.getAttribute('data-mobile-lang') === currentLang) {
-                    btn.classList.add('active');
-                }
-            });
-        });
-        
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 768) {
-                navMenu.classList.remove('active', 'hidden');
-                navMenu.classList.add('md:flex');
-                mobileOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                menuIcon.textContent = '☰';
-            } else {
-                navMenu.classList.add('hidden');
-            }
-        });
-        
-        function openModal(imageSrc) {
-            const modal = document.getElementById('diplomaModal');
-            const modalImage = document.getElementById('modalImage');
-            modalImage.src = imageSrc;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeModal() {
-            const modal = document.getElementById('diplomaModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.diploma-card img').forEach(img => {
-                img.parentElement.style.cursor = 'pointer';
-                img.parentElement.addEventListener('click', function() {
-                    openModal(img.src);
-                });
-            });
-            
-            document.getElementById('diplomaModal')?.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeModal();
-                }
-            });
-            
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeModal();
-                }
-            });
-        });
-        
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerOffset = 100;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-
 </body>
 </html>
