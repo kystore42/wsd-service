@@ -1,68 +1,748 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WSD Service</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n-key="heading_hero">test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-image {
+            object-fit: cover;
+            object-position: center;
+            max-width: 100%;
+            height: auto;
+            filter: brightness(1.05) contrast(1.1);
+        }
+        
+        html, body {
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #fff 0%, #fffbeb 100%);
+        }
+        
+        header {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(234, 88, 12, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #ea580c, #f59e0b);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(234, 88, 12, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #ea580c 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .gradient-text-white {
+            background: linear-gradient(135deg, #fff 0%, #fed7aa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            padding: 40px 0;
+        }
+        
+        .carousel-track {
+            display: flex;
+            animation: scroll 40s linear infinite;
+            width: fit-content;
+        }
+        
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .diploma-card {
+            flex-shrink: 0;
+            width: 320px;
+            margin: 0 16px;
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .diploma-card::after {
+            content: '\1F50D Click to enlarge';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(234, 88, 12, 0.95), transparent);
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-size: 12px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .diploma-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(234, 88, 12, 0.3);
+        }
+        
+        .diploma-card:hover::after {
+            transform: translateY(0);
+        }
+        
+        .diploma-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .diploma-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            animation: zoomIn 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .modal-content img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10000;
+        }
+        
+        .modal-close:hover {
+            color: #f59e0b;
+            transform: rotate(90deg);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .language-switcher {
+            position: relative;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: 8px;
+            min-width: 180px;
+            z-index: 1000;
+        }
+        
+        .language-dropdown.active {
+            display: block;
+        }
+        
+        .language-option {
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            gap: 12px;
+        }
+        
+        .language-option:hover {
+            background-color: #ffedd5;
+            transform: translateX(4px);
+        }
+        
+        .language-option.active {
+            background-color: #fed7aa;
+        }
+        
+        .flag-icon {
+            font-size: 24px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .globe-button {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 24px;
+        }
+        
+        .globe-button:hover {
+            border-color: #ea580c;
+            background: linear-gradient(135deg, #ffedd5, #fed7aa);
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #ea580c, #f59e0b);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        a, button {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
 </head>
-<body>
-<div class="container">
-    <div class="header">
-        <h1>🔧 WSD Service</h1>
-    </div>
+<body class="font-sans text-gray-800">
 
-    <div class="stats-panel">
-        <div class="stat-card">
-            <div class="stat-label">💰 Деньги</div>
-            <div class="stat-value" id="money">0</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">📦 Детали</div>
-            <div class="stat-value" id="parts">-</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">✅ Выполнено</div>
-            <div class="stat-value" id="completed">0</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">⚡ Комбо</div>
-            <div class="stat-value" id="combo">0x</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-label">🏆 Престиж</div>
-            <div class="stat-value" id="prestige">0</div>
-        </div>
-    </div>
+    <header class="sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 py-5 flex justify-between items-center">
+            <a href="#" class="text-2xl sm:text-3xl font-black gradient-text tracking-tight hover:scale-105 transition-transform" data-i18n-key="teacher_name">Teacher Name</a>
+            
+            <button id="menuBtn" class="md:hidden text-orange-600 text-3xl hover:scale-110 transition-transform">☰</button>
+            
+            <div id="navMenu" class="hidden md:flex items-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 absolute md:static top-20 left-0 right-0 md:bg-transparent bg-white/95 backdrop-blur-md p-4 md:p-0 shadow-lg md:shadow-none">
+                <a href="#competence" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-sm uppercase tracking-wide" data-i18n-key="nav_competencies">Competencies</a>
+                <a href="#testimonials" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-sm uppercase tracking-wide" data-i18n-key="nav_testimonials">Testimonials</a>
+                <a href="#credentials" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-sm uppercase tracking-wide" data-i18n-key="nav_diplomas">Diplomas</a>
+                
+                <div class="language-switcher">
+                    <button class="globe-button" id="globeButton" aria-label="Change Language">
+                        🌐
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option" data-lang="en">
+                            <span class="flag-icon">EN</span>
+                            <span class="font-medium text-gray-700">English</span>
+                        </div>
+                        <div class="language-option" data-lang="uk">
+                            <span class="flag-icon">UA</span>
+                            <span class="font-medium text-gray-700">Українська</span>
+                        </div>
+                        <div class="language-option" data-lang="pl">
+                            <span class="flag-icon">PL</span>
+                            <span class="font-medium text-gray-700">Polski</span>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="game-grid">
-        <div class="employees-section">
-            <h2 class="section-title">👥 Сотрудники</h2>
-            <div id="employeeList"></div>
-        </div>
-
-        <div class="orders-section">
-            <h2 class="section-title">📋 Заказы</h2>
-            <div class="orders-grid" id="orderList"></div>
-        </div>
-
-        <div class="shop-section">
-            <h2 class="section-title">🏪 Магазин</h2>
-            <div class="shop-tabs">
-                <div class="shop-tab active" data-tab="parts">Детали</div>
-                <div class="shop-tab" data-tab="employees">Сотрудники</div>
-                <div class="shop-tab" data-tab="upgrades">Улучшения</div>
-                <div class="shop-tab" data-tab="achievements">Достижения</div>
+                <a href="#booking" class="bg-gradient-to-r from-orange-600 to-orange-500 text-white py-3 px-8 rounded-full hover:from-orange-700 hover:to-orange-600 transition-all font-bold shadow-lg hover:shadow-xl transform hover:scale-105" data-i18n-key="nav_book">Book a Session</a>
             </div>
-            <div id="shopContent"></div>
+        </nav>
+    </header>
+
+    <div id="diplomaModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Diploma">
         </div>
     </div>
-</div>
 
-<div class="events-banner" id="eventsBanner"></div>
-<div id="notificationContainer"></div>
-<div id="particleContainer"></div>
+    <main>
+        <section id="hero" class="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-orange-50 via-white to-amber-50">
+            <div class="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                
+                <div class="md:w-1/2 z-10 space-y-6">
+                    <div class="inline-block px-4 py-2 bg-orange-100 rounded-full text-orange-700 font-semibold text-sm mb-4">
+                        ✨ Professional Special Education Teacher
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-orange-800 mb-6 leading-tight" data-i18n-key="heading_hero">
+                        Empowering Children with Special Needs
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed" data-i18n-key="desc_hero">
+                        My individualized approach helps children overcome challenges and thrive socially and academically.
+                    </p>
+                    <div class="flex gap-4 flex-wrap">
+                        <a href="#booking" class="inline-block bg-gradient-to-r from-orange-600 to-orange-500 text-white py-4 px-10 rounded-full hover:from-orange-700 hover:to-orange-600 active:scale-95 transition-all shadow-2xl hover:shadow-orange-500/50 font-bold text-lg" data-i18n-key="nav_book">
+                            Book a Consultation
+                        </a>
+                        <a href="#testimonials" class="inline-block bg-white text-orange-600 border-2 border-orange-600 py-4 px-10 rounded-full hover:bg-orange-50 active:scale-95 transition-all shadow-lg font-bold text-lg">
+                            Read Reviews ⭐
+                        </a>
+                    </div>
+                </div>
 
-<script src="game.js"></script>
+                <div class="w-full md:w-1/2 float-animation">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-orange-400 to-amber-400 rounded-3xl blur-2xl opacity-30"></div>
+                        <img 
+                            src="woman.png" 
+                            alt="Professional Tutor Smiling with a Folder" 
+                            class="hero-image rounded-3xl shadow-2xl w-full relative z-10"
+                        />
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="competence" class="py-16 sm:py-20 md:py-24 bg-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-50/30 to-transparent"></div>
+            <div class="container mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center mb-12">
+                    <span class="inline-block px-6 py-2 bg-orange-100 rounded-full text-orange-700 font-bold text-sm mb-4">
+                        🌟 What I Offer
+                    </span>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-orange-800 mb-4" data-i18n-key="section_competence">My Approach and Skills</h2>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="group p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                            🎯
+                        </div>
+                        <h3 class="text-2xl font-bold text-orange-700 mb-3" data-i18n-key="comp_adhd">ADHD Support</h3>
+                        <p class="text-gray-600 leading-relaxed" data-i18n-key="comp_adhd_desc">Developing focus and organizational skills.</p>
+                        <div class="mt-4 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded"></div>
+                    </div>
+                    <div class="group p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                            📚
+                        </div>
+                        <h3 class="text-2xl font-bold text-orange-700 mb-3" data-i18n-key="comp_dyslexia_therapy">Dyslexia Therapy</h3>
+                        <p class="text-gray-600 leading-relaxed" data-i18n-key="comp_dyslexia_desc">Reading and writing strategies for success.</p>
+                        <div class="mt-4 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded"></div>
+                    </div>
+                    <div class="group p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                            ⚡
+                        </div>
+                        <h3 class="text-2xl font-bold text-orange-700 mb-3" data-i18n-key="comp_motivation">Motivation Adaptation</h3>
+                        <p class="text-gray-600 leading-relaxed" data-i18n-key="comp_motivation_desc">Tailoring strategies for student engagement.</p>
+                        <div class="mt-4 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-orange-200 rounded-full filter blur-3xl opacity-30 -mr-48"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-amber-200 rounded-full filter blur-3xl opacity-30 -ml-48"></div>
+            <div class="container mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center mb-12">
+                    <span class="inline-block px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full text-orange-700 font-bold text-sm mb-4">
+                        ⭐ Success Stories
+                    </span>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-orange-800 mb-4" data-i18n-key="section_testimonials">Happy Parents & Children</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n-key="testimonials_desc">Real stories from families I've worked with.</p>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+                    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border-2 border-orange-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                A
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-lg text-gray-800" data-i18n-key="testimonial1_name">Anna K.</h4>
+                                <p class="text-sm text-gray-500" data-i18n-key="testimonial1_role">Parent</p>
+                            </div>
+                        </div>
+                        <div class="text-orange-500 text-xl mb-3">⭐⭐⭐⭐⭐</div>
+                        <p class="text-gray-600 leading-relaxed italic" data-i18n-key="testimonial1_text">"Wonderful experience! My son now enjoys learning and his confidence has grown tremendously."</p>
+                        <div class="mt-4 bg-orange-50 rounded-lg p-4 text-center text-sm text-gray-500 border-2 border-dashed border-orange-200">
+                            <span data-i18n-key="media_placeholder">📷 Photo/Video placeholder</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border-2 border-orange-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                M
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-lg text-gray-800" data-i18n-key="testimonial2_name">Maria S.</h4>
+                                <p class="text-sm text-gray-500" data-i18n-key="testimonial2_role">Parent</p>
+                            </div>
+                        </div>
+                        <div class="text-orange-500 text-xl mb-3">⭐⭐⭐⭐⭐</div>
+                        <p class="text-gray-600 leading-relaxed italic" data-i18n-key="testimonial2_text">"Professional and caring approach. My daughter's reading skills improved significantly!"</p>
+                        <div class="mt-4 bg-orange-50 rounded-lg p-4 text-center text-sm text-gray-500 border-2 border-dashed border-orange-200">
+                            <span data-i18n-key="media_placeholder">📷 Photo/Video placeholder</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border-2 border-orange-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                P
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-lg text-gray-800" data-i18n-key="testimonial3_name">Piotr W.</h4>
+                                <p class="text-sm text-gray-500" data-i18n-key="testimonial3_role">Parent</p>
+                            </div>
+                        </div>
+                        <div class="text-orange-500 text-xl mb-3">⭐⭐⭐⭐⭐</div>
+                        <p class="text-gray-600 leading-relaxed italic" data-i18n-key="testimonial3_text">"Amazing results! My son can now focus better and his grades have improved."</p>
+                        <div class="mt-4 bg-orange-50 rounded-lg p-4 text-center text-sm text-gray-500 border-2 border-dashed border-orange-200">
+                            <span data-i18n-key="media_placeholder">📷 Photo/Video placeholder</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="credentials" class="py-16 sm:py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-orange-800 mb-4" data-i18n-key="section_credentials">Diplomas and Professional Experience</h2>
+                <p class="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12" data-i18n-key="diploma_desc">View my professional credentials and certifications.</p>
+                
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="diploma-card">
+                            <img src="diplom1.png" alt="Diploma 1">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma1_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma1_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diplom2.png" alt="Diploma 2">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma2_title">Dyslexia Certification</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma2_subtitle">Advanced Training</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diplom3.png" alt="Diploma 3">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma3_title">ADHD Management Course</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma3_subtitle">Professional Development</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diplom4.png" alt="Diploma 4">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">10+ Years Experience</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">Working with Children</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diplom1.png" alt="Diploma 1">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma1_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma1_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diplom2.png" alt="Diploma 2">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma2_title">Dyslexia Certification</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma2_subtitle">Advanced Training</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diplom3.png" alt="Diploma 3">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma3_title">ADHD Management Course</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma3_subtitle">Professional Development</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diplom4.png" alt="Diploma 4">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">10+ Years Experience</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">Working with Children</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="py-16 sm:py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 max-w-2xl">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-orange-800 mb-8 sm:mb-12" data-i18n-key="section_booking">Ready to Start? Schedule a Consultation</h2>
+                
+                <form id="bookingForm" class="p-6 sm:p-8 bg-white rounded-xl shadow-xl space-y-6">
+                </form>
+                
+                <div id="formMessage" class="mt-4 text-center text-sm sm:text-base"></div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-white py-12 sm:py-16 relative">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-black gradient-text-white" data-i18n-key="teacher_name">Teacher Name</h3>
+                    <p class="text-orange-100 leading-relaxed" data-i18n-key="desc_hero">
+                        My individualized approach helps children overcome challenges and thrive socially and academically.
+                    </p>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-orange-200">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#competence" class="text-orange-100 hover:text-white hover:pl-2 transition-all inline-block" data-i18n-key="nav_competencies">Competencies</a></li>
+                        <li><a href="#testimonials" class="text-orange-100 hover:text-white hover:pl-2 transition-all inline-block" data-i18n-key="nav_testimonials">Testimonials</a></li>
+                        <li><a href="#credentials" class="text-orange-100 hover:text-white hover:pl-2 transition-all inline-block" data-i18n-key="nav_diplomas">Diplomas</a></li>
+                        <li><a href="#booking" class="text-orange-100 hover:text-white hover:pl-2 transition-all inline-block" data-i18n-key="nav_book">Book a Session</a></li>
+                    </ul>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-orange-200">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-2 text-orange-100">
+                            <span class="text-xl">📧</span>
+                            <a href="mailto:email@example.com" class="hover:text-white transition" data-i18n-key="contact_email">Contact Email</a>
+                        </li>
+                        <li class="flex items-center gap-2 text-orange-100">
+                            <span class="text-xl">📱</span>
+                            <span>+48 XXX XXX XXX</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-orange-100">
+                            <span class="text-xl">📍</span>
+                            <span>Poland</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-orange-700 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-orange-200 text-sm" data-i18n-key="copyright">&copy; 2025 Teacher Name. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                        <span class="text-xl">f</span>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                        <span class="text-xl">in</span>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                        <span class="text-xl">@</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="main.js"></script>
+    
+    <script>
+        document.getElementById('menuBtn')?.addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('hidden');
+        });
+        
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navMenu').classList.add('hidden');
+            });
+        });
+        
+        function openModal(imageSrc) {
+            const modal = document.getElementById('diplomaModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('diplomaModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.diploma-card img').forEach(img => {
+                img.parentElement.style.cursor = 'pointer';
+                img.parentElement.addEventListener('click', function() {
+                    openModal(img.src);
+                });
+            });
+            
+            document.getElementById('diplomaModal')?.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
