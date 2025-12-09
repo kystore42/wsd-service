@@ -148,8 +148,8 @@
         
         .diploma-card {
             flex-shrink: 0;
-            width: 320px;
-            margin: 0 16px;
+            width: 280px;
+            margin: 0 12px;
             background: white;
             border-radius: 16px;
             padding: 20px;
@@ -186,7 +186,7 @@
         
         .diploma-card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
             border-radius: 12px;
             margin-bottom: 12px;
@@ -363,22 +363,127 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
+        
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            #navMenu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: linear-gradient(135deg, #fff 0%, #fffbeb 100%);
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 999;
+                overflow-y: auto;
+                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+            }
+            
+            #navMenu.active {
+                right: 0;
+            }
+            
+            .mobile-lang-selector {
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+                padding: 16px;
+                background: linear-gradient(135deg, #ffedd5, #fed7aa);
+                border-radius: 12px;
+            }
+            
+            .mobile-lang-btn {
+                flex: 1;
+                padding: 10px;
+                border: 2px solid #ea580c;
+                border-radius: 8px;
+                background: white;
+                font-weight: 600;
+                color: #ea580c;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-lang-btn.active {
+                background: #ea580c;
+                color: white;
+            }
+            
+            .mobile-menu-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                border-bottom: 2px solid #fed7aa;
+            }
+            
+            .mobile-close-btn {
+                font-size: 32px;
+                color: #ea580c;
+                background: none;
+                border: none;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            
+            .mobile-close-btn:hover {
+                transform: rotate(90deg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .language-switcher {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800">
 
+    <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+    
     <header class="sticky top-0 z-50 shadow-lg">
-        <nav class="container mx-auto px-4 sm:px-6 py-5 flex justify-between items-center">
-            <a href="#" class="text-2xl sm:text-3xl font-black gradient-text tracking-tight hover:scale-105 transition-transform" data-i18n-key="teacher_name">Teacher Name</a>
+        <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl sm:text-2xl md:text-3xl font-black gradient-text tracking-tight hover:scale-105 transition-transform" data-i18n-key="teacher_name">Teacher Name</a>
             
-            <button id="menuBtn" class="md:hidden text-orange-600 text-3xl hover:scale-110 transition-transform">☰</button>
+            <button id="menuBtn" class="md:hidden text-orange-600 text-3xl hover:scale-110 transition-transform relative z-50">
+                <span id="menuIcon">☰</span>
+            </button>
             
-            <div id="navMenu" class="hidden md:flex items-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 absolute md:static top-20 left-0 right-0 md:bg-transparent bg-white/95 backdrop-blur-md p-4 md:p-0 shadow-lg md:shadow-none">
-                <a href="#competence" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-sm uppercase tracking-wide" data-i18n-key="nav_competencies">Competencies</a>
-                <a href="#testimonials" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-sm uppercase tracking-wide" data-i18n-key="nav_testimonials">Testimonials</a>
-                <a href="#credentials" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-sm uppercase tracking-wide" data-i18n-key="nav_diplomas">Diplomas</a>
+            <div id="navMenu" class="hidden md:flex items-center flex-col md:flex-row space-y-0 md:space-y-0 md:space-x-8 md:bg-transparent">
+                <div class="mobile-menu-header md:hidden w-full">
+                    <h3 class="text-xl font-bold gradient-text" data-i18n-key="teacher_name">Menu</h3>
+                    <button class="mobile-close-btn" id="mobileCloseBtn">×</button>
+                </div>
                 
-                <div class="language-switcher">
+                <div class="mobile-lang-selector md:hidden w-full">
+                    <button class="mobile-lang-btn" data-mobile-lang="en">EN</button>
+                    <button class="mobile-lang-btn" data-mobile-lang="uk">UA</button>
+                    <button class="mobile-lang-btn" data-mobile-lang="pl">PL</button>
+                </div>
+                
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto p-6 md:p-0">
+                    <a href="#competence" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_competencies">Competencies</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_testimonials">Testimonials</a>
+                    <a href="#credentials" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_diplomas">Diplomas</a>
+                </div>
+                
+                <div class="language-switcher hidden md:block">
                     <button class="globe-button" id="globeButton" aria-label="Change Language">
                         🌐
                     </button>
@@ -398,7 +503,10 @@
                     </div>
                 </div>
 
-                <a href="#booking" class="bg-gradient-to-r from-orange-600 to-orange-500 text-white py-3 px-8 rounded-full hover:from-orange-700 hover:to-orange-600 transition-all font-bold shadow-lg hover:shadow-xl transform hover:scale-105" data-i18n-key="nav_book">Book a Session</a>
+                
+                <div class="w-full md:w-auto p-6 md:p-0 pt-4 md:pt-0">
+                    <a href="#booking" class="block md:inline-block text-center bg-gradient-to-r from-orange-600 to-orange-500 text-white py-4 md:py-3 px-8 rounded-full hover:from-orange-700 hover:to-orange-600 transition-all font-bold shadow-lg hover:shadow-xl transform hover:scale-105" data-i18n-key="nav_book">Book a Session</a>
+                </div>
             </div>
         </nav>
     </header>
@@ -411,24 +519,24 @@
     </div>
 
     <main>
-        <section id="hero" class="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-orange-50 via-white to-amber-50">
-            <div class="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <section id="hero" class="py-8 sm:py-12 md:py-24 bg-gradient-to-br from-orange-50 via-white to-amber-50">
+            <div class="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-6 md:gap-12">
                 
-                <div class="md:w-1/2 z-10 space-y-6">
-                    <div class="inline-block px-4 py-2 bg-orange-100 rounded-full text-orange-700 font-semibold text-sm mb-4">
+                <div class="md:w-1/2 z-10 space-y-4 text-center md:text-left">
+                    <div class="inline-block px-3 py-1.5 bg-orange-100 rounded-full text-orange-700 font-semibold text-xs sm:text-sm mb-2">
                         ✨ Professional Special Education Teacher
                     </div>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-orange-800 mb-6 leading-tight" data-i18n-key="heading_hero">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4 leading-tight" data-i18n-key="heading_hero">
                         Empowering Children with Special Needs
                     </h1>
-                    <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed" data-i18n-key="desc_hero">
+                    <p class="text-base sm:text-lg md:text-xl text-gray-600 mb-6 leading-relaxed" data-i18n-key="desc_hero">
                         My individualized approach helps children overcome challenges and thrive socially and academically.
                     </p>
-                    <div class="flex gap-4 flex-wrap">
-                        <a href="#booking" class="inline-block bg-gradient-to-r from-orange-600 to-orange-500 text-white py-4 px-10 rounded-full hover:from-orange-700 hover:to-orange-600 active:scale-95 transition-all shadow-2xl hover:shadow-orange-500/50 font-bold text-lg" data-i18n-key="nav_book">
+                    <div class="flex gap-3 flex-col sm:flex-row justify-center md:justify-start">
+                        <a href="#booking" class="inline-block bg-gradient-to-r from-orange-600 to-orange-500 text-white py-3 px-6 sm:py-4 sm:px-10 rounded-full hover:from-orange-700 hover:to-orange-600 active:scale-95 transition-all shadow-2xl hover:shadow-orange-500/50 font-bold text-base sm:text-lg text-center" data-i18n-key="nav_book">
                             Book a Consultation
                         </a>
-                        <a href="#testimonials" class="inline-block bg-white text-orange-600 border-2 border-orange-600 py-4 px-10 rounded-full hover:bg-orange-50 active:scale-95 transition-all shadow-lg font-bold text-lg">
+                        <a href="#testimonials" class="inline-block bg-white text-orange-600 border-2 border-orange-600 py-3 px-6 sm:py-4 sm:px-10 rounded-full hover:bg-orange-50 active:scale-95 transition-all shadow-lg font-bold text-base sm:text-lg text-center">
                             Read Reviews ⭐
                         </a>
                     </div>
@@ -448,46 +556,46 @@
             </div>
         </section>
 
-        <section id="competence" class="py-16 sm:py-20 md:py-24 bg-white relative overflow-hidden">
+        <section id="competence" class="py-10 sm:py-16 md:py-24 bg-white relative overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-br from-orange-50/30 to-transparent"></div>
             <div class="container mx-auto px-4 sm:px-6 relative z-10">
                 <div class="text-center mb-12">
                     <span class="inline-block px-6 py-2 bg-orange-100 rounded-full text-orange-700 font-bold text-sm mb-4">
                         🌟 What I Offer
                     </span>
-                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-orange-800 mb-4" data-i18n-key="section_competence">My Approach and Skills</h2>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4" data-i18n-key="section_competence">My Approach and Skills</h2>
                 </div>
                 
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="group p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
                         <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
                             🎯
                         </div>
-                        <h3 class="text-2xl font-bold text-orange-700 mb-3" data-i18n-key="comp_adhd">ADHD Support</h3>
-                        <p class="text-gray-600 leading-relaxed" data-i18n-key="comp_adhd_desc">Developing focus and organizational skills.</p>
+                        <h3 class="text-xl sm:text-2xl font-bold text-orange-700 mb-2 sm:mb-3" data-i18n-key="comp_adhd">ADHD Support</h3>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed" data-i18n-key="comp_adhd_desc">Developing focus and organizational skills.</p>
                         <div class="mt-4 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded"></div>
                     </div>
-                    <div class="group p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
-                        <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg">
                             📚
                         </div>
-                        <h3 class="text-2xl font-bold text-orange-700 mb-3" data-i18n-key="comp_dyslexia_therapy">Dyslexia Therapy</h3>
-                        <p class="text-gray-600 leading-relaxed" data-i18n-key="comp_dyslexia_desc">Reading and writing strategies for success.</p>
+                        <h3 class="text-xl sm:text-2xl font-bold text-orange-700 mb-2 sm:mb-3" data-i18n-key="comp_dyslexia_therapy">Dyslexia Therapy</h3>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed" data-i18n-key="comp_dyslexia_desc">Reading and writing strategies for success.</p>
                         <div class="mt-4 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded"></div>
                     </div>
-                    <div class="group p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
-                        <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg">
                             ⚡
                         </div>
-                        <h3 class="text-2xl font-bold text-orange-700 mb-3" data-i18n-key="comp_motivation">Motivation Adaptation</h3>
-                        <p class="text-gray-600 leading-relaxed" data-i18n-key="comp_motivation_desc">Tailoring strategies for student engagement.</p>
+                        <h3 class="text-xl sm:text-2xl font-bold text-orange-700 mb-2 sm:mb-3" data-i18n-key="comp_motivation">Motivation Adaptation</h3>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed" data-i18n-key="comp_motivation_desc">Tailoring strategies for student engagement.</p>
                         <div class="mt-4 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 relative overflow-hidden">
+        <section id="testimonials" class="py-10 sm:py-16 md:py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-96 h-96 bg-orange-200 rounded-full filter blur-3xl opacity-30 -mr-48"></div>
             <div class="absolute bottom-0 left-0 w-96 h-96 bg-amber-200 rounded-full filter blur-3xl opacity-30 -ml-48"></div>
             <div class="container mx-auto px-4 sm:px-6 relative z-10">
@@ -495,24 +603,24 @@
                     <span class="inline-block px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full text-orange-700 font-bold text-sm mb-4">
                         ⭐ Success Stories
                     </span>
-                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-orange-800 mb-4" data-i18n-key="section_testimonials">Happy Parents & Children</h2>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4" data-i18n-key="section_testimonials">Happy Parents & Children</h2>
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n-key="testimonials_desc">Real stories from families I've worked with.</p>
                 </div>
                 
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
 
-                    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border-2 border-orange-100">
+                    <div class="bg-white rounded-2xl shadow-lg p-5 sm:p-6 card-hover border-2 border-orange-100">
                         <div class="flex items-center mb-4">
                             <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white text-2xl font-bold">
                                 A
                             </div>
                             <div class="ml-4">
-                                <h4 class="font-semibold text-lg text-gray-800" data-i18n-key="testimonial1_name">Anna K.</h4>
-                                <p class="text-sm text-gray-500" data-i18n-key="testimonial1_role">Parent</p>
+                                <h4 class="font-semibold text-base sm:text-lg text-gray-800" data-i18n-key="testimonial1_name">Anna K.</h4>
+                                <p class="text-xs sm:text-sm text-gray-500" data-i18n-key="testimonial1_role">Parent</p>
                             </div>
                         </div>
-                        <div class="text-orange-500 text-xl mb-3">⭐⭐⭐⭐⭐</div>
-                        <p class="text-gray-600 leading-relaxed italic" data-i18n-key="testimonial1_text">"Wonderful experience! My son now enjoys learning and his confidence has grown tremendously."</p>
+                        <div class="text-orange-500 text-lg sm:text-xl mb-2 sm:mb-3">⭐⭐⭐⭐⭐</div>
+                        <p class="text-sm sm:text-base text-gray-600 leading-relaxed italic" data-i18n-key="testimonial1_text">"Wonderful experience! My son now enjoys learning and his confidence has grown tremendously."</p>
                         <div class="mt-4 bg-orange-50 rounded-lg p-4 text-center text-sm text-gray-500 border-2 border-dashed border-orange-200">
                             <span data-i18n-key="media_placeholder">📷 Photo/Video placeholder</span>
                         </div>
@@ -555,9 +663,9 @@
             </div>
         </section>
 
-        <section id="credentials" class="py-16 sm:py-20 md:py-24 bg-white">
+        <section id="credentials" class="py-10 sm:py-16 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6 text-center">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-orange-800 mb-4" data-i18n-key="section_credentials">Diplomas and Professional Experience</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-orange-800 mb-4" data-i18n-key="section_credentials">Diplomas and Professional Experience</h2>
                 <p class="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12" data-i18n-key="diploma_desc">View my professional credentials and certifications.</p>
                 
                 <div class="carousel-container">
@@ -607,9 +715,9 @@
             </div>
         </section>
 
-        <section id="booking" class="py-16 sm:py-20 md:py-24 bg-white">
+        <section id="booking" class="py-10 sm:py-16 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6 max-w-2xl">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-orange-800 mb-8 sm:mb-12" data-i18n-key="section_booking">Ready to Start? Schedule a Consultation</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-orange-800 mb-6 sm:mb-8 md:mb-12" data-i18n-key="section_booking">Ready to Start? Schedule a Consultation</h2>
                 
                 <form id="bookingForm" class="p-6 sm:p-8 bg-white rounded-xl shadow-xl space-y-6">
                 </form>
@@ -621,9 +729,9 @@
 
     </main>
 
-    <footer class="text-white py-12 sm:py-16 relative">
+    <footer class="text-white py-8 sm:py-12 md:py-16 relative">
         <div class="container mx-auto px-4 sm:px-6">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
                 <div class="space-y-4">
                     <h3 class="text-2xl font-black gradient-text-white" data-i18n-key="teacher_name">Teacher Name</h3>
                     <p class="text-orange-100 leading-relaxed" data-i18n-key="desc_hero">
@@ -650,11 +758,11 @@
                         </li>
                         <li class="flex items-center gap-2 text-orange-100">
                             <span class="text-xl">📱</span>
-                            <span>+48 XXX XXX XXX</span>
+                            <span>+48 355 123 456</span>
                         </li>
                         <li class="flex items-center gap-2 text-orange-100">
                             <span class="text-xl">📍</span>
-                            <span>Poland</span>
+                            <span>Poland, Wroclaw</span>
                         </li>
                     </ul>
                 </div>
@@ -681,14 +789,84 @@
     <script src="main.js"></script>
     
     <script>
-        document.getElementById('menuBtn')?.addEventListener('click', function() {
-            document.getElementById('navMenu').classList.toggle('hidden');
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+        const mobileOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+        const menuIcon = document.getElementById('menuIcon');
+        
+        function openMobileMenu() {
+            if (window.innerWidth < 768) {
+                navMenu.classList.remove('hidden');
+                navMenu.classList.add('active');
+                mobileOverlay.classList.add('active');
+                menuIcon.textContent = '×';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeMobileMenu() {
+            navMenu.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            menuIcon.textContent = '☰';
+            document.body.style.overflow = 'auto';
+            setTimeout(() => {
+                if (window.innerWidth < 768) {
+                    navMenu.classList.add('hidden');
+                }
+            }, 400);
+        }
+        
+        menuBtn?.addEventListener('click', function() {
+            if (navMenu.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
         });
+        
+        mobileCloseBtn?.addEventListener('click', closeMobileMenu);
+        mobileOverlay?.addEventListener('click', closeMobileMenu);
         
         document.querySelectorAll('#navMenu a').forEach(link => {
             link.addEventListener('click', function() {
-                document.getElementById('navMenu').classList.add('hidden');
+                if (window.innerWidth < 768) {
+                    closeMobileMenu();
+                }
             });
+        });
+        
+        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const lang = this.getAttribute('data-mobile-lang');
+                setLanguage(lang);
+                
+                document.querySelectorAll('.mobile-lang-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                updateActiveLanguage(lang);
+            });
+        });
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            const currentLang = localStorage.getItem('siteLang') || 'en';
+            document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-mobile-lang') === currentLang) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                navMenu.classList.remove('active', 'hidden');
+                navMenu.classList.add('md:flex');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                menuIcon.textContent = '☰';
+            } else {
+                navMenu.classList.add('hidden');
+            }
         });
         
         function openModal(imageSrc) {
