@@ -2,7 +2,7 @@
 const translations = {
     'en': {
         // Navigation & General
-        'teacher_name': 'Teacher Name',
+        'teacher_name': 'Yevheniia Mykhailova',
         'nav_competencies': 'Competencies',
         'nav_testimonials': 'Testimonials',
         'nav_diplomas': 'Diplomas',
@@ -24,12 +24,12 @@ const translations = {
         'diploma_desc': 'View my professional credentials and certifications.',
         'diploma1_title': 'Special Education Degree',
         'diploma1_subtitle': 'University Certification',
-        'diploma2_title': 'Dyslexia Certification',
-        'diploma2_subtitle': 'Advanced Training',
-        'diploma3_title': 'ADHD Management Course',
-        'diploma3_subtitle': 'Professional Development',
-        'diploma4_title': '10+ Years Experience',
-        'diploma4_subtitle': 'Working with Children',
+        'diploma2_title': 'Special Education Degree',
+        'diploma2_subtitle': 'University Certification',
+        'diploma3_title': 'Special Education Degree',
+        'diploma3_subtitle': 'University Certification',
+        'diploma4_title': 'Special Education Degree',
+        'diploma4_subtitle': 'University Certification',
         
         // Booking Form
         'section_booking': 'Ready to Start? Schedule a Consultation',
@@ -67,13 +67,13 @@ const translations = {
         'professional_badge': 'Professional Special Education Teacher',
         
         // Footer
-        'copyright': '© 2025 Teacher Name. All rights reserved.',
+        'copyright': '© 2025 Yevheniia Mykhailova. All rights reserved.',
         'privacy_policy': 'Privacy Policy',
         'contact_email': 'Contact Email'
     },
     'uk': {
         // Navigation & General
-        'teacher_name': 'Ім\'я Вчителя',
+        'teacher_name': 'Євгенія Михайлова',
         'nav_competencies': 'Компетенції',
         'nav_testimonials': 'Відгуки',
         'nav_diplomas': 'Дипломи',
@@ -95,12 +95,12 @@ const translations = {
         'diploma_desc': 'Перегляньте мої професійні повноваження та сертифікати.',
         'diploma1_title': 'Диплом спеціальної освіти',
         'diploma1_subtitle': 'Університетська сертифікація',
-        'diploma2_title': 'Сертифікат з дислексії',
-        'diploma2_subtitle': 'Просунуте навчання',
-        'diploma3_title': 'Курс управління СДУГ',
-        'diploma3_subtitle': 'Професійний розвиток',
-        'diploma4_title': '10+ років досвіду',
-        'diploma4_subtitle': 'Робота з дітьми',
+        'diploma2_title': 'Ступінь спеціальної освіти',
+        'diploma2_subtitle': 'Університетська сертифікація',
+        'diploma3_title': 'Ступінь спеціальної освіти',
+        'diploma3_subtitle': 'Університетська сертифікація',
+        'diploma4_title': 'Ступінь спеціальної освіти',
+        'diploma4_subtitle': 'Університетська сертифікація',
 
         // Booking Form
         'section_booking': 'Готові почати? Заплануйте консультацію',
@@ -138,13 +138,13 @@ const translations = {
         'professional_badge': 'Професійний вчитель спеціальної освіти',
         
         // Footer
-        'copyright': '© 2025 Ім\'я Вчителя. Всі права захищені.',
+        'copyright': '© 2025 Євгенія Михайлова. Всі права захищені.',
         'privacy_policy': 'Політика конфіденційності',
         'contact_email': 'Контактна електронна пошта'
     },
     'pl': {
         // Navigation & General
-        'teacher_name': 'Imię Nauczyciela',
+        'teacher_name': 'Yevheniia Mykhailova',
         'nav_competencies': 'Kompetencje',
         'nav_testimonials': 'Opinie',
         'nav_diplomas': 'Dyplomy',
@@ -166,12 +166,12 @@ const translations = {
         'diploma_desc': 'Zobacz moje kwalifikacje zawodowe i certyfikaty.',
         'diploma1_title': 'Dyplom Edukacji Specjalnej',
         'diploma1_subtitle': 'Certyfikacja Uniwersytecka',
-        'diploma2_title': 'Certyfikat Dysleksji',
-        'diploma2_subtitle': 'Zaawansowane Szkolenie',
-        'diploma3_title': 'Kurs Zarządzania ADHD',
-        'diploma3_subtitle': 'Rozwój Zawodowy',
-        'diploma4_title': '10+ Lat Doświadczenia',
-        'diploma4_subtitle': 'Praca z Dziećmi',
+        'diploma2_title': 'Dyplom Edukacji Specjalnej',
+        'diploma2_subtitle': 'Certyfikacja Uniwersytecka',
+        'diploma3_title': 'Dyplom Edukacji Specjalnej',
+        'diploma3_subtitle': 'Certyfikacja Uniwersytecka',
+        'diploma4_title': 'Dyplom Edukacji Specjalnej',
+        'diploma4_subtitle': 'Certyfikacja Uniwersytecka',
 
         // Booking Form
         'section_booking': 'Gotowi do startu? Zaplanuj konsultację',
@@ -209,7 +209,7 @@ const translations = {
         'professional_badge': 'Profesjonalny nauczyciel edukacji specjalnej',
         
         // Footer
-        'copyright': '© 2025 Imię Nauczyciela. Wszelkie prawa zastrzeżone.',
+        'copyright': '© 2025 Yevheniia Mykhailova. Wszelkie prawa zastrzeżone.',
         'privacy_policy': 'Polityka Prywatności',
         'contact_email': 'Email Kontaktowy'
     }
