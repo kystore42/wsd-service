@@ -6,652 +6,9 @@
     <title data-i18n-key="heading_hero">test</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .hero-image {
-            object-fit: cover;
-            object-position: center;
-            max-width: 100%;
-            height: auto;
-            filter: brightness(1.05) contrast(1.1);
-        }
-        
-        html, body {
-            scroll-behavior: smooth;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        
-        html::-webkit-scrollbar,
-        body::-webkit-scrollbar {
-            display: none;
-            width: 0;
-            height: 0;
-        }
-        
-        body {
-            background: linear-gradient(to bottom, #fff 0%, #fffbeb 100%);
-        }
-        
-        header {
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.9);
-            border-bottom: 1px solid rgba(234, 88, 12, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        header.header-hidden {
-            transform: translateY(-100%);
-        }
-        
-        .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%) scaleX(0);
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #ea580c, #f59e0b);
-            transition: transform 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            transform: translateX(-50%) scaleX(1);
-        }
-        
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-hover::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .card-hover:hover::before {
-            left: 100%;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(234, 88, 12, 0.2);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #ea580c 0%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% 200%;
-            animation: gradientShift 3s ease infinite;
-        }
-        
-        .gradient-text-white {
-            background: linear-gradient(135deg, #fff 0%, #fed7aa 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .float-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .carousel-container {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            padding: 40px 0;
-        }
-        
-        .carousel-track {
-            display: flex;
-            animation: scroll 40s linear infinite;
-            width: fit-content;
-        }
-        
-        .carousel-track:hover {
-            animation-play-state: paused;
-        }
-        
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-        
-        .diploma-card {
-            flex-shrink: 0;
-            width: 280px;
-            margin: 0 12px;
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .diploma-card::after {
-            content: '\1F50D Click to enlarge';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(234, 88, 12, 0.95), transparent);
-            color: white;
-            padding: 8px;
-            text-align: center;
-            font-size: 12px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .diploma-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 32px rgba(234, 88, 12, 0.3);
-        }
-        
-        .diploma-card:hover::after {
-            transform: translateY(0);
-        }
-        
-        .diploma-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            transition: transform 0.3s ease;
-        }
-        
-        .diploma-card:hover img {
-            transform: scale(1.05);
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(8px);
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            max-width: 90vw;
-            max-height: 90vh;
-            animation: zoomIn 0.3s ease;
-            overflow: hidden;
-        }
-        
-        .modal-content img {
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10000;
-        }
-        
-        .modal-close:hover {
-            color: #f59e0b;
-            transform: rotate(90deg);
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes zoomIn {
-            from { transform: scale(0.5); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        
-        .language-switcher {
-            position: relative;
-        }
-        
-        .language-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 8px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            padding: 8px;
-            min-width: 180px;
-            z-index: 1000;
-        }
-        
-        .language-dropdown.active {
-            display: block;
-        }
-        
-        .language-option {
-            display: flex;
-            align-items: center;
-            padding: 10px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            gap: 12px;
-        }
-        
-        .language-option:hover {
-            background-color: #ffedd5;
-            transform: translateX(4px);
-        }
-        
-        .language-option.active {
-            background-color: #fed7aa;
-        }
-        
-        .flag-icon {
-            font-size: 24px;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .globe-button {
-            background: white;
-            border: 2px solid #e5e7eb;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 24px;
-        }
-        
-        .globe-button:hover {
-            border-color: #ea580c;
-            background: linear-gradient(135deg, #ffedd5, #fed7aa);
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.2);
-        }
-        
-        footer {
-            background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #f59e0b, #ea580c, #f59e0b);
-            background-size: 200% 100%;
-            animation: shimmer 3s linear infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        
-        a, button {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .mobile-menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 50;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .mobile-menu-overlay.active {
-            display: block;
-        }
-        
-        @media (max-width: 768px) {
-            #navMenu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 320px;
-                height: 100vh;
-                background: linear-gradient(135deg, #fff 0%, #fffbeb 100%);
-                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                z-index: 51;
-                overflow-y: auto;
-                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
-            }
-            
-            #navMenu.active {
-                right: 0;
-            }
-            
-            .mobile-lang-selector {
-                display: flex;
-                gap: 8px;
-                justify-content: center;
-                padding: 16px;
-                background: linear-gradient(135deg, #ffedd5, #fed7aa);
-                border-radius: 12px;
-            }
-            
-            .mobile-lang-btn {
-                flex: 1;
-                padding: 10px;
-                border: 2px solid #ea580c;
-                border-radius: 8px;
-                background: white;
-                font-weight: 600;
-                color: #ea580c;
-                transition: all 0.3s ease;
-            }
-            
-            .mobile-lang-btn.active {
-                background: #ea580c;
-                color: white;
-            }
-            
-            .mobile-menu-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px;
-                border-bottom: 2px solid #fed7aa;
-            }
-            
-            .mobile-close-btn {
-                font-size: 32px;
-                color: #ea580c;
-                background: none;
-                border: none;
-                cursor: pointer;
-                transition: transform 0.3s ease;
-            }
-            
-            .mobile-close-btn:hover {
-                transform: rotate(90deg);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .language-switcher {
-                display: none;
-            }
-        }
-        
-        /* Testimonials Carousel */
-        .testimonials-carousel {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
-        
-        .testimonials-wrapper {
-            overflow: hidden;
-            position: relative;
-            border-radius: 20px;
-        }
-        
-        .testimonials-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        
-        .testimonial-slide {
-            flex: 0 0 100%;
-            padding: 0 20px;
-        }
-        
-        @media (min-width: 768px) {
-            .testimonial-slide {
-                flex: 0 0 50%;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .testimonial-slide {
-                flex: 0 0 33.333%;
-            }
-        }
-        
-        .testimonial-card {
-            background: white;
-            border-radius: 20px;
-            padding: 32px;
-            box-shadow: 0 10px 30px rgba(234, 88, 12, 0.1);
-            border: 2px solid #fed7aa;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(234, 88, 12, 0.05), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s ease;
-        }
-        
-        .testimonial-card:hover::before {
-            left: 100%;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(234, 88, 12, 0.2);
-            border-color: #ea580c;
-        }
-        
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 32px;
-        }
-        
-        .carousel-nav button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #fed7aa;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            padding: 0;
-        }
-        
-        .carousel-nav button.active {
-            width: 32px;
-            border-radius: 6px;
-            background: linear-gradient(90deg, #ea580c, #f59e0b);
-        }
-        
-        .carousel-nav button:hover {
-            background: #ea580c;
-        }
-        
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: white;
-            border: 2px solid #ea580c;
-            color: #ea580c;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        
-        .carousel-arrow:hover {
-            background: #ea580c;
-            color: white;
-            transform: translateY(-50%) scale(1.1);
-        }
-        
-        .carousel-arrow.prev {
-            left: -60px;
-        }
-        
-        .carousel-arrow.next {
-            right: -60px;
-        }
-        
-        @media (max-width: 1280px) {
-            .carousel-arrow.prev {
-                left: 10px;
-            }
-            .carousel-arrow.next {
-                right: 10px;
-            }
-        }
-        
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-avatar {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ea580c, #f59e0b);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
-            margin-right: 16px;
-        }
-        
-        .testimonial-stars {
-            color: #f59e0b;
-            font-size: 20px;
-            margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-text {
-            color: #4b5563;
-            line-height: 1.7;
-            font-style: italic;
-            flex-grow: 1;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-quote {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 80px;
-            color: #ffedd5;
-            font-family: Georgia, serif;
-            line-height: 1;
-            z-index: 0;
-        }
-    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="font-sans text-gray-800">
 
@@ -683,6 +40,7 @@
                     <a href="#competence" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_competencies">Competencies</a>
                     <a href="#testimonials" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_testimonials">Testimonials</a>
                     <a href="#credentials" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_diplomas">Diplomas</a>
+                    <a href="#faq" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_faq">FAQ</a>
                 </div>
                 
                 <div class="language-switcher hidden md:block">
@@ -726,7 +84,7 @@
                 
                 <div class="md:w-1/2 z-10 space-y-4 text-center md:text-left">
                     <div class="inline-block px-3 py-1.5 bg-orange-100 rounded-full text-orange-700 font-semibold text-xs sm:text-sm mb-2">
-                        <span data-i18n-key="professional_badge">✨ Professional Special Education Teacher</span>
+                        <span data-i18n-key="professional_badge"><i class="fas fa-star"></i> Professional Special Education Teacher</span>
                     </div>
                     <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4 leading-tight" data-i18n-key="heading_hero">
                         Empowering Children with Special Needs
@@ -751,6 +109,7 @@
                             src="img/woman.png" 
                             alt="Professional Tutor Smiling with a Folder" 
                             class="hero-image rounded-3xl shadow-2xl w-full relative z-10"
+                            loading="lazy"
                         />
                     </div>
                 </div>
@@ -761,33 +120,33 @@
         <section id="competence" class="py-10 sm:py-16 md:py-24 bg-white relative overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-br from-orange-50/30 to-transparent"></div>
             <div class="container mx-auto px-4 sm:px-6 relative z-10">
-                <div class="text-center mb-12">
+                <div class="text-center mb-12" data-aos="fade-up">
                     <span class="inline-block px-6 py-2 bg-orange-100 rounded-full text-orange-700 font-bold text-sm mb-4">
-                        🌟 What I Offer
+                        <i class="fas fa-gem"></i> <span data-i18n-key="badge_what_i_offer">What I Offer</span>
                     </span>
                     <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4" data-i18n-key="section_competence">My Approach and Skills</h2>
                 </div>
                 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
+                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                            🎯
+                            <i class="fas fa-bullseye text-white"></i>
                         </div>
                         <h3 class="text-xl sm:text-2xl font-bold text-orange-700 mb-2 sm:mb-3" data-i18n-key="comp_adhd">ADHD Support</h3>
                         <p class="text-sm sm:text-base text-gray-600 leading-relaxed" data-i18n-key="comp_adhd_desc">Developing focus and organizational skills.</p>
                         <div class="mt-4 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded"></div>
                     </div>
-                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
+                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="200">
                         <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                            📚
+                            <i class="fas fa-book text-white"></i>
                         </div>
                         <h3 class="text-xl sm:text-2xl font-bold text-orange-700 mb-2 sm:mb-3" data-i18n-key="comp_dyslexia_therapy">Dyslexia Therapy</h3>
                         <p class="text-sm sm:text-base text-gray-600 leading-relaxed" data-i18n-key="comp_dyslexia_desc">Reading and writing strategies for success.</p>
                         <div class="mt-4 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded"></div>
                     </div>
-                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300">
+                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="300">
                         <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg">
-                            ⚡
+                            <i class="fas fa-bolt text-white"></i>
                         </div>
                         <h3 class="text-xl sm:text-2xl font-bold text-orange-700 mb-2 sm:mb-3" data-i18n-key="comp_motivation">Motivation Adaptation</h3>
                         <p class="text-sm sm:text-base text-gray-600 leading-relaxed" data-i18n-key="comp_motivation_desc">Tailoring strategies for student engagement.</p>
@@ -803,9 +162,9 @@
             <div class="container mx-auto px-4 sm:px-6 relative z-10">
                 <div class="text-center mb-8">
                     <span class="inline-block px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full text-orange-700 font-bold text-sm mb-4">
-                        ⭐ Success Stories
+                        <i class="fas fa-star"></i> <span data-i18n-key="badge_success_stories">Success Stories</span>
                     </span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4" data-i18n-key="section_testimonials">Happy Parents & Children</h2>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_testimonials">Happy Parents & Children</h2>
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n-key="testimonials_desc">Real stories from families I've worked with.</p>
                 </div>
                 
@@ -916,88 +275,88 @@
 
         <section id="credentials" class="py-10 sm:py-16 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6 text-center">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-orange-800 mb-4" data-i18n-key="section_credentials">Diplomas and Professional Experience</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_credentials">Diplomas and Professional Experience</h2>
                 <p class="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12" data-i18n-key="diploma_desc">View my professional credentials and certifications.</p>
                 
                 <div class="carousel-container">
                     <div class="carousel-track">
                         <div class="diploma-card">
-                            <img src="diploma/1.png" alt="Diploma 1">
+                            <img src="diploma/1.png" alt="Diploma 1" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma1_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma1_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/2.png" alt="Diploma 2">
+                            <img src="diploma/2.png" alt="Diploma 2" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma2_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma2_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/3.png" alt="Diploma 3">
+                            <img src="diploma/3.png" alt="Diploma 3" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma3_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma3_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/4.png" alt="Diploma 4">
+                            <img src="diploma/4.png" alt="Diploma 4" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/5.png" alt="Diploma 1">
+                            <img src="diploma/5.png" alt="Diploma 1" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma1_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma1_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/6.png" alt="Diploma 2">
+                            <img src="diploma/6.png" alt="Diploma 2" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma2_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma2_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/7.png" alt="Diploma 3">
+                            <img src="diploma/7.png" alt="Diploma 3" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma3_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma3_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/8.png" alt="Diploma 4">
+                            <img src="diploma/8.png" alt="Diploma 4" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/1.png" alt="Diploma 1">
+                            <img src="diploma/1.png" alt="Diploma 1" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma1_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma1_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/2.png" alt="Diploma 2">
+                            <img src="diploma/2.png" alt="Diploma 2" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma2_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma2_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/3.png" alt="Diploma 3">
+                            <img src="diploma/3.png" alt="Diploma 3" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma3_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma3_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/4.png" alt="Diploma 4">
+                            <img src="diploma/4.png" alt="Diploma 4" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/5.png" alt="Diploma 1">
+                            <img src="diploma/5.png" alt="Diploma 1" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma1_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma1_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/6.png" alt="Diploma 2">
+                            <img src="diploma/6.png" alt="Diploma 2" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma2_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma2_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/7.png" alt="Diploma 3">
+                            <img src="diploma/7.png" alt="Diploma 3" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma3_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma3_subtitle">University Certification</p>
                         </div>
                         <div class="diploma-card">
-                            <img src="diploma/8.png" alt="Diploma 4">
+                            <img src="diploma/8.png" alt="Diploma 4" loading="lazy">
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">University Certification</p>
                         </div>
@@ -1006,9 +365,83 @@
             </div>
         </section>
 
+        <section id="faq" class="py-10 sm:py-16 md:py-24 bg-gradient-to-br from-white via-orange-50 to-amber-50">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <span class="inline-block px-6 py-2 bg-orange-100 rounded-full text-orange-700 font-bold text-sm mb-4">
+                        <i class="fas fa-question-circle"></i> <span data-i18n-key="badge_faq">FAQ</span>
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_faq">Frequently Asked Questions</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n-key="faq_desc">Find answers to common questions about my services</p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
+                        <div class="faq-question">
+                            <h3 class="faq-question-text" data-i18n-key="faq1_question">How long does one session last?</h3>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text" data-i18n-key="faq1_answer">Each individual session lasts 45-60 minutes, depending on the child's needs and age. I create a comfortable pace for each student.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="faq-question">
+                            <h3 class="faq-question-text" data-i18n-key="faq2_question">What is the cost of services?</h3>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text" data-i18n-key="faq2_answer">The cost depends on the type of lessons (individual/group) and frequency. Contact me for detailed information about current rates and packages.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="faq-question">
+                            <h3 class="faq-question-text" data-i18n-key="faq3_question">Do you offer online lessons?</h3>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text" data-i18n-key="faq3_answer">Yes! I conduct both in-person and online lessons via Zoom/Google Meet. Online format is especially convenient for families with busy schedules.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="faq-question">
+                            <h3 class="faq-question-text" data-i18n-key="faq4_question">How quickly will we see results?</h3>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text" data-i18n-key="faq4_answer">Each child is unique. Usually, the first improvements are noticeable after 4-6 weeks of regular lessons. I provide progress reports to parents every month.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                        <div class="faq-question">
+                            <h3 class="faq-question-text" data-i18n-key="faq5_question">What age children do you work with?</h3>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text" data-i18n-key="faq5_answer">I work with children aged 5 to 16 years old. I adapt my approach and methods depending on the child's age and individual characteristics.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="faq-question">
+                            <h3 class="faq-question-text" data-i18n-key="faq6_question">Do you provide diagnostic assessment?</h3>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text" data-i18n-key="faq6_answer">Yes, the first consultation includes a free diagnostic assessment to determine the child's needs and develop an individual work plan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="booking" class="py-10 sm:py-16 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6 max-w-2xl">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-orange-800 mb-6 sm:mb-8 md:mb-12" data-i18n-key="section_booking">Ready to Start? Schedule a Consultation</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-orange-800 mb-6 sm:mb-8 md:mb-12" data-aos="fade-up" data-i18n-key="section_booking">Ready to Start? Schedule a Consultation</h2>
                 
                 <form id="bookingForm" class="p-6 sm:p-8 bg-white rounded-xl shadow-xl space-y-6">
                 </form>
@@ -1020,62 +453,110 @@
 
     </main>
 
+    <a href="#booking" class="floating-book-btn" id="floatingBookBtn">
+        <span class="floating-book-btn-icon"><i class="fas fa-calendar-check"></i></span>
+        <span data-i18n-key="nav_book">Book a Session</span>
+    </a>
+    
+    <a href="https://wa.me/48355123456" target="_blank" class="fixed bottom-28 right-7 z-100 w-14 h-14 bg-green-600 hover:bg-green-500 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110" title="WhatsApp" id="whatsappBtn" style="opacity: 0; transform: translateY(100px); pointer-events: none;">
+        <i class="fab fa-whatsapp text-2xl text-white"></i>
+    </a>
+    <a href="https://t.me/yourusername" target="_blank" class="fixed bottom-48 right-7 z-100 w-14 h-14 bg-blue-500 hover:bg-blue-400 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110" title="Telegram" id="telegramBtn" style="opacity: 0; transform: translateY(100px); pointer-events: none;">
+        <i class="fab fa-telegram text-2xl text-white"></i>
+    </a>
+
     <footer class="text-white py-8 sm:py-12 md:py-16 relative">
         <div class="container mx-auto px-4 sm:px-6">
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
                 <div class="space-y-4">
                     <h3 class="text-2xl font-black gradient-text-white" data-i18n-key="teacher_name">Yevheniia Mykhailova</h3>
-                    <p class="text-orange-100 leading-relaxed" data-i18n-key="desc_hero">
+                    <p class="text-orange-100 leading-relaxed text-sm" data-i18n-key="desc_hero">
                         My individualized approach helps children overcome challenges and thrive socially and academically.
                     </p>
                 </div>
                 
                 <div class="space-y-4">
-                    <h4 class="text-lg font-bold text-orange-200">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#competence" class="text-orange-100 hover:text-white hover:pl-2 transition-all inline-block" data-i18n-key="nav_competencies">Competencies</a></li>
-                        <li><a href="#testimonials" class="text-orange-100 hover:text-white hover:pl-2 transition-all inline-block" data-i18n-key="nav_testimonials">Testimonials</a></li>
-                        <li><a href="#credentials" class="text-orange-100 hover:text-white hover:pl-2 transition-all inline-block" data-i18n-key="nav_diplomas">Diplomas</a></li>
-                        <li><a href="#booking" class="text-orange-100 hover:text-white hover:pl-2 transition-all inline-block" data-i18n-key="nav_book">Book a Session</a></li>
+                    <h4 class="text-lg font-bold text-orange-200 flex items-center gap-2">
+                        <i class="fas fa-clock"></i>
+                        <span data-i18n-key="working_hours">Working Hours</span>
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex justify-between text-orange-100">
+                            <span data-i18n-key="monday_friday">Mon - Fri:</span>
+                            <span class="font-semibold">9:00 - 18:00</span>
+                        </li>
+                        <li class="flex justify-between text-orange-100">
+                            <span data-i18n-key="saturday">Sat - Sun:</span>
+                            <span class="font-semibold text-orange-300" data-i18n-key="closed">Closed</span>
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="space-y-4">
-                    <h4 class="text-lg font-bold text-orange-200">Contact</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-2 text-orange-100">
-                            <span class="text-xl">📧</span>
-                            <a href="mailto:email@example.com" class="hover:text-white transition" data-i18n-key="contact_email">Contact Email</a>
+                    <h4 class="text-lg font-bold text-orange-200 flex items-center gap-2">
+                        <i class="fas fa-address-book"></i>
+                        <span data-i18n-key="contact_info">Contact</span>
+                    </h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3 text-orange-100">
+                            <i class="fas fa-envelope text-lg mt-0.5"></i>
+                            <a href="mailto:josephblazkowicz543@gmail.com" class="hover:text-white transition break-all">josephblazkowicz543@gmail.com</a>
                         </li>
-                        <li class="flex items-center gap-2 text-orange-100">
-                            <span class="text-xl">📱</span>
-                            <span>+48 355 123 456</span>
+                        <li class="flex items-start gap-3 text-orange-100">
+                            <i class="fas fa-phone text-lg mt-0.5"></i>
+                            <a href="tel:+48355123456" class="hover:text-white transition">+48 355 123 456</a>
                         </li>
-                        <li class="flex items-center gap-2 text-orange-100">
-                            <span class="text-xl">📍</span>
-                            <span>Poland, Wroclaw</span>
+                        <li class="flex items-start gap-3 text-orange-100">
+                            <i class="fas fa-map-marker-alt text-lg mt-0.5"></i>
+                            <span>Wroclaw, Poland</span>
                         </li>
                     </ul>
+                    <div class="flex gap-3 mt-4">
+                        <a href="https://wa.me/48355123456" target="_blank" class="w-10 h-10 bg-green-600 hover:bg-green-500 rounded-full flex items-center justify-center transition-all transform hover:scale-110" title="WhatsApp">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://t.me/yourusername" target="_blank" class="w-10 h-10 bg-blue-500 hover:bg-blue-400 rounded-full flex items-center justify-center transition-all transform hover:scale-110" title="Telegram">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-orange-200 flex items-center gap-2">
+                        <i class="fas fa-location-dot"></i>
+                        <span data-i18n-key="location">Location</span>
+                    </h4>
+                    <div class="rounded-lg overflow-hidden shadow-lg h-40">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2180.03587373013!2d17.011999583705396!3d51.08076168993011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc248c9cbbd09%3A0xcef878d6b636837!2sApteka%20pod%20Jaworami!5e1!3m2!1suk!2spl!4v1765445822597!5m2!1suk!2spl"
+                        width="600"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    </div>
                 </div>
             </div>
             
             <div class="border-t border-orange-700 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p class="text-orange-200 text-sm" data-i18n-key="copyright">&copy; 2025 Teacher Name. All rights reserved.</p>
-                <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
-                        <span class="text-xl">f</span>
+                <p class="text-orange-200 text-sm" data-i18n-key="copyright">&copy; 2025 Yevheniia Mykhailova. All rights reserved.</p>
+                <div class="flex gap-3">
+                    <a href="https://facebook.com" target="_blank" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
-                        <span class="text-xl">in</span>
+                    <a href="https://instagram.com" target="_blank" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                        <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
-                        <span class="text-xl">@</span>
+                    <a href="https://linkedin.com" target="_blank" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="translations.js"></script>
     <script src="main.js"></script>
 </body>
