@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Make close function globally accessible
     window.closeMobileMenu = closeMobileMenu;
     
     if (menuBtn) {
@@ -440,6 +439,30 @@ const initializeForm = () => {
     });
 };
 
+const initializeFAQ = () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            if (isActive) {
+                item.classList.remove('active');
+            } else {
+                item.classList.add('active');
+            }
+        });
+    });
+};
+
 /**
  * Updates the active state of language options
  * @param {string} lang - The selected language code
@@ -460,6 +483,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage(savedLang);
     
     updateActiveLanguage(savedLang);
+    
+    initializeFAQ();
 
     const globeButton = document.getElementById('globeButton');
     const languageDropdown = document.getElementById('languageDropdown');
@@ -488,4 +513,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initializeForm();
+    
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
+    
+    const floatingBtn = document.getElementById('floatingBookBtn');
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    const telegramBtn = document.getElementById('telegramBtn');
+    
+    if (floatingBtn) {
+        let lastScrollTop = 0;
+        const showAfterScroll = 250; 
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > showAfterScroll) {
+                floatingBtn.classList.add('visible');
+                if (whatsappBtn) {
+                    whatsappBtn.style.opacity = '1';
+                    whatsappBtn.style.transform = 'translateY(0)';
+                    whatsappBtn.style.pointerEvents = 'all';
+                }
+                if (telegramBtn) {
+                    telegramBtn.style.opacity = '1';
+                    telegramBtn.style.transform = 'translateY(0)';
+                    telegramBtn.style.pointerEvents = 'all';
+                }
+            } else {
+                floatingBtn.classList.remove('visible');
+                if (whatsappBtn) {
+                    whatsappBtn.style.opacity = '0';
+                    whatsappBtn.style.transform = 'translateY(100px)';
+                    whatsappBtn.style.pointerEvents = 'none';
+                }
+                if (telegramBtn) {
+                    telegramBtn.style.opacity = '0';
+                    telegramBtn.style.transform = 'translateY(100px)';
+                    telegramBtn.style.pointerEvents = 'none';
+                }
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    }
 });
