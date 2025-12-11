@@ -1,83 +1,125 @@
 const DEFAULT_LANG = 'en';
-const menuBtn = document.getElementById('menuBtn');
-        const navMenu = document.getElementById('navMenu');
-        const mobileOverlay = document.getElementById('mobileMenuOverlay');
-        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
-        const menuIcon = document.getElementById('menuIcon');
-        
-        function openMobileMenu() {
-            if (window.innerWidth < 768) {
-                navMenu.classList.remove('hidden');
+
+(function() {
+    emailjs.init('JZfCCt7hVHjixlTfb'); 
+})();
+
+let mobileMenuState = {
+    isOpen: false,
+    elements: null
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    mobileMenuState.elements = {
+        menuBtn: document.getElementById('menuBtn'),
+        navMenu: document.getElementById('navMenu'),
+        mobileOverlay: document.getElementById('mobileMenuOverlay'),
+        mobileCloseBtn: document.getElementById('mobileCloseBtn'),
+        menuIcon: document.getElementById('menuIcon')
+    };
+    
+    const { menuBtn, navMenu, mobileOverlay, mobileCloseBtn, menuIcon } = mobileMenuState.elements;
+    
+    function openMobileMenu() {
+        if (window.innerWidth < 768 && !mobileMenuState.isOpen) {
+            mobileMenuState.isOpen = true;
+            navMenu.classList.remove('hidden');
+            setTimeout(() => {
                 navMenu.classList.add('active');
                 mobileOverlay.classList.add('active');
-                menuIcon.textContent = '×';
-                document.body.style.overflow = 'hidden';
-            }
+            }, 10);
+            menuIcon.textContent = '×';
+            document.body.style.overflow = 'hidden';
         }
-        
-        function closeMobileMenu() {
+    }
+    
+    function closeMobileMenu() {
+        if (mobileMenuState.isOpen) {
+            mobileMenuState.isOpen = false;
             navMenu.classList.remove('active');
             mobileOverlay.classList.remove('active');
             menuIcon.textContent = '☰';
             document.body.style.overflow = 'auto';
+            
             setTimeout(() => {
-                if (window.innerWidth < 768) {
+                if (window.innerWidth < 768 && !mobileMenuState.isOpen) {
                     navMenu.classList.add('hidden');
                 }
             }, 400);
         }
-        
-        menuBtn?.addEventListener('click', function() {
-            if (navMenu.classList.contains('active')) {
+    }
+    
+    // Make close function globally accessible
+    window.closeMobileMenu = closeMobileMenu;
+    
+    if (menuBtn) {
+        menuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (mobileMenuState.isOpen) {
                 closeMobileMenu();
             } else {
                 openMobileMenu();
             }
         });
-        
-        mobileCloseBtn?.addEventListener('click', closeMobileMenu);
-        mobileOverlay?.addEventListener('click', closeMobileMenu);
-        
-        document.querySelectorAll('#navMenu a').forEach(link => {
-            link.addEventListener('click', function() {
+    }
+    
+    if (mobileCloseBtn) {
+        mobileCloseBtn.addEventListener('click', closeMobileMenu);
+    }
+    
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+    }
+    
+    document.querySelectorAll('#navMenu a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth < 768) {
+                closeMobileMenu();
+            }
+        });
+    });
+    
+    document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const lang = this.getAttribute('data-mobile-lang');
+            setLanguage(lang);
+            
+            document.querySelectorAll('.mobile-lang-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            updateActiveLanguage(lang);
+            
+            setTimeout(() => {
                 if (window.innerWidth < 768) {
                     closeMobileMenu();
                 }
-            });
+            }, 200);
         });
-        
-        document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const lang = this.getAttribute('data-mobile-lang');
-                setLanguage(lang);
-                
-                document.querySelectorAll('.mobile-lang-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                updateActiveLanguage(lang);
-            });
-        });
-        
-        window.addEventListener('DOMContentLoaded', function() {
-            const currentLang = localStorage.getItem('siteLang') || 'en';
-            document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
-                if (btn.getAttribute('data-mobile-lang') === currentLang) {
-                    btn.classList.add('active');
-                }
-            });
-        });
-        
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 768) {
-                navMenu.classList.remove('active', 'hidden');
-                navMenu.classList.add('md:flex');
-                mobileOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                menuIcon.textContent = '☰';
-            } else {
+    });
+    
+    const currentLang = localStorage.getItem('siteLang') || 'en';
+    document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-mobile-lang') === currentLang) {
+            btn.classList.add('active');
+        }
+    });
+    
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 768) {
+            mobileMenuState.isOpen = false;
+            navMenu.classList.remove('active', 'hidden');
+            navMenu.classList.add('md:flex');
+            mobileOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            menuIcon.textContent = '☰';
+        } else {
+            if (!mobileMenuState.isOpen) {
                 navMenu.classList.add('hidden');
             }
-        });
+        }
+    });
+});
         
         (function() {
             const track = document.getElementById('testimonialsTrack');
@@ -243,6 +285,11 @@ const setLanguage = (lang) => {
 
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n-key');
+        
+        if (element.id === 'menuIcon') {
+            return;
+        }
+        
         if (currentTranslations[key]) {
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = currentTranslations[key];
@@ -252,6 +299,28 @@ const setLanguage = (lang) => {
         }
     });
 };
+
+(function() {
+            let lastScrollTop = 0;
+            const header = document.querySelector('header');
+            const scrollThreshold = 100;
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop < scrollThreshold) {
+                    header.classList.remove('header-hidden');
+                    return;
+                } 
+                if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                    header.classList.add('header-hidden');
+                } 
+                else if (scrollTop < lastScrollTop) {
+                    header.classList.remove('header-hidden');
+                }
+                lastScrollTop = scrollTop;
+            });
+        })();
 
 const initializeForm = () => {
     const form = document.getElementById('bookingForm');
@@ -277,7 +346,6 @@ const initializeForm = () => {
             </div>
         `;
         
-        // Apply translations after creating form
         const savedLang = localStorage.getItem('siteLang') || DEFAULT_LANG;
         setLanguage(savedLang);
     }
@@ -303,15 +371,20 @@ const initializeForm = () => {
         submitButton.textContent = loadingText[currentLang] || 'Sending...';
 
         try {
-            const response = await fetch('YOUR_FORM_SUBMISSION_ENDPOINT', { 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
+            const templateParams = {
+                from_name: data.fullName,
+                from_phone: data.phoneNumber,
+                message: data.problemDescription,
+                to_email: 'josephblazkowicz543@gmail.com' 
+            };
 
-            if (response.ok) {
+            const response = await emailjs.send(
+                'service_butr703',
+                'template_g00uujb',
+                templateParams
+            );
+
+            if (response.status === 200) {
                 formMessage.innerHTML = `
                     <div class="p-4 bg-green-100 border-l-4 border-green-500 text-green-700 rounded-md">
                         ${translations[currentLang]['form_success']}
@@ -322,6 +395,7 @@ const initializeForm = () => {
                 throw new Error('Form submission failed.');
             }
         } catch (error) {
+            console.error('EmailJS Error:', error);
             formMessage.innerHTML = `
                 <div class="p-4 bg-red-100 border-l-4 border-red-500 text-red-700 rounded-md">
                     ${translations[currentLang]['form_error']}
