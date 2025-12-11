@@ -1,6 +1,9 @@
 
 const translations = {
     'en': {
+        // Meta
+        'site_title': 'Yevheniia Mykhailova - Special Education Teacher | Wroclaw',
+        
         // Navigation & General
         'teacher_name': 'Yevheniia Mykhailova',
         'nav_competencies': 'Competencies',
@@ -100,6 +103,9 @@ const translations = {
         'location': 'Location'
     },
     'uk': {
+        // Meta
+        'site_title': 'Євгенія Михайлова - Вчитель Спеціальної Освіти | Вроцлав',
+        
         // Navigation & General
         'teacher_name': 'Євгенія Михайлова',
         'nav_competencies': 'Компетенції',
@@ -199,6 +205,9 @@ const translations = {
         'location': 'Розташування'
     },
     'pl': {
+        // Meta
+        'site_title': 'Yevheniia Mykhailova - Nauczyciel Edukacji Specjalnej | Wrocław',
+        
         // Navigation & General
         'teacher_name': 'Yevheniia Mykhailova',
         'nav_competencies': 'Kompetencje',
