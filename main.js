@@ -1,9 +1,5 @@
 const DEFAULT_LANG = 'en';
 
-(function() {
-    emailjs.init('JZfCCt7hVHjixlTfb'); 
-})();
-
 let mobileMenuState = {
     isOpen: false,
     elements: null
@@ -334,7 +330,7 @@ const initializeForm = () => {
                 </div>
                 <div>
                     <label for="contactPhone" class="block text-sm font-medium text-gray-700" data-i18n-key="form_phone">Contact Phone</label>
-                    <input type="tel" id="contactPhone" name="contactPhone" required placeholder="" data-i18n-key="form_phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-orange-500 focus:border-orange-500">
+                    <input type="tel" id="contactPhone" name="contactPhone" required placeholder="+48" value="+48" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-orange-500 focus:border-orange-500">
                 </div>
                 <div>
                     <label for="problemDescription" class="block text-sm font-medium text-gray-700" data-i18n-key="form_challenge">Briefly describe the challenge</label>
@@ -348,6 +344,41 @@ const initializeForm = () => {
         
         const savedLang = localStorage.getItem('siteLang') || DEFAULT_LANG;
         setLanguage(savedLang);
+        
+        const phoneInput = document.getElementById('contactPhone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value;
+                
+                if (!value.startsWith('+48')) {
+                    value = '+48' + value.replace(/^\+48/, '');
+                }
+                
+                value = '+48' + value.substring(3).replace(/\D/g, '');
+                
+                if (value.length > 12) {
+                    value = value.substring(0, 12);
+                }
+                
+                e.target.value = value;
+            });
+            
+            phoneInput.addEventListener('keydown', function(e) {
+                const cursorPosition = e.target.selectionStart;
+                
+                if ((e.key === 'Backspace' || e.key === 'Delete') && cursorPosition <= 3) {
+                    e.preventDefault();
+                }
+            });
+            
+            phoneInput.addEventListener('focus', function(e) {
+                if (e.target.value === '+48') {
+                    setTimeout(() => {
+                        e.target.setSelectionRange(3, 3);
+                    }, 0);
+                }
+            });
+        }
     }
 
     if (!form) return;
@@ -372,16 +403,16 @@ const initializeForm = () => {
 
         try {
             const templateParams = {
-                from_name: data.fullName,
-                from_phone: data.phoneNumber,
-                message: data.problemDescription,
-                to_email: 'josephblazkowicz543@gmail.com' 
+                from_name: data.parentName,
+                from_phone: data.contactPhone,
+                message: data.problemDescription
             };
 
             const response = await emailjs.send(
-                'service_butr703',
+                'service_gmbqx2r',
                 'template_g00uujb',
-                templateParams
+                templateParams,
+                'JZfCCt7hVHjixlTfb'
             );
 
             if (response.status === 200) {
