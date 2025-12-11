@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n-key="heading_hero">test</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
@@ -41,6 +42,11 @@
             backdrop-filter: blur(12px);
             background: rgba(255, 255, 255, 0.9);
             border-bottom: 1px solid rgba(234, 88, 12, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        header.header-hidden {
+            transform: translateY(-100%);
         }
         
         .nav-link {
@@ -654,7 +660,7 @@
     <header class="sticky top-0 z-50 shadow-lg">
         <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center hover:scale-105 transition-transform">
-                <img src="img/logo.png" alt="Logo" class="h-16 sm:h-20 md:h-44 w-auto">
+                <img src="img/logo.png" alt="Logo" class="h-16 sm:h-20 md:h-40 w-auto">
             </a>
             
             <button id="menuBtn" class="md:hidden text-orange-600 text-3xl hover:scale-110 transition-transform relative z-50">
@@ -975,6 +981,26 @@
                             <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">Special Education Degree</p>
                             <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">University Certification</p>
                         </div>
+                        <div class="diploma-card">
+                            <img src="diploma/5.png" alt="Diploma 1">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma1_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma1_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/6.png" alt="Diploma 2">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma2_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma2_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/7.png" alt="Diploma 3">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma3_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma3_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/8.png" alt="Diploma 4">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">University Certification</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1052,7 +1078,5 @@
 
     <script src="translations.js"></script>
     <script src="main.js"></script>
-    
 </body>
-
 </html>
