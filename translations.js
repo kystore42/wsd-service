@@ -3,6 +3,7 @@ const translations = {
     'en': {
         // Meta
         'site_title': 'Yevheniia Mykhailova - Special Education Teacher | Wroclaw',
+        'loading': 'Loading...',
         
         // Navigation & General
         'teacher_name': 'Yevheniia Mykhailova',
@@ -100,11 +101,45 @@ const translations = {
         'saturday': 'Saturday - Sunday',
         'closed': 'Closed',
         'contact_info': 'Contact',
-        'location': 'Location'
+        'location': 'Location',
+        
+        // Stats Section
+        'stat_students': 'Happy Students',
+        'stat_years': 'Years Experience',
+        'stat_success': 'Success Rate',
+        'stat_sessions': 'Sessions Completed',
+        
+        // How It Works Section
+        'badge_how_it_works': 'Simple Process',
+        'section_how_it_works': 'How It Works',
+        'how_it_works_desc': 'Your journey to success in 4 simple steps',
+        'step1_title': 'Free Consultation',
+        'step1_desc': 'We discuss your child\'s needs and challenges in a comfortable online or offline meeting.',
+        'step2_title': 'Diagnostic Assessment',
+        'step2_desc': 'I evaluate the current level and create an individualized learning plan tailored to your child.',
+        'step3_title': 'Individual Sessions',
+        'step3_desc': 'Regular 45-60 minute lessons using proven methods and engaging materials.',
+        'step4_title': 'Track Progress',
+        'step4_desc': 'Monthly progress reports and continuous adjustment of the learning strategy for best results.',
+        
+        // Cookie Consent
+        'cookie_title': 'We use cookies',
+        'cookie_text': 'This website uses cookies to ensure you get the best experience on our website. By continuing to use this site, you accept our use of cookies.',
+        'cookie_accept': 'Accept',
+        'cookie_decline': 'Decline',
+        'cookie_learn_more': 'Learn More',
+        
+        // SEO Meta
+        'meta_description': 'Professional special education teacher in Wroclaw. Expert in ADHD support, dyslexia therapy, and individualized learning strategies for children with special needs. Book a consultation today!',
+        'og_title': 'Yevheniia Mykhailova - Special Education Teacher | Wroclaw',
+        'og_description': 'Professional special education teacher specializing in ADHD, dyslexia, and individualized learning strategies. Helping children thrive academically and socially.',
+        'twitter_title': 'Yevheniia Mykhailova - Special Education Teacher',
+        'twitter_description': 'Expert special education services for children with ADHD, dyslexia, and learning challenges in Wroclaw.'
     },
     'uk': {
         // Meta
         'site_title': 'Євгенія Михайлова - Вчитель Спеціальної Освіти | Вроцлав',
+        'loading': 'Завантаження...',
         
         // Navigation & General
         'teacher_name': 'Євгенія Михайлова',
@@ -202,11 +237,45 @@ const translations = {
         'saturday': 'Субота - Неділя',
         'closed': 'Вихідний',
         'contact_info': 'Контакти',
-        'location': 'Розташування'
+        'location': 'Розташування',
+        
+        // Stats Section
+        'stat_students': 'Щасливих учнів',
+        'stat_years': 'Років досвіду',
+        'stat_success': 'Успішність',
+        'stat_sessions': 'Проведено занять',
+        
+        // How It Works Section
+        'badge_how_it_works': 'Простий процес',
+        'section_how_it_works': 'Як це працює',
+        'how_it_works_desc': 'Ваш шлях до успіху за 4 простих кроки',
+        'step1_title': 'Безкоштовна консультація',
+        'step1_desc': 'Обговорюємо потреби та виклики вашої дитини у комфортній онлайн або офлайн зустрічі.',
+        'step2_title': 'Діагностична оцінка',
+        'step2_desc': 'Оцінюю поточний рівень та створюю індивідуальний план навчання, адаптований під вашу дитину.',
+        'step3_title': 'Індивідуальні заняття',
+        'step3_desc': 'Регулярні 45-60 хвилинні заняття з використанням перевірених методів та цікавих матеріалів.',
+        'step4_title': 'Відстеження прогресу',
+        'step4_desc': 'Щомісячні звіти про прогрес та постійна корекція стратегії навчання для найкращих результатів.',
+        
+        // Cookie Consent
+        'cookie_title': 'Ми використовуємо cookies',
+        'cookie_text': 'Цей веб-сайт використовує cookies для забезпечення найкращого досвіду. Продовжуючи використовувати цей сайт, ви погоджуєтеся з нашим використанням cookies.',
+        'cookie_accept': 'Прийняти',
+        'cookie_decline': 'Відхилити',
+        'cookie_learn_more': 'Дізнатись більше',
+        
+        // SEO Meta
+        'meta_description': 'Професійний вчитель спеціальної освіти у Вроцлаві. Експерт з підтримки ADHD, терапії дислексії та індивідуальних стратегій навчання для дітей з особливими потребами. Запишіться на консультацію сьогодні!',
+        'og_title': 'Євгенія Михайлова - Вчитель Спеціальної Освіти | Вроцлав',
+        'og_description': 'Професійний вчитель спеціальної освіти, який спеціалізується на ADHD, дислексії та індивідуальних стратегіях навчання. Допомагаю дітям досягати успіху в навчанні та соціалізації.',
+        'twitter_title': 'Євгенія Михайлова - Вчитель Спеціальної Освіти',
+        'twitter_description': 'Експертні послуги спеціальної освіти для дітей з ADHD, дислексією та труднощами в навчанні у Вроцлаві.'
     },
     'pl': {
         // Meta
         'site_title': 'Yevheniia Mykhailova - Nauczyciel Edukacji Specjalnej | Wrocław',
+        'loading': 'Ładowanie...',
         
         // Navigation & General
         'teacher_name': 'Yevheniia Mykhailova',
@@ -304,6 +373,42 @@ const translations = {
         'saturday': 'Sobota - Niedziela',
         'closed': 'Zamknięte',
         'contact_info': 'Kontakt',
-        'location': 'Lokalizacja'
+        'location': 'Lokalizacja',
+        
+        // Stats Section
+        'stat_students': 'Szczęśliwych uczniów',
+        'stat_years': 'Lat doświadczenia',
+        'stat_success': 'Wskaźnik sukcesu',
+        'stat_sessions': 'Przeprowadzonych zajęć',
+        
+        // How It Works Section
+        'badge_how_it_works': 'Prosty proces',
+        'section_how_it_works': 'Jak to działa',
+        'how_it_works_desc': 'Twoja droga do sukcesu w 4 prostych krokach',
+        'step1_title': 'Bezpłatna konsultacja',
+        'step1_desc': 'Omawiamy potrzeby i wyzwania Twojego dziecka podczas komfortowego spotkania online lub stacjonarnie.',
+        'step2_title': 'Ocena diagnostyczna',
+        'step2_desc': 'Oceniam obecny poziom i tworzę indywidualny plan nauki dostosowany do Twojego dziecka.',
+        'step3_title': 'Indywidualne zajęcia',
+        'step3_desc': 'Regularne 45-60 minutowe lekcje z wykorzystaniem sprawdzonych metod i angażujących materiałów.',
+        'step4_title': 'Śledzenie postępów',
+        'step4_desc': 'Miesięczne raporty postępów i ciągła modyfikacja strategii nauczania dla najlepszych rezultatów.',
+        'closed': 'Zamknięte',
+        'contact_info': 'Kontakt',
+        'location': 'Lokalizacja',
+        
+        // Cookie Consent
+        'cookie_title': 'Używamy plików cookie',
+        'cookie_text': 'Ta strona internetowa używa plików cookie, aby zapewnić najlepsze wrażenia. Kontynuując korzystanie z tej witryny, wyrażasz zgodę na używanie plików cookie.',
+        'cookie_accept': 'Akceptuj',
+        'cookie_decline': 'Odrzuć',
+        'cookie_learn_more': 'Dowiedz się więcej',
+        
+        // SEO Meta
+        'meta_description': 'Profesjonalny nauczyciel wspomagający we Wrocławiu. Ekspert w zakresie wsparcia ADHD, terapii dysleksji i indywidualnych strategii nauczania dla dzieci ze specjalnymi potrzebami. Umów konsultację już dziś!',
+        'og_title': 'Yevheniia Mykhailova - Nauczyciel Wspomagający | Wrocław',
+        'og_description': 'Profesjonalny nauczyciel wspomagający specjalizujący się w ADHD, dysleksji i indywidualnych strategiach nauczania. Pomagam dzieciom osiągać sukcesy w nauce i społeczeństwie.',
+        'twitter_title': 'Yevheniia Mykhailova - Nauczyciel Wspomagający',
+        'twitter_description': 'Eksperckie usługi nauczania wspomagającego dla dzieci z ADHD, dysleksją i trudnościami w nauce we Wrocławiu.'
     }
 };
