@@ -13,7 +13,7 @@ const translations = {
         'nav_faq': 'FAQ',
         'nav_book': 'Book a Session',
         'heading_hero': 'Empowering Children with Special Needs. Confidence for a Brighter Future.',
-        'desc_hero': 'My individualized approach helps children conquering challenges and adapt socially and academically.',
+        'desc_hero': 'My individualized approach helps children conquer challenges and adapt socially and academically.',
         
         // Competencies
         'section_competence': 'My Approach and Skills',
@@ -148,8 +148,8 @@ const translations = {
         'nav_diplomas': 'Дипломи',
         'nav_faq': 'Часті Питання',
         'nav_book': 'Записатися',
-        'heading_hero': 'Розширення можливостей дітей з особливими потребами. Впевненість у світлому майбутньому.',
-        'desc_hero': 'Мій індивідуальний підхід допомагає дітям долати виклики та адаптуватися соціально та академічно.',
+        'heading_hero': 'Розкриваємо можливості дітей з особливими потребами. Впевненість у світлому майбутньому.',
+        'desc_hero': 'Мій індивідуальний підхід допомагає дітям долати виклики та адаптуватися соціально й академічно.',
         
         // Competencies
         'section_competence': 'Мій Підхід та Навички',
@@ -186,22 +186,22 @@ const translations = {
         'section_testimonials': 'Щасливі батьки та діти',
         'testimonials_desc': 'Реальні історії від сімей, з якими я працювала.',
         'testimonial1_name': 'Анна К.',
-        'testimonial1_role': 'Батько',
+        'testimonial1_role': 'Мама',
         'testimonial1_text': '"Чудовий досвід! Мій син тепер із задоволенням навчається, і його впевненість значно зросла."',
         'testimonial2_name': 'Марія С.',
-        'testimonial2_role': 'Батько',
+        'testimonial2_role': 'Мама',
         'testimonial2_text': '"Професійний та турботливий підхід. Навички читання моєї доньки значно покращилися!"',
         'testimonial3_name': 'Петро В.',
         'testimonial3_role': 'Батько',
         'testimonial3_text': '"Дивовижні результати! Мій син тепер може краще зосередитися, і його оцінки покращилися."',
         'testimonial4_name': 'Оксана Л.',
-        'testimonial4_role': 'Батько',
+        'testimonial4_role': 'Мама',
         'testimonial4_text': '"Моя донька мала труднощі з читанням, але тепер вона читає впевнено. Дякую за терпіння!"',
         'testimonial5_name': 'Томаш К.',
         'testimonial5_role': 'Батько',
         'testimonial5_text': '"Виняткова вчителька! Поведінка та академічні результати нашого сина значно покращилися."',
         'testimonial6_name': 'Олена М.',
-        'testimonial6_role': 'Батько',
+        'testimonial6_role': 'Мама',
         'testimonial6_text': '"Дуже рекомендую! Турботливий професіонал, який справді розуміє дітей з особливими потребами."',
         'media_placeholder': '📷 Місце для фото/відео',
         'read_reviews': 'Читати відгуки',
@@ -223,7 +223,7 @@ const translations = {
         'faq3_answer': 'Так! Я проводжу як очні, так і онлайн-заняття через Zoom/Google Meet. Онлайн-формат особливо зручний для сімей з напруженим графіком.',
         'faq4_question': 'Як швидко ми побачимо результати?',
         'faq4_answer': 'Кожна дитина унікальна. Зазвичай перші покращення помітні після 4-6 тижнів регулярних занять. Я надаю звіти про прогрес батькам щомісяця.',
-        'faq5_question': 'З якого віку дітей ви працюєте?',
+        'faq5_question': 'З дітьми якого віку ви працюєте?',
         'faq5_answer': 'Я працюю з дітьми віком від 5 до 16 років. Адаптую свій підхід та методи залежно від віку та індивідуальних особливостей дитини.',
         'faq6_question': 'Чи надаєте ви діагностичну оцінку?',
         'faq6_answer': 'Так, перша консультація включає безкоштовну діагностичну оцінку для визначення потреб дитини та розробки індивідуального плану роботи.',
@@ -284,7 +284,7 @@ const translations = {
         'nav_diplomas': 'Dyplomy',
         'nav_faq': 'FAQ',
         'nav_book': 'Zarezerwuj Sesję',
-        'heading_hero': 'Wspieranie dzieci ze specjalnymi potrzebami. Pewność jaśniejszej przyszłości.',
+        'heading_hero': 'Wspieramy dzieci ze specjalnymi potrzebami. Pewność jaśniejszej przyszłości.',
         'desc_hero': 'Moje zindywidualizowane podejście pomaga dzieciom pokonywać wyzwania oraz adaptować się społecznie i akademicko.',
         
         // Competencies
@@ -393,9 +393,6 @@ const translations = {
         'step3_desc': 'Regularne 45-60 minutowe lekcje z wykorzystaniem sprawdzonych metod i angażujących materiałów.',
         'step4_title': 'Śledzenie postępów',
         'step4_desc': 'Miesięczne raporty postępów i ciągła modyfikacja strategii nauczania dla najlepszych rezultatów.',
-        'closed': 'Zamknięte',
-        'contact_info': 'Kontakt',
-        'location': 'Lokalizacja',
         
         // Cookie Consent
         'cookie_title': 'Używamy plików cookie',
@@ -405,10 +402,10 @@ const translations = {
         'cookie_learn_more': 'Dowiedz się więcej',
         
         // SEO Meta
-        'meta_description': 'Profesjonalny nauczyciel wspomagający we Wrocławiu. Ekspert w zakresie wsparcia ADHD, terapii dysleksji i indywidualnych strategii nauczania dla dzieci ze specjalnymi potrzebami. Umów konsultację już dziś!',
-        'og_title': 'Yevheniia Mykhailova - Nauczyciel Wspomagający | Wrocław',
-        'og_description': 'Profesjonalny nauczyciel wspomagający specjalizujący się w ADHD, dysleksji i indywidualnych strategiach nauczania. Pomagam dzieciom osiągać sukcesy w nauce i społeczeństwie.',
-        'twitter_title': 'Yevheniia Mykhailova - Nauczyciel Wspomagający',
-        'twitter_description': 'Eksperckie usługi nauczania wspomagającego dla dzieci z ADHD, dysleksją i trudnościami w nauce we Wrocławiu.'
+        'meta_description': 'Profesjonalny nauczyciel edukacji specjalnej we Wrocławiu. Ekspert w zakresie wsparcia ADHD, terapii dysleksji i indywidualnych strategii nauczania dla dzieci ze specjalnymi potrzebami. Umów konsultację już dziś!',
+        'og_title': 'Yevheniia Mykhailova - Nauczyciel Edukacji Specjalnej | Wrocław',
+        'og_description': 'Profesjonalny nauczyciel edukacji specjalnej specjalizujący się w ADHD, dysleksji i indywidualnych strategiach nauczania. Pomagam dzieciom osiągać sukcesy w nauce i społeczeństwie.',
+        'twitter_title': 'Yevheniia Mykhailova - Nauczyciel Edukacji Specjalnej',
+        'twitter_description': 'Eksperckie usługi edukacji specjalnej dla dzieci z ADHD, dysleksją i trudnościami w nauce we Wrocławiu.'
     }
 };
