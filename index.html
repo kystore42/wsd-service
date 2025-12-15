@@ -3,22 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title data-i18n-key="site_title">Yevheniia Mykhailova - Special Education Teacher | Wroclaw</title>
+    <meta name="description" data-i18n-key="meta_description" content="Professional special education teacher in Wroclaw. Expert in ADHD support, dyslexia therapy, and individualized learning strategies for children with special needs. Book a consultation today!">
+    <meta name="keywords" content="special education teacher, Wroclaw, ADHD support, dyslexia therapy, special needs education, pedagog specjalny, nauczyciel wspomagający, Wrocław">
+    <meta name="author" content="Yevheniia Mykhailova">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com/">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:title" data-i18n-key="og_title" content="Yevheniia Mykhailova - Special Education Teacher | Wroclaw">
+    <meta property="og:description" data-i18n-key="og_description" content="Professional special education teacher specializing in ADHD, dyslexia, and individualized learning strategies. Helping children thrive academically and socially.">
+    <meta property="og:image" content="https://yourwebsite.com/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="uk_UA">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://yourwebsite.com/">
+    <meta name="twitter:title" data-i18n-key="twitter_title" content="Yevheniia Mykhailova - Special Education Teacher">
+    <meta name="twitter:description" data-i18n-key="twitter_description" content="Expert special education services for children with ADHD, dyslexia, and learning challenges in Wroclaw.">
+    <meta name="twitter:image" content="https://yourwebsite.com/img/og-image.jpg">
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Yevheniia Mykhailova - Special Education Services",
+      "url": "https://yourwebsite.com",
+      "logo": "https://yourwebsite.com/img/logo.png",
+      "image": "https://yourwebsite.com/img/woman.png",
+      "description": "Professional special education teacher providing individualized support for children with ADHD, dyslexia, and special learning needs in Wroclaw, Poland.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Wroclaw",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.08076168993011",
+        "longitude": "17.011999583705396"
+      },
+      "telephone": "+48355123456",
+      "email": "josephblazkowicz543@gmail.com",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://facebook.com/yourprofile",
+        "https://instagram.com/yourprofile",
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Yevheniia Mykhailova",
+      "jobTitle": "Special Education Teacher",
+      "description": "Professional special education teacher with expertise in ADHD support, dyslexia therapy, and individualized learning strategies.",
+      "image": "https://yourwebsite.com/img/woman.png",
+      "url": "https://yourwebsite.com",
+      "telephone": "+48355123456",
+      "email": "josephblazkowicz543@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Wroclaw",
+        "addressCountry": "PL"
+      }
+    }
+    </script>
 </head>
 <body class="font-sans text-gray-800">
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <i class="fas fa-graduation-cap text-4xl text-orange-600"></i>
+            </div>
+            <div class="loader-spinner"></div>
+            <p class="loader-text" data-translate="loading">Loading...</p>
+        </div>
+    </div>
+
+    <div id="progressBar" class="progress-bar"></div>
 
     <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
     
     <header class="sticky top-0 z-50 shadow-lg">
-        <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center hover:scale-105 transition-transform">
-                <img src="img/logo.png" alt="Logo" class="h-16 sm:h-20 md:h-40 w-auto">
+        <nav class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center hover:scale-105 transition-transform" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                <img src="img/logo.png" alt="Logo" class="h-12 sm:h-14 md:h-20 w-auto">
             </a>
             
             <button id="menuBtn" class="md:hidden text-orange-600 text-3xl hover:scale-110 transition-transform relative z-50">
@@ -65,9 +156,6 @@
                 </div>
 
                 
-                <div class="w-full md:w-auto p-6 md:p-0 pt-4 md:pt-0">
-                    <a href="#booking" class="block md:inline-block text-center bg-gradient-to-r from-orange-600 to-orange-500 text-white py-4 md:py-3 px-8 rounded-full hover:from-orange-700 hover:to-orange-600 transition-all font-bold shadow-lg hover:shadow-xl transform hover:scale-105" data-i18n-key="nav_book">Book a Session</a>
-                </div>
             </div>
         </nav>
     </header>
@@ -80,14 +168,16 @@
     </div>
 
     <main>
-        <section id="hero" class="py-8 sm:py-12 md:py-24 bg-gradient-to-br from-orange-50 via-white to-amber-50">
-            <div class="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-6 md:gap-12">
+        <section id="hero" class="py-8 sm:py-12 md:py-24 bg-gradient-to-br from-orange-50 via-white to-amber-50 relative overflow-hidden">
+            <canvas id="particlesCanvas" class="particles-canvas"></canvas>
+            
+            <div class="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-6 md:gap-12 relative z-10">
                 
                 <div class="md:w-1/2 z-10 space-y-4 text-center md:text-left">
                     <div class="inline-block px-3 py-1.5 bg-orange-100 rounded-full text-orange-700 font-semibold text-xs sm:text-sm mb-2">
                         <span data-i18n-key="professional_badge"><i class="fas fa-star"></i> Professional Special Education Teacher</span>
                     </div>
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4 leading-tight" data-i18n-key="heading_hero">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-orange-800 mb-4 leading-tight" data-i18n-key="heading_hero">
                         Empowering Children with Special Needs
                     </h1>
                     <p class="text-base sm:text-lg md:text-xl text-gray-600 mb-6 leading-relaxed" data-i18n-key="desc_hero">
@@ -103,18 +193,127 @@
                     </div>
                 </div>
 
-                <div class="w-full md:w-1/2 float-animation">
+                <div class="w-full md:w-1/2 hero-image-container">
                     <div class="relative">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-orange-400 to-amber-400 rounded-3xl blur-2xl opacity-30"></div>
+                        <div class="absolute -inset-4 bg-gradient-to-r from-orange-400 to-amber-400 rounded-3xl blur-2xl opacity-30 animate-pulse-slow"></div>
                         <img 
                             src="img/woman.png" 
                             alt="Professional Tutor Smiling with a Folder" 
-                            class="hero-image rounded-3xl shadow-2xl w-full relative z-10"
+                            class="hero-image hero-image-float rounded-3xl shadow-2xl w-full relative z-10"
                             loading="lazy"
                         />
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <section id="stats" class="py-10 sm:py-12 md:py-16 bg-gradient-to-br from-orange-600 via-orange-500 to-amber-500 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+            </div>
+            <div class="container mx-auto px-4 sm:px-6 relative z-10">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="mb-3">
+                            <i class="fas fa-users text-3xl md:text-4xl text-white opacity-90"></i>
+                        </div>
+                        <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+                            <span class="counter" data-target="150">0</span>+
+                        </div>
+                        <p class="text-orange-50 font-semibold text-sm md:text-base" data-i18n-key="stat_students">Happy Students</p>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="mb-3">
+                            <i class="fas fa-calendar-check text-3xl md:text-4xl text-white opacity-90"></i>
+                        </div>
+                        <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+                            <span class="counter" data-target="7">0</span>+
+                        </div>
+                        <p class="text-orange-50 font-semibold text-sm md:text-base" data-i18n-key="stat_years">Years Experience</p>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="mb-3">
+                            <i class="fas fa-chart-line text-3xl md:text-4xl text-white opacity-90"></i>
+                        </div>
+                        <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+                            <span class="counter" data-target="95">0</span>%
+                        </div>
+                        <p class="text-orange-50 font-semibold text-sm md:text-base" data-i18n-key="stat_success">Success Rate</p>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="mb-3">
+                            <i class="fas fa-book-open text-3xl md:text-4xl text-white opacity-90"></i>
+                        </div>
+                        <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+                            <span class="counter" data-target="500">0</span>+
+                        </div>
+                        <p class="text-orange-50 font-semibold text-sm md:text-base" data-i18n-key="stat_sessions">Sessions Completed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-white via-orange-50/30 to-amber-50/30">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+                    <span class="inline-block px-6 py-2 bg-orange-100 rounded-full text-orange-700 font-bold text-sm mb-4">
+                        <i class="fas fa-lightbulb"></i> <span data-i18n-key="badge_how_it_works">Simple Process</span>
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4" data-i18n-key="section_how_it_works">How It Works</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n-key="how_it_works_desc">Your journey to success in 4 simple steps</p>
+                </div>
+
+                <div class="relative">
+                    <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-orange-300 via-orange-400 to-orange-500 -translate-y-1/2 z-0"></div>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="relative inline-block mb-6">
+                                <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto shadow-2xl border-4 border-white transform hover:scale-110 transition-all duration-300">
+                                    <i class="fas fa-comments text-3xl md:text-4xl text-white"></i>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-black shadow-lg">1</div>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold text-orange-700 mb-3" data-i18n-key="step1_title">Free Consultation</h3>
+                            <p class="text-gray-600 leading-relaxed" data-i18n-key="step1_desc">We discuss your child's needs and challenges in a comfortable online or offline meeting.</p>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                            <div class="relative inline-block mb-6">
+                                <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto shadow-2xl border-4 border-white transform hover:scale-110 transition-all duration-300">
+                                    <i class="fas fa-clipboard-check text-3xl md:text-4xl text-white"></i>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-black shadow-lg">2</div>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold text-orange-700 mb-3" data-i18n-key="step2_title">Diagnostic Assessment</h3>
+                            <p class="text-gray-600 leading-relaxed" data-i18n-key="step2_desc">I evaluate the current level and create an individualized learning plan tailored to your child.</p>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                            <div class="relative inline-block mb-6">
+                                <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto shadow-2xl border-4 border-white transform hover:scale-110 transition-all duration-300">
+                                    <i class="fas fa-chalkboard-teacher text-3xl md:text-4xl text-white"></i>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-black shadow-lg">3</div>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold text-orange-700 mb-3" data-i18n-key="step3_title">Individual Sessions</h3>
+                            <p class="text-gray-600 leading-relaxed" data-i18n-key="step3_desc">Regular 45-60 minute lessons using proven methods and engaging materials.</p>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                            <div class="relative inline-block mb-6">
+                                <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto shadow-2xl border-4 border-white transform hover:scale-110 transition-all duration-300">
+                                    <i class="fas fa-trophy text-3xl md:text-4xl text-white"></i>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-black shadow-lg">4</div>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold text-orange-700 mb-3" data-i18n-key="step4_title">Track Progress</h3>
+                            <p class="text-gray-600 leading-relaxed" data-i18n-key="step4_desc">Monthly progress reports and continuous adjustment of the learning strategy for best results.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -125,28 +324,28 @@
                     <span class="inline-block px-6 py-2 bg-orange-100 rounded-full text-orange-700 font-bold text-sm mb-4">
                         <i class="fas fa-gem"></i> <span data-i18n-key="badge_what_i_offer">What I Offer</span>
                     </span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4" data-i18n-key="section_competence">My Approach and Skills</h2>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-800 mb-4" data-i18n-key="section_competence">My Approach and Skills</h2>
                 </div>
                 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                    <div class="group p-4 sm:p-5 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg">
                             <i class="fas fa-bullseye text-white"></i>
                         </div>
-                        <h3 class="text-xl sm:text-2xl font-bold text-orange-700 mb-2 sm:mb-3" data-i18n-key="comp_adhd">ADHD Support</h3>
+                        <h3 class="text-lg sm:text-xl font-bold text-orange-700 mb-2" data-i18n-key="comp_adhd">ADHD Support</h3>
                         <p class="text-sm sm:text-base text-gray-600 leading-relaxed" data-i18n-key="comp_adhd_desc">Developing focus and organizational skills.</p>
                         <div class="mt-4 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded"></div>
                     </div>
-                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                    <div class="group p-4 sm:p-5 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg">
                             <i class="fas fa-book text-white"></i>
                         </div>
                         <h3 class="text-xl sm:text-2xl font-bold text-orange-700 mb-2 sm:mb-3" data-i18n-key="comp_dyslexia_therapy">Dyslexia Therapy</h3>
                         <p class="text-sm sm:text-base text-gray-600 leading-relaxed" data-i18n-key="comp_dyslexia_desc">Reading and writing strategies for success.</p>
                         <div class="mt-4 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded"></div>
                     </div>
-                    <div class="group p-6 sm:p-8 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                    <div class="group p-4 sm:p-5 bg-white rounded-2xl shadow-lg card-hover border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg">
                             <i class="fas fa-bolt text-white"></i>
                         </div>
                         <h3 class="text-xl sm:text-2xl font-bold text-orange-700 mb-2 sm:mb-3" data-i18n-key="comp_motivation">Motivation Adaptation</h3>
@@ -165,8 +364,8 @@
                     <span class="inline-block px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full text-orange-700 font-bold text-sm mb-4">
                         <i class="fas fa-star"></i> <span data-i18n-key="badge_success_stories">Success Stories</span>
                     </span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_testimonials">Happy Parents & Children</h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n-key="testimonials_desc">Real stories from families I've worked with.</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_testimonials">Happy Parents & Children</h2>
+                    <p class="text-base text-gray-600 max-w-2xl mx-auto" data-i18n-key="testimonials_desc">Real stories from families I've worked with.</p>
                 </div>
                 
                 <div class="testimonials-carousel">
@@ -274,10 +473,10 @@
             </div>
         </section>
 
-        <section id="credentials" class="py-10 sm:py-16 md:py-24 bg-white">
+        <section id="credentials" class="py-8 sm:py-12 md:py-16 bg-white">
             <div class="container mx-auto px-4 sm:px-6 text-center">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_credentials">Diplomas and Professional Experience</h2>
-                <p class="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12" data-i18n-key="diploma_desc">View my professional credentials and certifications.</p>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_credentials">Diplomas and Professional Experience</h2>
+                <p class="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8" data-i18n-key="diploma_desc">View my professional credentials and certifications.</p>
                 
                 <div class="carousel-container">
                     <div class="carousel-track">
@@ -372,8 +571,8 @@
                     <span class="inline-block px-6 py-2 bg-orange-100 rounded-full text-orange-700 font-bold text-sm mb-4">
                         <i class="fas fa-question-circle"></i> <span data-i18n-key="badge_faq">FAQ</span>
                     </span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_faq">Frequently Asked Questions</h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n-key="faq_desc">Find answers to common questions about my services</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_faq">Frequently Asked Questions</h2>
+                    <p class="text-base text-gray-600 max-w-2xl mx-auto" data-i18n-key="faq_desc">Find answers to common questions about my services</p>
                 </div>
                 
                 <div class="faq-container">
@@ -440,11 +639,11 @@
             </div>
         </section>
 
-        <section id="booking" class="py-10 sm:py-16 md:py-24 bg-white">
+        <section id="booking" class="py-8 sm:py-12 md:py-16 bg-white">
             <div class="container mx-auto px-4 sm:px-6 max-w-2xl">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center text-orange-800 mb-6 sm:mb-8 md:mb-12" data-aos="fade-up" data-i18n-key="section_booking">Ready to Start? Schedule a Consultation</h2>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-orange-800 mb-6 sm:mb-8" data-aos="fade-up" data-i18n-key="section_booking">Ready to Start? Schedule a Consultation</h2>
                 
-                <form id="bookingForm" class="p-6 sm:p-8 bg-white rounded-xl shadow-xl space-y-6">
+                <form id="bookingForm" class="p-5 sm:p-6 bg-white rounded-xl shadow-xl space-y-5">
                 </form>
                 
                 <div id="formMessage" class="mt-4 text-center text-sm sm:text-base"></div>
@@ -459,10 +658,10 @@
         <span data-i18n-key="nav_book">Book a Session</span>
     </a>
     
-    <a href="https://wa.me/48355123456" target="_blank" class="fixed bottom-28 right-7 z-100 w-14 h-14 bg-green-600 hover:bg-green-500 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110" title="WhatsApp" id="whatsappBtn" style="opacity: 0; transform: translateY(100px); pointer-events: none;">
+    <a href="https://wa.me/48355123456" target="_blank" class="fixed bottom-28 right-7 w-14 h-14 bg-green-600 hover:bg-green-500 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110" title="WhatsApp" id="whatsappBtn" style="opacity: 0; transform: translateY(100px); pointer-events: none; z-index: 1000;">
         <i class="fab fa-whatsapp text-2xl text-white"></i>
     </a>
-    <a href="https://t.me/yourusername" target="_blank" class="fixed bottom-48 right-7 z-100 w-14 h-14 bg-blue-500 hover:bg-blue-400 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110" title="Telegram" id="telegramBtn" style="opacity: 0; transform: translateY(100px); pointer-events: none;">
+    <a href="https://t.me/yourusername" target="_blank" class="fixed bottom-48 right-7 w-14 h-14 bg-blue-500 hover:bg-blue-400 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110" title="Telegram" id="telegramBtn" style="opacity: 0; transform: translateY(100px); pointer-events: none; z-index: 1000;">
         <i class="fab fa-telegram text-2xl text-white"></i>
     </a>
 
@@ -549,13 +748,27 @@
                     <a href="https://instagram.com" target="_blank" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <i class="fas fa-cookie-bite"></i>
+                <p>
+                    <strong data-i18n-key="cookie_title">We use cookies</strong>
+                    <span data-i18n-key="cookie_text">This website uses cookies to ensure you get the best experience on our website. By continuing to use this site, you accept our use of cookies.</span>
+                </p>
+            </div>
+            <div class="cookie-consent-buttons">
+                <button id="cookieAccept" class="cookie-btn cookie-btn-accept" data-i18n-key="cookie_accept">Accept</button>
+                <button id="cookieDecline" class="cookie-btn cookie-btn-decline" data-i18n-key="cookie_decline">Decline</button>
+                <a href="#" class="cookie-link" data-i18n-key="cookie_learn_more">Learn More</a>
+            </div>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="translations.js"></script>
