@@ -14,6 +14,7 @@ const translations = {
         'nav_book': 'Book a Session',
         'heading_hero': 'Empowering Children with Special Needs. Confidence for a Brighter Future.',
         'desc_hero': 'My individualized approach helps children conquer challenges and adapt socially and academically.',
+        'cta_details': 'Online or in-person • 45-60 min • Price from 120 PLN • Next slots this week',
         
         // Competencies
         'section_competence': 'My Approach and Skills',
@@ -42,6 +43,12 @@ const translations = {
         'form_phone': 'Contact Phone',
         'form_challenge': 'Briefly describe the challenge',
         'form_send': 'Send Application',
+        'form_next': 'Next',
+        'form_back': 'Back',
+        'form_step_1': 'Step 1 of 2',
+        'form_step_2': 'Step 2 of 2',
+        'form_step_error': 'Please fill in your name and phone number.',
+        'form_privacy_prefix': 'By submitting, you agree to the',
         'form_required': '*',
         'form_success': 'Thank you! Your application has been successfully sent. We will contact you soon.',
         'form_error': 'An error occurred. Please try again later.',
@@ -49,6 +56,10 @@ const translations = {
         // Testimonials
         'section_testimonials': 'Happy Parents & Children',
         'testimonials_desc': 'Real stories from families I\'ve worked with.',
+        'filter_all': 'All',
+        'filter_adhd': 'ADHD',
+        'filter_dyslexia': 'Dyslexia',
+        'filter_motivation': 'Motivation',
         'testimonial1_name': 'Anna K.',
         'testimonial1_role': 'Parent',
         'testimonial1_text': '"Wonderful experience! My son now enjoys learning and his confidence has grown tremendously."',
@@ -93,7 +104,7 @@ const translations = {
         'faq6_answer': 'Yes, the first consultation includes a free diagnostic assessment to determine the child\'s needs and develop an individual work plan.',
         
         // Footer
-        'copyright': '© 2025 Yevheniia Mykhailova. All rights reserved.',
+        'copyright': '© 2026 Yevheniia Mykhailova. All rights reserved.',
         'privacy_policy': 'Privacy Policy',
         'contact_email': 'Contact Email',
         'working_hours': 'Working Hours',
@@ -117,10 +128,12 @@ const translations = {
         'step1_desc': 'We discuss your child\'s needs and challenges in a comfortable online or offline meeting.',
         'step2_title': 'Diagnostic Assessment',
         'step2_desc': 'I evaluate the current level and create an individualized learning plan tailored to your child.',
+        'step2_promise': 'Plan in 48 hours',
         'step3_title': 'Individual Sessions',
         'step3_desc': 'Regular 45-60 minute lessons using proven methods and engaging materials.',
         'step4_title': 'Track Progress',
         'step4_desc': 'Monthly progress reports and continuous adjustment of the learning strategy for best results.',
+        'step4_promise': 'Monthly progress report',
         
         // Cookie Consent
         'cookie_title': 'We use cookies',
@@ -150,6 +163,7 @@ const translations = {
         'nav_book': 'Записатися',
         'heading_hero': 'Розкриваємо можливості дітей з особливими потребами. Впевненість у світлому майбутньому.',
         'desc_hero': 'Мій індивідуальний підхід допомагає дітям долати виклики та адаптуватися соціально й академічно.',
+        'cta_details': 'Онлайн або офлайн • 45-60 хв • Вартість від 120 PLN • Найближчі слоти цього тижня',
         
         // Competencies
         'section_competence': 'Мій Підхід та Навички',
@@ -178,6 +192,12 @@ const translations = {
         'form_phone': 'Контактний Телефон',
         'form_challenge': 'Коротко опишіть проблему',
         'form_send': 'Надіслати Заявку',
+        'form_next': 'Далі',
+        'form_back': 'Назад',
+        'form_step_1': 'Крок 1 з 2',
+        'form_step_2': 'Крок 2 з 2',
+        'form_step_error': 'Будь ласка, вкажіть ім\'я та номер телефону.',
+        'form_privacy_prefix': 'Надсилаючи форму, ви погоджуєтеся з',
         'form_required': '*',
         'form_success': 'Дякуємо! Вашу заявку успішно надіслано. Ми зв\'яжемося з вами незабаром.',
         'form_error': 'Виникла помилка. Спробуйте пізніше.',
@@ -185,6 +205,10 @@ const translations = {
         // Testimonials
         'section_testimonials': 'Щасливі батьки та діти',
         'testimonials_desc': 'Реальні історії від сімей, з якими я працювала.',
+        'filter_all': 'Усі',
+        'filter_adhd': 'СДУГ',
+        'filter_dyslexia': 'Дислексія',
+        'filter_motivation': 'Мотивація',
         'testimonial1_name': 'Анна К.',
         'testimonial1_role': 'Мама',
         'testimonial1_text': '"Чудовий досвід! Мій син тепер із задоволенням навчається, і його впевненість значно зросла."',
@@ -229,7 +253,7 @@ const translations = {
         'faq6_answer': 'Так, перша консультація включає безкоштовну діагностичну оцінку для визначення потреб дитини та розробки індивідуального плану роботи.',
         
         // Footer
-        'copyright': '© 2025 Євгенія Михайлова. Всі права захищені.',
+        'copyright': '© 2026 Євгенія Михайлова. Всі права захищені.',
         'privacy_policy': 'Політика конфіденційності',
         'contact_email': 'Електронна пошта',
         'working_hours': 'Години роботи',
@@ -253,10 +277,12 @@ const translations = {
         'step1_desc': 'Обговорюємо потреби та виклики вашої дитини у комфортній онлайн або офлайн зустрічі.',
         'step2_title': 'Діагностична оцінка',
         'step2_desc': 'Оцінюю поточний рівень та створюю індивідуальний план навчання, адаптований під вашу дитину.',
+        'step2_promise': 'План за 48 годин',
         'step3_title': 'Індивідуальні заняття',
         'step3_desc': 'Регулярні 45-60 хвилинні заняття з використанням перевірених методів та цікавих матеріалів.',
         'step4_title': 'Відстеження прогресу',
         'step4_desc': 'Щомісячні звіти про прогрес та постійна корекція стратегії навчання для найкращих результатів.',
+        'step4_promise': 'Щомісячний звіт про прогрес',
         
         // Cookie Consent
         'cookie_title': 'Ми використовуємо cookies',
@@ -286,6 +312,7 @@ const translations = {
         'nav_book': 'Zarezerwuj Sesję',
         'heading_hero': 'Wspieramy dzieci ze specjalnymi potrzebami. Pewność jaśniejszej przyszłości.',
         'desc_hero': 'Moje zindywidualizowane podejście pomaga dzieciom pokonywać wyzwania oraz adaptować się społecznie i akademicko.',
+        'cta_details': 'Online lub stacjonarnie • 45-60 min • Cena od 120 PLN • Najbliższe terminy w tym tygodniu',
         
         // Competencies
         'section_competence': 'Moje Podejście i Umiejętności',
@@ -314,6 +341,12 @@ const translations = {
         'form_phone': 'Telefon Kontaktowy',
         'form_challenge': 'Krótko opisz wyzwanie',
         'form_send': 'Wyślij Zgłoszenie',
+        'form_next': 'Dalej',
+        'form_back': 'Wstecz',
+        'form_step_1': 'Krok 1 z 2',
+        'form_step_2': 'Krok 2 z 2',
+        'form_step_error': 'Uzupełnij imię i numer telefonu.',
+        'form_privacy_prefix': 'Wysyłając formularz, zgadzasz się z',
         'form_required': '*',
         'form_success': 'Dziękujemy! Twoje zgłoszenie zostało pomyślnie wysłane. Skontaktujemy się z Tobą wkrótce.',
         'form_error': 'Wystąpił błąd. Spróbuj ponownie później.',
@@ -321,6 +354,10 @@ const translations = {
         // Testimonials
         'section_testimonials': 'Szczęśliwi rodzice i dzieci',
         'testimonials_desc': 'Prawdziwe historie rodzin, z którymi pracowałam.',
+        'filter_all': 'Wszystkie',
+        'filter_adhd': 'ADHD',
+        'filter_dyslexia': 'Dysleksja',
+        'filter_motivation': 'Motywacja',
         'testimonial1_name': 'Anna K.',
         'testimonial1_role': 'Rodzic',
         'testimonial1_text': '"Wspaniałe doświadczenie! Mój syn teraz lubi się uczyć, a jego pewność siebie znacznie wzrosła."',
@@ -365,7 +402,7 @@ const translations = {
         'faq6_answer': 'Tak, pierwsza konsultacja obejmuje bezpłatną ocenę diagnostyczną w celu określenia potrzeb dziecka i opracowania indywidualnego planu pracy.',
         
         // Footer
-        'copyright': '© 2025 Yevheniia Mykhailova. Wszelkie prawa zastrzeżone.',
+        'copyright': '© 2026 Yevheniia Mykhailova. Wszelkie prawa zastrzeżone.',
         'privacy_policy': 'Polityka prywatności',
         'contact_email': 'Email kontaktowy',
         'working_hours': 'Godziny pracy',
@@ -389,10 +426,12 @@ const translations = {
         'step1_desc': 'Omawiamy potrzeby i wyzwania Twojego dziecka podczas komfortowego spotkania online lub stacjonarnie.',
         'step2_title': 'Ocena diagnostyczna',
         'step2_desc': 'Oceniam obecny poziom i tworzę indywidualny plan nauki dostosowany do Twojego dziecka.',
+        'step2_promise': 'Plan w 48 godzin',
         'step3_title': 'Indywidualne zajęcia',
         'step3_desc': 'Regularne 45-60 minutowe lekcje z wykorzystaniem sprawdzonych metod i angażujących materiałów.',
         'step4_title': 'Śledzenie postępów',
         'step4_desc': 'Miesięczne raporty postępów i ciągła modyfikacja strategii nauczania dla najlepszych rezultatów.',
+        'step4_promise': 'Miesięczny raport postępów',
         
         // Cookie Consent
         'cookie_title': 'Używamy plików cookie',
