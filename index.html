@@ -173,8 +173,8 @@
             
             <div class="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-6 md:gap-12 relative z-10">
                 
-                <div class="md:w-1/2 z-10 space-y-4 text-center md:text-left">
-                    <div class="inline-block px-3 py-1.5 bg-orange-100 rounded-full text-orange-700 font-semibold text-xs sm:text-sm mb-2">
+                <div class="md:w-1/2 z-10 space-y-4 text-center md:text-left hero-copy">
+                    <div class="inline-block px-3 py-1.5 bg-orange-100 rounded-full text-orange-700 font-semibold text-xs sm:text-sm mb-2 hero-badge">
                         <span data-i18n-key="professional_badge"><i class="fas fa-star"></i> Professional Special Education Teacher</span>
                     </div>
                     <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-orange-800 mb-4 leading-tight" data-i18n-key="heading_hero">
@@ -191,16 +191,17 @@
                             Read Reviews ⭐
                         </a>
                     </div>
+                    <p class="cta-details text-sm sm:text-base text-gray-700" data-i18n-key="cta_details">Online or in-person • 45-60 min • Price from 120 PLN • Next slots this week</p>
                 </div>
 
                 <div class="w-full md:w-1/2 hero-image-container">
-                    <div class="relative">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-orange-400 to-amber-400 rounded-3xl blur-2xl opacity-30 animate-pulse-slow"></div>
+                    <div class="relative hero-image-frame">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-orange-400 to-amber-400 rounded-3xl blur-2xl opacity-30"></div>
                         <img 
                             id="heroImage"
                             src="img/woman.png" 
                             alt="Professional Tutor Smiling with a Folder" 
-                            class="hero-image hero-image-float rounded-3xl shadow-2xl w-full relative z-10"
+                            class="hero-image rounded-3xl shadow-2xl w-full relative z-10"
                             loading="lazy"
                         />
                     </div>
@@ -223,7 +224,7 @@
                         <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
                             <span class="counter" data-target="150">0</span>+
                         </div>
-                        <p class="text-orange-50 font-semibold text-sm md:text-base" data-i18n-key="stat_students">Happy Students</p>
+                        <p class="text-white/90 font-semibold text-sm md:text-base" data-i18n-key="stat_students">Happy Students</p>
                     </div>
                     <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
                         <div class="mb-3">
@@ -232,7 +233,7 @@
                         <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
                             <span class="counter" data-target="7">0</span>+
                         </div>
-                        <p class="text-orange-50 font-semibold text-sm md:text-base" data-i18n-key="stat_years">Years Experience</p>
+                        <p class="text-white/90 font-semibold text-sm md:text-base" data-i18n-key="stat_years">Years Experience</p>
                     </div>
                     <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
                         <div class="mb-3">
@@ -241,7 +242,7 @@
                         <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
                             <span class="counter" data-target="95">0</span>%
                         </div>
-                        <p class="text-orange-50 font-semibold text-sm md:text-base" data-i18n-key="stat_success">Success Rate</p>
+                        <p class="text-white/90 font-semibold text-sm md:text-base" data-i18n-key="stat_success">Success Rate</p>
                     </div>
                     <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
                         <div class="mb-3">
@@ -250,7 +251,7 @@
                         <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
                             <span class="counter" data-target="500">0</span>+
                         </div>
-                        <p class="text-orange-50 font-semibold text-sm md:text-base" data-i18n-key="stat_sessions">Sessions Completed</p>
+                        <p class="text-white/90 font-semibold text-sm md:text-base" data-i18n-key="stat_sessions">Sessions Completed</p>
                     </div>
                 </div>
             </div>
@@ -267,8 +268,6 @@
                 </div>
 
                 <div class="relative">
-                    <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-orange-300 via-orange-400 to-orange-500 -translate-y-1/2 z-0"></div>
-                    
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
                         <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                             <div class="relative inline-block mb-6">
@@ -290,6 +289,7 @@
                             </div>
                             <h3 class="text-xl md:text-2xl font-bold text-orange-700 mb-3" data-i18n-key="step2_title">Diagnostic Assessment</h3>
                             <p class="text-gray-600 leading-relaxed" data-i18n-key="step2_desc">I evaluate the current level and create an individualized learning plan tailored to your child.</p>
+                            <p class="step-promise" data-i18n-key="step2_promise">Plan in 48 hours</p>
                         </div>
 
                         <div class="text-center" data-aos="fade-up" data-aos-delay="300">
@@ -312,6 +312,7 @@
                             </div>
                             <h3 class="text-xl md:text-2xl font-bold text-orange-700 mb-3" data-i18n-key="step4_title">Track Progress</h3>
                             <p class="text-gray-600 leading-relaxed" data-i18n-key="step4_desc">Monthly progress reports and continuous adjustment of the learning strategy for best results.</p>
+                            <p class="step-promise" data-i18n-key="step4_promise">Monthly progress report</p>
                         </div>
                     </div>
                 </div>
@@ -357,126 +358,9 @@
             </div>
         </section>
 
-        <section id="testimonials" class="py-10 sm:py-16 md:py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-orange-200 rounded-full filter blur-3xl opacity-30 -mr-48"></div>
-            <div class="absolute bottom-0 left-0 w-96 h-156 bg-amber-200 rounded-full filter blur-3xl opacity-30 -ml-48"></div>
-            <div class="container mx-auto px-4 sm:px-6 relative z-10">
-                <div class="text-center mb-8">
-                    <span class="inline-block px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full text-orange-700 font-bold text-sm mb-4">
-                        <i class="fas fa-star"></i> <span data-i18n-key="badge_success_stories">Success Stories</span>
-                    </span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_testimonials">Happy Parents & Children</h2>
-                    <p class="text-base text-gray-600 max-w-2xl mx-auto" data-i18n-key="testimonials_desc">Real stories from families I've worked with.</p>
-                </div>
-                
-                <div class="testimonials-carousel">
-                    <button class="carousel-arrow prev" id="testimonialsCarouselPrev" aria-label="Previous">‹</button>
-                    <button class="carousel-arrow next" id="testimonialsCarouselNext" aria-label="Next">›</button>
-                    
-                    <div class="testimonials-wrapper">
-                        <div class="testimonials-track" id="testimonialsTrack">
-                            
-                            <div class="testimonial-slide">
-                                <div class="testimonial-card">
-                                    <span class="testimonial-quote">“</span>
-                                    <div class="testimonial-header">
-                                        <div class="testimonial-avatar">A</div>
-                                        <div>
-                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial1_name">Anna K.</h4>
-                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial1_role">Parent</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                                    <p class="testimonial-text" data-i18n-key="testimonial1_text">"Wonderful experience! My son now enjoys learning and his confidence has grown tremendously."</p>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial-slide">
-                                <div class="testimonial-card">
-                                    <span class="testimonial-quote">“</span>
-                                    <div class="testimonial-header">
-                                        <div class="testimonial-avatar">M</div>
-                                        <div>
-                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial2_name">Maria S.</h4>
-                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial2_role">Parent</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                                    <p class="testimonial-text" data-i18n-key="testimonial2_text">"Professional and caring approach. My daughter's reading skills improved significantly!"</p>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial-slide">
-                                <div class="testimonial-card">
-                                    <span class="testimonial-quote">“</span>
-                                    <div class="testimonial-header">
-                                        <div class="testimonial-avatar">P</div>
-                                        <div>
-                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial3_name">Piotr W.</h4>
-                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial3_role">Parent</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                                    <p class="testimonial-text" data-i18n-key="testimonial3_text">"Amazing results! My son can now focus better and his grades have improved."</p>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial-slide">
-                                <div class="testimonial-card">
-                                    <span class="testimonial-quote">“</span>
-                                    <div class="testimonial-header">
-                                        <div class="testimonial-avatar">O</div>
-                                        <div>
-                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial4_name">Oksana L.</h4>
-                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial4_role">Parent</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                                    <p class="testimonial-text" data-i18n-key="testimonial4_text">"My daughter struggled with reading, but now she reads confidently. Thank you for your patience!"</p>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial-slide">
-                                <div class="testimonial-card">
-                                    <span class="testimonial-quote">“</span>
-                                    <div class="testimonial-header">
-                                        <div class="testimonial-avatar">T</div>
-                                        <div>
-                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial5_name">Tomasz K.</h4>
-                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial5_role">Parent</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                                    <p class="testimonial-text" data-i18n-key="testimonial5_text">"Exceptional teacher! Our son's behavior and academic performance improved dramatically."</p>
-                                </div>
-                            </div>
-                            
-                            <div class="testimonial-slide">
-                                <div class="testimonial-card">
-                                    <span class="testimonial-quote">“</span>
-                                    <div class="testimonial-header">
-                                        <div class="testimonial-avatar">E</div>
-                                        <div>
-                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial6_name">Elena M.</h4>
-                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial6_role">Parent</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                                    <p class="testimonial-text" data-i18n-key="testimonial6_text">"Highly recommend! A caring professional who truly understands children with special needs."</p>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-nav" id="testimonialsCarouselNav"></div>
-                </div>
-            </div>
-        </section>
-
         <section id="credentials" class="py-8 sm:py-12 md:py-16 bg-white">
             <div class="container mx-auto px-4 sm:px-6 text-center">
-                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_credentials">Diplomas and Professional Experience</h2>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-orange-800 mb-4" data-i18n-key="section_credentials">Diplomas and Professional Experience</h2>
                 <p class="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8" data-i18n-key="diploma_desc">View my professional credentials and certifications.</p>
                 
                 <div class="carousel-container">
@@ -566,6 +450,130 @@
             </div>
         </section>
 
+        <section id="testimonials" class="py-10 sm:py-16 md:py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-orange-200 rounded-full filter blur-3xl opacity-30 -mr-48"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-156 bg-amber-200 rounded-full filter blur-3xl opacity-30 -ml-48"></div>
+            <div class="container mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center mb-8">
+                    <span class="inline-block px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full text-orange-700 font-bold text-sm mb-4">
+                        <i class="fas fa-star"></i> <span data-i18n-key="badge_success_stories">Success Stories</span>
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_testimonials">Happy Parents & Children</h2>
+                    <p class="text-base text-gray-600 max-w-2xl mx-auto" data-i18n-key="testimonials_desc">Real stories from families I've worked with.</p>
+                    <div class="testimonial-filters" role="tablist" aria-label="Testimonials filters">
+                        <button class="testimonial-filter active" type="button" data-filter="all" data-i18n-key="filter_all">All</button>
+                        <button class="testimonial-filter" type="button" data-filter="adhd" data-i18n-key="filter_adhd">ADHD</button>
+                        <button class="testimonial-filter" type="button" data-filter="dyslexia" data-i18n-key="filter_dyslexia">Dyslexia</button>
+                        <button class="testimonial-filter" type="button" data-filter="motivation" data-i18n-key="filter_motivation">Motivation</button>
+                    </div>
+                </div>
+                
+                <div class="testimonials-carousel">
+                    <button class="carousel-arrow prev" id="testimonialsCarouselPrev" aria-label="Previous">‹</button>
+                    <button class="carousel-arrow next" id="testimonialsCarouselNext" aria-label="Next">›</button>
+                    
+                    <div class="testimonials-wrapper">
+                        <div class="testimonials-track" id="testimonialsTrack">
+                            
+                            <div class="testimonial-slide" data-tags="adhd">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">A</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial1_name">Anna K.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial1_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial1_text">"Wonderful experience! My son now enjoys learning and his confidence has grown tremendously."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-slide" data-tags="dyslexia">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">M</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial2_name">Maria S.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial2_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial2_text">"Professional and caring approach. My daughter's reading skills improved significantly!"</p>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-slide" data-tags="motivation">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">P</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial3_name">Piotr W.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial3_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial3_text">"Amazing results! My son can now focus better and his grades have improved."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-slide" data-tags="dyslexia">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">O</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial4_name">Oksana L.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial4_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial4_text">"My daughter struggled with reading, but now she reads confidently. Thank you for your patience!"</p>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-slide" data-tags="adhd">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">T</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial5_name">Tomasz K.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial5_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial5_text">"Exceptional teacher! Our son's behavior and academic performance improved dramatically."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-slide" data-tags="motivation">
+                                <div class="testimonial-card">
+                                    <span class="testimonial-quote">“</span>
+                                    <div class="testimonial-header">
+                                        <div class="testimonial-avatar">E</div>
+                                        <div>
+                                            <h4 class="font-bold text-lg text-gray-800" data-i18n-key="testimonial6_name">Elena M.</h4>
+                                            <p class="text-sm text-gray-500" data-i18n-key="testimonial6_role">Parent</p>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                                    <p class="testimonial-text" data-i18n-key="testimonial6_text">"Highly recommend! A caring professional who truly understands children with special needs."</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-nav" id="testimonialsCarouselNav"></div>
+                </div>
+            </div>
+        </section>
+
+
         <section id="faq" class="py-10 sm:py-16 md:py-24 bg-gradient-to-br from-white via-orange-50 to-amber-50">
             <div class="container mx-auto px-4 sm:px-6">
                 <div class="text-center mb-12">
@@ -642,54 +650,64 @@
 
         <section id="booking" class="py-8 sm:py-12 md:py-16 bg-white">
             <div class="container mx-auto px-4 sm:px-6 max-w-2xl">
-                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-orange-800 mb-6 sm:mb-8" data-aos="fade-up" data-i18n-key="section_booking">Ready to Start? Schedule a Consultation</h2>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-orange-800 mb-6 sm:mb-8" data-i18n-key="section_booking">Ready to Start? Schedule a Consultation</h2>
                 
                 <form id="bookingForm" class="p-5 sm:p-6 bg-white rounded-xl shadow-xl space-y-5">
                 </form>
                 
                 <div id="formMessage" class="mt-4 text-center text-sm sm:text-base"></div>
+                <p class="mt-4 text-xs sm:text-sm text-gray-500 text-center">
+                    <span data-i18n-key="form_privacy_prefix">By submitting, you agree to the</span>
+                    <a href="privacy.html" class="text-orange-700 hover:text-orange-800 underline" data-i18n-key="privacy_policy">Privacy Policy</a>
+                </p>
 
             </div>
         </section>
 
     </main>
 
-    <a href="#booking" class="floating-book-btn" id="floatingBookBtn">
-        <span class="floating-book-btn-icon"><i class="fas fa-calendar-check"></i></span>
-        <span data-i18n-key="nav_book">Book a Session</span>
-    </a>
-    
-    <a href="https://wa.me/48355123456" target="_blank" class="fixed bottom-28 right-7 w-14 h-14 bg-green-600 hover:bg-green-500 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110" title="WhatsApp" id="whatsappBtn" style="opacity: 0; transform: translateY(100px); pointer-events: none; z-index: 1000;">
-        <i class="fab fa-whatsapp text-2xl text-white"></i>
-    </a>
-    <a href="https://t.me/yourusername" target="_blank" class="fixed bottom-48 right-7 w-14 h-14 bg-blue-500 hover:bg-blue-400 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110" title="Telegram" id="telegramBtn" style="opacity: 0; transform: translateY(100px); pointer-events: none; z-index: 1000;">
-        <i class="fab fa-telegram text-2xl text-white"></i>
-    </a>
+    <div class="floating-actions" id="floatingActions">
+        <div class="floating-actions-menu" id="floatingActionsMenu">
+            <a href="#booking" class="floating-action floating-action-book" id="floatingBookBtn" aria-label="Book a Session" title="Book a Session">
+                <i class="fas fa-calendar-check"></i>
+                <span class="floating-action-label" data-i18n-key="nav_book">Book a Session</span>
+            </a>
+            <a href="https://wa.me/48355123456" target="_blank" class="floating-action floating-action-whatsapp" title="WhatsApp" id="whatsappBtn" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://t.me/yourusername" target="_blank" class="floating-action floating-action-telegram" title="Telegram" id="telegramBtn" aria-label="Telegram">
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div>
+        <button class="floating-toggle" id="floatingToggle" aria-label="Open quick actions" aria-expanded="false">
+            <i class="fas fa-ellipsis-v"></i>
+        </button>
+    </div>
 
-    <footer class="text-white py-8 sm:py-12 md:py-16 relative">
+    <footer class="footer footer-light py-8 sm:py-12 md:py-16 relative">
         <div class="container mx-auto px-4 sm:px-6">
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
-                <div class="space-y-4">
-                    <h3 class="text-2xl font-black gradient-text-white" data-i18n-key="teacher_name">Yevheniia Mykhailova</h3>
-                    <p class="text-orange-100 leading-relaxed text-sm" data-i18n-key="desc_hero">
+                <div class="space-y-4 footer-col-narrow">
+                    <h3 class="text-2xl font-black footer-title" data-i18n-key="teacher_name">Yevheniia Mykhailova</h3>
+                    <p class="footer-text leading-relaxed text-sm" data-i18n-key="desc_hero">
                         My individualized approach helps children overcome challenges and thrive socially and academically.
                     </p>
                     <div class="mt-6 pt-4 border-t border-orange-700">
-                        <img src="img/kaktusiaki-logo.png" alt="KakTUSiaki Logo" class="h-32 sm:h-32 md:h-64 w-auto hover:scale-105 transition-transform duration-300">
+                        <img src="img/kaktusiaki-logo.png" alt="KakTUSiaki Logo" class="h-32 sm:h-32 md:h-64 w-auto hover:scale-105 transition-transform duration-300 footer-logo">
                     </div>
                 </div>
                 
-                <div class="space-y-4">
-                    <h4 class="text-lg font-bold text-orange-200 flex items-center gap-2">
+                <div class="space-y-4 footer-hours">
+                    <h4 class="text-lg font-bold footer-heading flex items-center gap-2">
                         <i class="fas fa-clock"></i>
                         <span data-i18n-key="working_hours">Working Hours</span>
                     </h4>
                     <ul class="space-y-2 text-sm">
-                        <li class="flex justify-between text-orange-100">
+                        <li class="flex justify-between footer-text">
                             <span data-i18n-key="monday_friday">Mon - Fri:</span>
                             <span class="font-semibold">9:00 - 18:00</span>
                         </li>
-                        <li class="flex justify-between text-orange-100">
+                        <li class="flex justify-between footer-text">
                             <span data-i18n-key="saturday">Sat - Sun:</span>
                             <span class="font-semibold text-orange-300" data-i18n-key="closed">Closed</span>
                         </li>
@@ -697,20 +715,20 @@
                 </div>
                 
                 <div class="space-y-4">
-                    <h4 class="text-lg font-bold text-orange-200 flex items-center gap-2">
+                    <h4 class="text-lg font-bold footer-heading flex items-center gap-2">
                         <i class="fas fa-address-book"></i>
                         <span data-i18n-key="contact_info">Contact</span>
                     </h4>
                     <ul class="space-y-3 text-sm">
-                        <li class="flex items-start gap-3 text-orange-100">
+                        <li class="flex items-start gap-3 footer-text">
                             <i class="fas fa-envelope text-lg mt-0.5"></i>
                             <a href="mailto:josephblazkowicz543@gmail.com" class="hover:text-white transition break-all">josephblazkowicz543@gmail.com</a>
                         </li>
-                        <li class="flex items-start gap-3 text-orange-100">
+                        <li class="flex items-start gap-3 footer-text">
                             <i class="fas fa-phone text-lg mt-0.5"></i>
                             <a href="tel:+48355123456" class="hover:text-white transition">+48 355 123 456</a>
                         </li>
-                        <li class="flex items-start gap-3 text-orange-100">
+                        <li class="flex items-start gap-3 footer-text">
                             <i class="fas fa-map-marker-alt text-lg mt-0.5"></i>
                             <span>Wroclaw, Poland</span>
                         </li>
@@ -726,7 +744,7 @@
                 </div>
                 
                 <div class="space-y-4">
-                    <h4 class="text-lg font-bold text-orange-200 flex items-center gap-2">
+                    <h4 class="text-lg font-bold footer-heading flex items-center gap-2">
                         <i class="fas fa-location-dot"></i>
                         <span data-i18n-key="location">Location</span>
                     </h4>
@@ -744,18 +762,128 @@
             </div>
             
             <div class="border-t border-orange-700 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p class="text-orange-200 text-sm" data-i18n-key="copyright">&copy; 2025 Yevheniia Mykhailova. All rights reserved.</p>
-                <div class="flex gap-3">
-                    <a href="https://facebook.com" target="_blank" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                <p class="footer-muted text-sm" data-i18n-key="copyright">&copy; 2026 Yevheniia Mykhailova. All rights reserved.</p>
+                <div class="flex items-center gap-4">
+                    <a href="privacy.html" class="footer-link text-sm" data-i18n-key="privacy_policy">Privacy Policy</a>
+                    <a href="#booking" class="footer-cta" data-i18n-key="nav_book">Book a Session</a>
+                    <a href="https://facebook.com" target="_blank" class="footer-social-btn w-10 h-10 rounded-full flex items-center justify-center transition-all">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://instagram.com" target="_blank" class="w-10 h-10 bg-orange-700 hover:bg-orange-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                    <a href="https://instagram.com" target="_blank" class="footer-social-btn w-10 h-10 rounded-full flex items-center justify-center transition-all">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <div id="adminPanel" class="admin-panel">
+        <div class="admin-panel-content">
+            <div class="admin-panel-header">
+                <h2>📊 Admin Panel</h2>
+                <button class="admin-close-btn" id="adminCloseBtn">×</button>
+            </div>
+            
+            <div class="admin-panel-tabs">
+                <button class="admin-tab active" data-tab="stats" id="statsTab">Stats</button>
+                <button class="admin-tab" data-tab="testimonials" id="testimonialsTab">Testimonials</button>
+            </div>
+            
+            <div class="admin-panel-body">
+                <!-- Stats Tab -->
+                <div class="admin-tab-content active" id="stats-content">
+                    <div class="admin-form-group">
+                        <label>Happy Students:</label>
+                        <input type="number" id="statsStudents" class="admin-input">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Years Experience:</label>
+                        <input type="number" id="statsYears" class="admin-input">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Success Rate (%):</label>
+                        <input type="number" id="statsSuccess" class="admin-input" min="0" max="100">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Sessions Completed:</label>
+                        <input type="number" id="statsSessions" class="admin-input">
+                    </div>
+                </div>
+                
+                <div class="admin-tab-content" id="testimonials-content" style="display:none;">
+                    <div class="admin-testimonials-list" id="testimonialsList"></div>
+                    <div class="admin-pagination" id="testimonialsPagination" style="display:none;">
+                        <button class="admin-pagination-btn" id="prevBtn" onclick="adminManager.previousPage()">← Previous</button>
+                        <span class="admin-pagination-info" id="pageInfo">Page 1</span>
+                        <button class="admin-pagination-btn" id="nextBtn" onclick="adminManager.nextPage()">Next →</button>
+                    </div>
+                    <button class="admin-btn-add" id="addTestimonialBtn">+ Add Testimonial</button>
+                </div>
+            </div>
+            
+            <div class="admin-modal" id="testimonialModal" style="display:none;">
+                <div class="admin-modal-content">
+                    <div class="admin-modal-header">
+                        <h3 id="modalTitle">Add New Testimonial</h3>
+                        <button class="admin-modal-close" onclick="document.getElementById('testimonialModal').style.display='none';">&times;</button>
+                    </div>
+                    <div class="admin-modal-body">
+                        <div class="admin-form-group">
+                            <label>Name *</label>
+                            <input type="text" id="modalName" class="admin-input" placeholder="e.g., Anna K.">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Role *</label>
+                            <input type="text" id="modalRole" class="admin-input" placeholder="e.g., Parent">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Testimonial Text *</label>
+                            <textarea id="modalText" class="admin-input" placeholder="What they said..." style="min-height: 100px; resize: vertical;"></textarea>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Photo URL (optional)</label>
+                            <input type="url" id="modalPhoto" class="admin-input" placeholder="https://i.imgur.com/abc123.jpg">
+                            <small style="color: #666;">💡 Для imgur используйте формат: i.imgur.com/XXX.jpg (скопируйте "Copy image link")</small>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Video URL (optional)</label>
+                            <input type="url" id="modalVideo" class="admin-input" placeholder="https://youtube.com/watch?v=...">
+                            <small style="color: #666;">YouTube, Vimeo, or other video link</small>
+                        </div>
+                    </div>
+                    <div class="admin-modal-footer">
+                        <button class="admin-btn-cancel" onclick="document.getElementById('testimonialModal').style.display='none';">Cancel</button>
+                        <button class="admin-btn-save-modal" id="modalSaveBtn">Save Testimonial</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-modal" id="passwordModal" style="display:none;">
+                <div class="admin-modal-content" style="max-width: 400px;">
+                    <div class="admin-modal-header">
+                        <h3>🔐 Admin Access</h3>
+                        <button class="admin-modal-close" onclick="document.getElementById('passwordModal').style.display='none';">&times;</button>
+                    </div>
+                    <div class="admin-modal-body">
+                        <p style="color: #6b7280; margin-bottom: 20px; text-align: center;">Enter the password to access admin panel</p>
+                        <div class="admin-form-group">
+                            <label>Password</label>
+                            <input type="password" id="passwordInput" class="admin-input" placeholder="Enter password..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="admin-modal-footer">
+                        <button class="admin-btn-cancel" onclick="document.getElementById('passwordModal').style.display='none';">Cancel</button>
+                        <button class="admin-btn-save-modal" id="passwordSubmitBtn">Unlock Admin Panel</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-panel-footer">
+                <button class="admin-btn-save" id="adminSaveBtn">💾 Save Changes</button>
+                <button class="admin-btn-reset" id="adminResetBtn">Reset to Default</button>
+            </div>
+        </div>
+    </div>
 
     <div id="cookieConsent" class="cookie-consent">
         <div class="cookie-consent-content">
@@ -777,5 +905,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="translations.js"></script>
     <script src="main.js"></script>
+    <script src="admin.js"></script>
 </body>
 </html>
