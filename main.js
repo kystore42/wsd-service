@@ -6,6 +6,13 @@ let mobileMenuState = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+    const heroImage = document.getElementById('heroImage');
+    if (heroImage) {
+        const images = ['img/woman.png', 'img/woman2.png'];
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+        heroImage.src = randomImage;
+    }
+    
     mobileMenuState.elements = {
         menuBtn: document.getElementById('menuBtn'),
         navMenu: document.getElementById('navMenu'),
@@ -284,8 +291,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 /**
- * Applies translations to all elements with data-i18n-key attribute.
- * @param {string} lang - The language code (e.g., 'en', 'uk', 'pl').
+ * @param {string} lang .
  */
 const setLanguage = (lang) => {
     localStorage.setItem('siteLang', lang);
@@ -506,8 +512,7 @@ const initializeFAQ = () => {
 };
 
 /**
- * Updates the active state of language options
- * @param {string} lang - The selected language code
+ * @param {string} lang 
  */
 const updateActiveLanguage = (lang) => {
     const languageOptions = document.querySelectorAll('.language-option');
