@@ -138,18 +138,31 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
         
-        (function() {
+        window.testimonialsCarousel = null;
+        
+        function initTestimonialsCarousel() {
+            if (window.testimonialsCarousel && window.testimonialsCarousel.destroy) {
+                window.testimonialsCarousel.destroy();
+            }
+            
             const track = document.getElementById('testimonialsTrack');
-            const slides = document.querySelectorAll('.testimonial-slide');
             const prevBtn = document.getElementById('testimonialsCarouselPrev');
             const nextBtn = document.getElementById('testimonialsCarouselNext');
             const navContainer = document.getElementById('testimonialsCarouselNav');
             
-            if (!track || !slides.length) return;
+            if (!track || !navContainer) {
+                console.log('Testimonials carousel: missing elements');
+                return;
+            }
             
             let currentIndex = 0;
             let slidesToShow = 1;
             let autoplayInterval;
+            let prevSlideHandler, nextSlideHandler, resizeHandler;
+            
+            function getSlides() {
+                return document.querySelectorAll('.testimonial-slide:not(.is-hidden)');
+            }
             
             function updateSlidesToShow() {
                 if (window.innerWidth >= 1024) {
@@ -162,8 +175,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             function createNavDots() {
+                if (!navContainer) return;
+                const slides = getSlides();
+                if (!slides.length) return;
+                
                 navContainer.innerHTML = '';
-                const totalPages = Math.ceil(slides.length / slidesToShow);
+                
+                const totalPages = slides.length <= slidesToShow ? 1 : Math.ceil(slides.length / slidesToShow);
+                
                 for (let i = 0; i < totalPages; i++) {
                     const dot = document.createElement('button');
                     dot.setAttribute('aria-label', `Go to page ${i + 1}`);
@@ -174,14 +193,40 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             function updateNavDots() {
+                if (!navContainer) return;
                 const dots = navContainer.querySelectorAll('button');
-                const currentPage = Math.floor(currentIndex / slidesToShow);
+                if (!dots.length) return;
+                
+                const slides = getSlides();
+                if (!slides.length) return;
+                
+                const totalPages = slides.length <= slidesToShow ? 1 : Math.ceil(slides.length / slidesToShow);
+                const currentPage = Math.min(Math.floor(currentIndex / slidesToShow), totalPages - 1);
+                
                 dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentPage);
+                    if (index === currentPage) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
                 });
             }
             
             function goToSlide(index) {
+                const slides = getSlides();
+                if (!slides.length) {
+                    track.style.transform = 'translateX(0%)';
+                    updateNavDots();
+                    return;
+                }
+                
+                if (slides.length <= slidesToShow) {
+                    currentIndex = 0;
+                    track.style.transform = 'translateX(0%)';
+                    updateNavDots();
+                    return;
+                }
+                
                 const maxIndex = slides.length - slidesToShow;
                 currentIndex = Math.max(0, Math.min(index, maxIndex));
                 const offset = -(currentIndex * (100 / slidesToShow));
@@ -190,54 +235,161 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             function nextSlide() {
-                if (currentIndex < slides.length - slidesToShow) {
-                    goToSlide(currentIndex + 1);
-                } else {
-                    goToSlide(0);
+                const slides = getSlides();
+                if (!slides.length) return;
+                
+                if (slides.length <= slidesToShow) {
+                    return;
                 }
+                
+                const totalPages = Math.ceil(slides.length / slidesToShow);
+                const currentPage = Math.floor(currentIndex / slidesToShow);
+                const nextPage = (currentPage + 1) % totalPages;
+                currentIndex = nextPage * slidesToShow;
+                goToSlide(currentIndex);
             }
             
             function prevSlide() {
-                if (currentIndex > 0) {
-                    goToSlide(currentIndex - 1);
-                } else {
-                    goToSlide(slides.length - slidesToShow);
+                const slides = getSlides();
+                if (!slides.length) return;
+                
+                if (slides.length <= slidesToShow) {
+                    return;
                 }
+                
+                const totalPages = Math.ceil(slides.length / slidesToShow);
+                const currentPage = Math.floor(currentIndex / slidesToShow);
+                const prevPage = currentPage === 0 ? totalPages - 1 : currentPage - 1;
+                currentIndex = prevPage * slidesToShow;
+                goToSlide(currentIndex);
             }
             
             function startAutoplay() {
+                stopAutoplay();
+                const slides = getSlides();
+                if (slides.length <= slidesToShow) {
+                    return;
+                }
                 autoplayInterval = setInterval(nextSlide, 5000);
             }
             
             function stopAutoplay() {
-                clearInterval(autoplayInterval);
+                if (autoplayInterval) {
+                    clearInterval(autoplayInterval);
+                    autoplayInterval = null;
+                }
             }
             
-            prevBtn?.addEventListener('click', () => {
+            function updateArrowsVisibility() {
+                const slides = getSlides();
+                const shouldHideArrows = slides.length <= slidesToShow;
+                
+                if (prevBtn) {
+                    prevBtn.style.display = shouldHideArrows ? 'none' : 'flex';
+                }
+                if (nextBtn) {
+                    nextBtn.style.display = shouldHideArrows ? 'none' : 'flex';
+                }
+            }
+            
+            function destroy() {
+                stopAutoplay();
+                if (prevBtn && prevSlideHandler) {
+                    prevBtn.removeEventListener('click', prevSlideHandler);
+                }
+                if (nextBtn && nextSlideHandler) {
+                    nextBtn.removeEventListener('click', nextSlideHandler);
+                }
+                if (track) {
+                    track.removeEventListener('mouseenter', stopAutoplay);
+                    track.removeEventListener('mouseleave', startAutoplay);
+                }
+                if (resizeHandler) {
+                    window.removeEventListener('resize', resizeHandler);
+                }
+            }
+            
+            prevSlideHandler = () => {
                 prevSlide();
                 stopAutoplay();
                 startAutoplay();
-            });
+            };
             
-            nextBtn?.addEventListener('click', () => {
+            nextSlideHandler = () => {
                 nextSlide();
                 stopAutoplay();
                 startAutoplay();
-            });
+            };
             
+            resizeHandler = () => {
+                const oldSlidesToShow = slidesToShow;
+                updateSlidesToShow();
+                if (oldSlidesToShow !== slidesToShow) {
+                    createNavDots();
+                    updateArrowsVisibility();
+                    currentIndex = 0;
+                    goToSlide(0);
+                    startAutoplay();
+                }
+            };
+            
+            if (prevBtn) prevBtn.addEventListener('click', prevSlideHandler);
+            if (nextBtn) nextBtn.addEventListener('click', nextSlideHandler);
             track.addEventListener('mouseenter', stopAutoplay);
             track.addEventListener('mouseleave', startAutoplay);
-            
-            window.addEventListener('resize', () => {
-                updateSlidesToShow();
-                createNavDots();
-                goToSlide(0);
-            });
+            window.addEventListener('resize', resizeHandler);
             
             updateSlidesToShow();
             createNavDots();
+            updateArrowsVisibility();
+            currentIndex = 0;
+            goToSlide(0);
             startAutoplay();
-        })();
+            
+            window.testimonialsCarousel = {
+                destroy,
+                refresh: () => {
+                    currentIndex = 0;
+                    createNavDots();
+                    updateArrowsVisibility();
+                    goToSlide(0);
+                }
+            };
+            
+            console.log('Testimonials carousel initialized with', getSlides().length, 'slides, showing', slidesToShow, 'at a time');
+        }
+        
+        initTestimonialsCarousel();
+
+        function initTestimonialsFilters() {
+            const filterButtons = document.querySelectorAll('.testimonial-filter');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            if (!filterButtons.length || !slides.length) return;
+
+            const applyFilter = (filter) => {
+                slides.forEach(slide => {
+                    const tags = (slide.getAttribute('data-tags') || '')
+                        .split(',')
+                        .map(tag => tag.trim())
+                        .filter(Boolean);
+                    const isMatch = filter === 'all' || tags.includes(filter);
+                    slide.classList.toggle('is-hidden', !isMatch);
+                });
+                initTestimonialsCarousel();
+            };
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    applyFilter(button.getAttribute('data-filter'));
+                });
+            });
+        }
+
+        initTestimonialsFilters();
+        
+        window.reinitTestimonialsCarousel = initTestimonialsCarousel;
 
         function openModal(imageSrc) {
             const modal = document.getElementById('diplomaModal');
@@ -253,25 +405,23 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'auto';
         }
         
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.diploma-card img').forEach(img => {
-                img.parentElement.style.cursor = 'pointer';
-                img.parentElement.addEventListener('click', function() {
-                    openModal(img.src);
-                });
+        document.querySelectorAll('.diploma-card img').forEach(img => {
+            img.parentElement.style.cursor = 'pointer';
+            img.parentElement.addEventListener('click', function() {
+                openModal(img.src);
             });
-            
-            document.getElementById('diplomaModal')?.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeModal();
-                }
-            });
-            
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeModal();
-                }
-            });
+        });
+        
+        document.getElementById('diplomaModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
         });
         
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -371,21 +521,38 @@ const initializeForm = () => {
     if (form) {
         form.innerHTML = `
             <div class="space-y-4">
-                <div>
-                    <label for="parentName" class="block text-sm font-medium text-gray-700" data-i18n-key="form_name">Your Name</label>
-                    <input type="text" id="parentName" name="parentName" required placeholder="" data-i18n-key="form_name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-orange-500 focus:border-orange-500">
+                <div class="form-step-indicator">
+                    <span class="form-step-label active" data-step="1" data-i18n-key="form_step_1">Step 1 of 2</span>
+                    <span class="form-step-label" data-step="2" data-i18n-key="form_step_2">Step 2 of 2</span>
                 </div>
-                <div>
-                    <label for="contactPhone" class="block text-sm font-medium text-gray-700" data-i18n-key="form_phone">Contact Phone</label>
-                    <input type="tel" id="contactPhone" name="contactPhone" required placeholder="+48" value="+48" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-orange-500 focus:border-orange-500">
+                <div id="formStepError" class="form-step-error" aria-live="polite"></div>
+                <div class="form-step form-step-1 active">
+                    <div>
+                        <label for="parentName" class="block text-sm font-medium text-gray-700" data-i18n-key="form_name">Your Name</label>
+                        <input type="text" id="parentName" name="parentName" required placeholder="" data-i18n-key="form_name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-orange-500 focus:border-orange-500">
+                    </div>
+                    <div>
+                        <label for="contactPhone" class="block text-sm font-medium text-gray-700" data-i18n-key="form_phone">Contact Phone</label>
+                        <input type="tel" id="contactPhone" name="contactPhone" required placeholder="+48" value="+48" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-orange-500 focus:border-orange-500">
+                    </div>
+                    <button type="button" id="nextStepBtn" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-orange-600 hover:bg-orange-700 transition duration-150" data-i18n-key="form_next">
+                        Next
+                    </button>
                 </div>
-                <div>
-                    <label for="problemDescription" class="block text-sm font-medium text-gray-700" data-i18n-key="form_challenge">Briefly describe the challenge</label>
-                    <textarea id="problemDescription" name="problemDescription" rows="4" placeholder="" data-i18n-key="form_challenge" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-orange-500 focus:border-orange-500"></textarea>
+                <div class="form-step form-step-2">
+                    <div>
+                        <label for="problemDescription" class="block text-sm font-medium text-gray-700" data-i18n-key="form_challenge">Briefly describe the challenge</label>
+                        <textarea id="problemDescription" name="problemDescription" rows="4" placeholder="" data-i18n-key="form_challenge" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-orange-500 focus:border-orange-500"></textarea>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button type="button" id="backStepBtn" class="w-full flex justify-center py-3 px-4 border border-orange-600 rounded-md shadow-sm text-lg font-medium text-orange-700 bg-white hover:bg-orange-50 transition duration-150" data-i18n-key="form_back">
+                            Back
+                        </button>
+                        <button type="submit" id="submitButton" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-orange-600 hover:bg-orange-700 transition duration-150" data-i18n-key="form_send">
+                            Send Application
+                        </button>
+                    </div>
                 </div>
-                <button type="submit" id="submitButton" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-orange-600 hover:bg-orange-700 transition duration-150" data-i18n-key="form_send">
-                    Send Application
-                </button>
             </div>
         `;
         
@@ -424,6 +591,47 @@ const initializeForm = () => {
                         e.target.setSelectionRange(3, 3);
                     }, 0);
                 }
+            });
+        }
+
+        const nextStepBtn = document.getElementById('nextStepBtn');
+        const backStepBtn = document.getElementById('backStepBtn');
+        const step1 = form.querySelector('.form-step-1');
+        const step2 = form.querySelector('.form-step-2');
+        const stepLabels = form.querySelectorAll('.form-step-label');
+        const stepError = document.getElementById('formStepError');
+
+        const setStep = (step) => {
+            step1.classList.toggle('active', step === 1);
+            step2.classList.toggle('active', step === 2);
+            stepLabels.forEach(label => {
+                label.classList.toggle('active', parseInt(label.getAttribute('data-step'), 10) === step);
+            });
+            if (stepError) {
+                stepError.textContent = '';
+                stepError.classList.remove('visible');
+            }
+        };
+
+        if (nextStepBtn) {
+            nextStepBtn.addEventListener('click', () => {
+                const nameValue = document.getElementById('parentName')?.value.trim();
+                const phoneValue = document.getElementById('contactPhone')?.value.trim();
+                const currentLang = localStorage.getItem('siteLang') || DEFAULT_LANG;
+                if (!nameValue || !phoneValue || phoneValue === '+48') {
+                    if (stepError) {
+                        stepError.textContent = translations[currentLang]['form_step_error'] || 'Please fill in required fields.';
+                        stepError.classList.add('visible');
+                    }
+                    return;
+                }
+                setStep(2);
+            });
+        }
+
+        if (backStepBtn) {
+            backStepBtn.addEventListener('click', () => {
+                setStep(1);
             });
         }
     }
@@ -560,6 +768,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initializeForm();
+
+    const reduceHeroMotion = true;
     
     if (typeof AOS !== 'undefined') {
         AOS.init({
@@ -570,45 +780,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    const floatingBtn = document.getElementById('floatingBookBtn');
-    const whatsappBtn = document.getElementById('whatsappBtn');
-    const telegramBtn = document.getElementById('telegramBtn');
-    
-    if (floatingBtn) {
-        let lastScrollTop = 0;
-        const showAfterScroll = 250; 
-        
+    const floatingActions = document.getElementById('floatingActions');
+    const floatingToggle = document.getElementById('floatingToggle');
+    const floatingMenu = document.getElementById('floatingActionsMenu');
+
+    if (floatingActions && floatingToggle && floatingMenu) {
+        const showAfterScroll = 250;
+
+        const closeFloatingMenu = () => {
+            floatingActions.classList.remove('open');
+            floatingToggle.setAttribute('aria-expanded', 'false');
+        };
+
         window.addEventListener('scroll', () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
             if (scrollTop > showAfterScroll) {
-                floatingBtn.classList.add('visible');
-                if (whatsappBtn) {
-                    whatsappBtn.style.opacity = '1';
-                    whatsappBtn.style.transform = 'translateY(0)';
-                    whatsappBtn.style.pointerEvents = 'all';
-                }
-                if (telegramBtn) {
-                    telegramBtn.style.opacity = '1';
-                    telegramBtn.style.transform = 'translateY(0)';
-                    telegramBtn.style.pointerEvents = 'all';
-                }
+                floatingActions.classList.add('visible');
             } else {
-                floatingBtn.classList.remove('visible');
-                if (whatsappBtn) {
-                    whatsappBtn.style.opacity = '0';
-                    whatsappBtn.style.transform = 'translateY(100px)';
-                    whatsappBtn.style.pointerEvents = 'none';
-                }
-                if (telegramBtn) {
-                    telegramBtn.style.opacity = '0';
-                    telegramBtn.style.transform = 'translateY(100px)';
-                    telegramBtn.style.pointerEvents = 'none';
-                }
+                floatingActions.classList.remove('visible');
+                closeFloatingMenu();
             }
-            
-            lastScrollTop = scrollTop;
         });
+
+        floatingToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const isOpen = floatingActions.classList.toggle('open');
+            floatingToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        floatingMenu.addEventListener('click', (e) => {
+            if (e.target.closest('a')) {
+                closeFloatingMenu();
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#floatingActions')) {
+                closeFloatingMenu();
+            }
+        });
+
+        const footer = document.querySelector('footer');
+        if (footer && 'IntersectionObserver' in window) {
+            const footerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        floatingActions.classList.add('is-hidden');
+                        closeFloatingMenu();
+                    } else {
+                        floatingActions.classList.remove('is-hidden');
+                    }
+                });
+            }, {
+                rootMargin: '0px 0px -20% 0px'
+            });
+            footerObserver.observe(footer);
+        }
     }
     
     const cookieConsent = document.getElementById('cookieConsent');
@@ -696,7 +924,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     const canvas = document.getElementById('particlesCanvas');
-    if (canvas) {
+    if (canvas && !reduceHeroMotion) {
         const ctx = canvas.getContext('2d');
         canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
@@ -751,10 +979,12 @@ document.addEventListener('DOMContentLoaded', () => {
             canvas.width = canvas.offsetWidth;
             canvas.height = canvas.offsetHeight;
         });
+    } else if (canvas) {
+        canvas.style.display = 'none';
     }
     
     const heroSection = document.getElementById('hero');
-    if (heroSection) {
+    if (heroSection && !reduceHeroMotion) {
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const parallaxSpeed = 0.5;
