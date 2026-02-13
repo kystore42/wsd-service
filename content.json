@@ -1,0 +1,61 @@
+{
+    "stats": {
+        "students": "150",
+        "years": "7",
+        "success_rate": "95",
+        "sessions": "500"
+    },
+    "testimonials": [
+        {
+            "name": "Anna K.",
+            "role": "Parent",
+            "text": "Wonderful experience! My son now enjoys learning and his confidence has grown tremendously.",
+            "photo": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=400&fit=crop",
+            "video": null
+        },
+        {
+            "name": "Maria S.",
+            "role": "Parent",
+            "text": "Professional and caring approach. My daughter's reading skills improved significantly!",
+            "photo": null,
+            "video": null
+        },
+        {
+            "name": "Piotr W.",
+            "role": "Parent",
+            "text": "Amazing results! My son can now focus better and his grades have improved.",
+            "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+            "video": null
+        },
+        {
+            "name": "Oksana L.",
+            "role": "Parent",
+            "text": "My daughter struggled with reading, but now she reads confidently. Thank you for your patience!",
+            "photo": null,
+            "video": null
+        },
+        {
+            "name": "Tomasz K.",
+            "role": "Parent",
+            "text": "Exceptional teacher! Our son's behavior and academic performance improved dramatically.",
+            "photo": null,
+            "video": null
+        },
+        {
+            "name": "Elena M.",
+            "role": "Parent",
+            "text": "Highly recommend! A caring professional who truly understands children with special needs.",
+            "photo": null,
+            "video": null
+        }
+    ],
+    "hero": {
+        "heading": "Empowering Children with Special Needs",
+        "description": "My individualized approach helps children overcome challenges and thrive socially and academically."
+    },
+    "contact": {
+        "email": "josephblazkowicz543@gmail.com",
+        "phone": "+48355123456",
+        "address": "Wroclaw, Poland"
+    }
+}
