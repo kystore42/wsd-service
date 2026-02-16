@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title data-i18n-key="reviews_gallery_title">Reviews & Gallery</title>
+    <meta name="description" data-i18n-key="reviews_gallery_meta" content="Reviews and gallery.">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-white via-orange-50/30 to-amber-50/20 text-gray-800 font-sans">
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="img/kaktusiaki-logo.png" alt="KakTUSiaki Logo" class="loader-logo-img">
+            </div>
+            <div class="loader-spinner"></div>
+            <p class="loader-text" data-i18n-key="loading">Loading...</p>
+        </div>
+    </div>
+
+    <div id="progressBar" class="progress-bar"></div>
+    <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+
+    <header class="sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center hover:scale-105 transition-transform">
+                <img src="img/kaktusiaki-logo.png" alt="KakTUSiaki Logo" class="h-20 sm:h-24 md:h-32 w-auto">
+            </a>
+
+            <button id="menuBtn" class="md:hidden text-orange-600 text-3xl hover:scale-110 transition-transform relative z-50">
+                <span id="menuIcon">☰</span>
+            </button>
+
+            <div id="navMenu" class="hidden md:flex items-center flex-col md:flex-row space-y-0 md:space-y-0 md:space-x-8 md:bg-transparent">
+                <div class="mobile-menu-header md:hidden w-full">
+                    <img src="img/kaktusiaki-logo.png" alt="KakTUSiaki Logo" class="h-12 w-auto">
+                    <button class="mobile-close-btn" id="mobileCloseBtn">×</button>
+                </div>
+
+                <div class="mobile-lang-selector md:hidden w-full">
+                    <button class="mobile-lang-btn" data-mobile-lang="en">EN</button>
+                    <button class="mobile-lang-btn" data-mobile-lang="uk">UA</button>
+                    <button class="mobile-lang-btn" data-mobile-lang="pl">PL</button>
+                </div>
+
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto p-6 md:p-0">
+                    <a href="reviews-gallery.html" class="nav-link active text-orange-700 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_reviews_gallery" aria-current="page">Reviews & Gallery</a>
+                    <a href="index.html#services" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_services">Services & Pricing</a>
+                    <a href="index.html#credentials" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_diplomas">Diplomas</a>
+                    <a href="index.html#faq" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_faq">FAQ</a>
+                </div>
+
+                <div class="language-switcher hidden md:block">
+                    <button class="globe-button" id="globeButton" aria-label="Change Language">
+                        🌐
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option" data-lang="en">
+                            <span class="flag-icon">EN</span>
+                            <span class="font-medium text-gray-700">English</span>
+                        </div>
+                        <div class="language-option" data-lang="uk">
+                            <span class="flag-icon">UA</span>
+                            <span class="font-medium text-gray-700">Українська</span>
+                        </div>
+                        <div class="language-option" data-lang="pl">
+                            <span class="flag-icon">PL</span>
+                            <span class="font-medium text-gray-700">Polski</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 pb-16">
+        <section class="bg-white shadow-xl rounded-3xl p-6 sm:p-8 md:p-10 border border-orange-100 mb-10">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-black text-orange-800 mb-3" data-i18n-key="reviews_gallery_title">Reviews & Gallery</h1>
+            <p class="text-base text-gray-600 max-w-2xl" data-i18n-key="reviews_gallery_desc">Stories from families and moments from classes.</p>
+        </section>
+
+        <section id="reviews" class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl sm:text-2xl font-bold text-orange-800" data-i18n-key="reviews_section_title">Reviews</h2>
+            </div>
+            <div id="reviewsList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
+
+        <section id="gallery">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl sm:text-2xl font-bold text-orange-800" data-i18n-key="gallery_title">Gallery</h2>
+                <span class="text-sm text-gray-500" data-i18n-key="gallery_hint">Photos and videos from sessions</span>
+            </div>
+            <div id="galleryGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
+    </main>
+
+    <div class="floating-actions" id="floatingActions">
+        <div class="floating-actions-menu" id="floatingActionsMenu">
+            <a href="index.html#booking" class="floating-action floating-action-book" id="floatingBookBtn" aria-label="Book a Session" title="Book a Session">
+                <i class="fas fa-calendar-check"></i>
+                <span class="floating-action-label" data-i18n-key="nav_book">Book a Session</span>
+            </a>
+            <a href="https://wa.me/48355123456" target="_blank" class="floating-action floating-action-whatsapp" title="WhatsApp" id="whatsappBtn" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://t.me/yourusername" target="_blank" class="floating-action floating-action-telegram" title="Telegram" id="telegramBtn" aria-label="Telegram">
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div>
+        <button class="floating-toggle" id="floatingToggle" aria-label="Open quick actions" aria-expanded="false">
+            <i class="fas fa-ellipsis-v"></i>
+        </button>
+    </div>
+
+    <footer class="footer footer-light py-8 sm:py-12 md:py-16 relative">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                <div class="space-y-4 footer-col-narrow">
+                    <h3 class="text-2xl font-black footer-title" data-i18n-key="teacher_name">Yevheniia Mykhailova</h3>
+                    <p class="footer-text leading-relaxed text-sm" data-i18n-key="desc_hero">
+                        My individualized approach helps children overcome challenges and thrive socially and academically.
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-orange-700">
+                        <img src="img/kaktusiaki-logo.png" alt="KakTUSiaki Logo" class="h-32 sm:h-32 md:h-64 w-auto hover:scale-105 transition-transform duration-300 footer-logo">
+                    </div>
+                </div>
+
+                <div class="space-y-4 footer-hours">
+                    <h4 class="text-lg font-bold footer-heading flex items-center gap-2">
+                        <i class="fas fa-clock"></i>
+                        <span data-i18n-key="working_hours">Working Hours</span>
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex justify-between footer-text">
+                            <span data-i18n-key="monday_friday">Mon - Fri:</span>
+                            <span class="font-semibold">9:00 - 18:00</span>
+                        </li>
+                        <li class="flex justify-between footer-text">
+                            <span data-i18n-key="saturday">Sat - Sun:</span>
+                            <span class="font-semibold text-orange-300" data-i18n-key="closed">Closed</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold footer-heading flex items-center gap-2">
+                        <i class="fas fa-address-book"></i>
+                        <span data-i18n-key="contact_info">Contact</span>
+                    </h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3 footer-text">
+                            <i class="fas fa-envelope text-lg mt-0.5"></i>
+                            <a href="mailto:josephblazkowicz543@gmail.com" class="hover:text-white transition break-all">josephblazkowicz543@gmail.com</a>
+                        </li>
+                        <li class="flex items-start gap-3 footer-text">
+                            <i class="fas fa-phone text-lg mt-0.5"></i>
+                            <a href="tel:+48355123456" class="hover:text-white transition">+48 355 123 456</a>
+                        </li>
+                        <li class="flex items-start gap-3 footer-text">
+                            <i class="fas fa-map-marker-alt text-lg mt-0.5"></i>
+                            <span>Wroclaw, Poland</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-3 mt-4">
+                        <a href="https://wa.me/48355123456" target="_blank" class="w-10 h-10 bg-green-600 hover:bg-green-500 rounded-full flex items-center justify-center transition-all transform hover:scale-110" title="WhatsApp">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://t.me/yourusername" target="_blank" class="w-10 h-10 bg-blue-500 hover:bg-blue-400 rounded-full flex items-center justify-center transition-all transform hover:scale-110" title="Telegram">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold footer-heading flex items-center gap-2">
+                        <i class="fas fa-location-dot"></i>
+                        <span data-i18n-key="location">Location</span>
+                    </h4>
+                    <div class="rounded-lg overflow-hidden shadow-lg h-40">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2180.03587373013!2d17.011999583705396!3d51.08076168993011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc248c9cbbd09%3A0xcef878d6b636837!2sApteka%20pod%20Jaworami!5e1!3m2!1suk!2spl!4v1765445822597!5m2!1suk!2spl"
+                        width="600"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-orange-700 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="footer-muted text-sm" data-i18n-key="copyright">&copy; 2026 Yevheniia Mykhailova. All rights reserved.</p>
+                <div class="flex items-center gap-4">
+                    <a href="privacy.html" class="footer-link text-sm" data-i18n-key="privacy_policy">Privacy Policy</a>
+                    <a href="index.html#booking" class="footer-cta" data-i18n-key="nav_book">Book a Session</a>
+                    <a href="https://facebook.com" target="_blank" class="footer-social-btn w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="footer-social-btn w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <i class="fas fa-cookie-bite"></i>
+                <p>
+                    <strong data-i18n-key="cookie_title">We use cookies</strong>
+                    <span data-i18n-key="cookie_text">This website uses cookies to ensure you get the best experience on our website. By continuing to use this site, you accept our use of cookies.</span>
+                </p>
+            </div>
+            <div class="cookie-consent-buttons">
+                <button id="cookieAccept" class="cookie-btn cookie-btn-accept" data-i18n-key="cookie_accept">Accept</button>
+                <button id="cookieDecline" class="cookie-btn cookie-btn-decline" data-i18n-key="cookie_decline">Decline</button>
+                <a href="privacy.html" class="cookie-link" data-i18n-key="cookie_learn_more">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="adminPanel" class="admin-panel">
+        <div class="admin-panel-content">
+            <div class="admin-panel-header">
+                <h2>📊 Админ-панель</h2>
+                <button class="admin-close-btn" id="adminCloseBtn">×</button>
+            </div>
+
+            <div class="admin-panel-tabs">
+                <button class="admin-tab active" data-tab="testimonials" id="testimonialsTab">Отзывы</button>
+                <button class="admin-tab" data-tab="gallery" id="galleryTab">Галерея</button>
+            </div>
+
+            <div class="admin-panel-body">
+                <div class="admin-tab-content active" id="testimonials-content">
+                    <div class="admin-testimonials-list" id="adminTestimonialsList"></div>
+                    <button class="admin-btn-add" id="addTestimonialBtn">+ Добавить отзыв</button>
+                </div>
+
+                <div class="admin-tab-content" id="gallery-content" style="display:none;">
+                    <div class="admin-testimonials-list" id="adminGalleryList"></div>
+                    <button class="admin-btn-add" id="addGalleryBtn">+ Добавить элемент галереи</button>
+                </div>
+            </div>
+
+            <div class="admin-panel-footer">
+                <button class="admin-btn-save" id="adminSaveBtn">💾 Сохранить изменения</button>
+                <button class="admin-btn-reset" id="adminResetBtn">Сбросить к исходным</button>
+                <button class="admin-btn-save" id="adminDownloadBtn">⬇ Скачать admin-data.json</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="admin-modal" id="testimonialModal" style="display:none;">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h3 id="testimonialModalTitle">Добавить отзыв</h3>
+                <button class="admin-modal-close" id="testimonialModalClose">×</button>
+            </div>
+            <div class="admin-modal-body">
+                <div class="admin-form-group">
+                    <label>Язык-источник</label>
+                    <select id="testimonialSourceLang" class="admin-input">
+                        <option value="en">EN</option>
+                        <option value="uk">UA</option>
+                        <option value="pl">PL</option>
+                    </select>
+                </div>
+                <button class="admin-btn-save-modal" id="testimonialAutoFillBtn">Автозаполнить другие языки</button>
+
+                <div class="grid sm:grid-cols-3 gap-3">
+                    <div>
+                        <label>Имя (EN)</label>
+                        <input type="text" id="testimonialNameEn" class="admin-input">
+                        <label class="mt-2">Роль (EN)</label>
+                        <input type="text" id="testimonialRoleEn" class="admin-input">
+                        <label class="mt-2">Текст (EN)</label>
+                        <textarea id="testimonialTextEn" class="admin-input" style="min-height: 120px;"></textarea>
+                    </div>
+                    <div>
+                        <label>Имя (UA)</label>
+                        <input type="text" id="testimonialNameUk" class="admin-input">
+                        <label class="mt-2">Роль (UA)</label>
+                        <input type="text" id="testimonialRoleUk" class="admin-input">
+                        <label class="mt-2">Текст (UA)</label>
+                        <textarea id="testimonialTextUk" class="admin-input" style="min-height: 120px;"></textarea>
+                    </div>
+                    <div>
+                        <label>Имя (PL)</label>
+                        <input type="text" id="testimonialNamePl" class="admin-input">
+                        <label class="mt-2">Роль (PL)</label>
+                        <input type="text" id="testimonialRolePl" class="admin-input">
+                        <label class="mt-2">Текст (PL)</label>
+                        <textarea id="testimonialTextPl" class="admin-input" style="min-height: 120px;"></textarea>
+                    </div>
+                </div>
+
+                <div class="admin-form-group">
+                    <label>Теги (через запятую)</label>
+                    <input type="text" id="testimonialTags" class="admin-input" placeholder="tus, hand">
+                </div>
+                <div class="admin-form-group">
+                    <label>Фото (необязательно)</label>
+                    <input type="file" id="testimonialPhotoFile" class="admin-input" accept="image/*">
+                </div>
+                <div class="admin-form-group">
+                    <label>Видео файл (необязательно)</label>
+                    <input type="file" id="testimonialVideoFile" class="admin-input" accept="video/*">
+                </div>
+                <div class="admin-form-group">
+                    <label>Ссылка на видео (необязательно)</label>
+                    <input type="url" id="testimonialVideoUrl" class="admin-input" placeholder="https://...">
+                </div>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn-cancel" id="testimonialModalCancel">Отмена</button>
+                <button class="admin-btn-save-modal" id="testimonialModalSave">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="admin-modal" id="galleryModal" style="display:none;">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h3 id="galleryModalTitle">Добавить элемент галереи</h3>
+                <button class="admin-modal-close" id="galleryModalClose">×</button>
+            </div>
+            <div class="admin-modal-body">
+                <div class="admin-form-group">
+                    <label>Язык-источник</label>
+                    <select id="gallerySourceLang" class="admin-input">
+                        <option value="en">EN</option>
+                        <option value="uk">UA</option>
+                        <option value="pl">PL</option>
+                    </select>
+                </div>
+                <button class="admin-btn-save-modal" id="galleryAutoFillBtn">Автозаполнить другие языки</button>
+
+                <div class="grid sm:grid-cols-3 gap-3">
+                    <div>
+                        <label>Заголовок (EN)</label>
+                        <input type="text" id="galleryTitleEn" class="admin-input">
+                        <label class="mt-2">Подпись (EN)</label>
+                        <textarea id="galleryCaptionEn" class="admin-input" style="min-height: 90px;"></textarea>
+                    </div>
+                    <div>
+                        <label>Заголовок (UA)</label>
+                        <input type="text" id="galleryTitleUk" class="admin-input">
+                        <label class="mt-2">Подпись (UA)</label>
+                        <textarea id="galleryCaptionUk" class="admin-input" style="min-height: 90px;"></textarea>
+                    </div>
+                    <div>
+                        <label>Заголовок (PL)</label>
+                        <input type="text" id="galleryTitlePl" class="admin-input">
+                        <label class="mt-2">Подпись (PL)</label>
+                        <textarea id="galleryCaptionPl" class="admin-input" style="min-height: 90px;"></textarea>
+                    </div>
+                </div>
+
+                <div class="admin-form-group">
+                    <label>Тип</label>
+                    <select id="galleryType" class="admin-input">
+                        <option value="photo">Фото</option>
+                        <option value="video">Видео</option>
+                    </select>
+                </div>
+                <div class="admin-form-group">
+                    <label>Файл (фото или видео)</label>
+                    <input type="file" id="galleryMediaFile" class="admin-input" accept="image/*,video/*">
+                </div>
+                <div class="admin-form-group">
+                    <label>Ссылка на видео (необязательно)</label>
+                    <input type="url" id="galleryVideoUrl" class="admin-input" placeholder="https://...">
+                </div>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn-cancel" id="galleryModalCancel">Отмена</button>
+                <button class="admin-btn-save-modal" id="galleryModalSave">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="admin-modal" id="passwordModal" style="display:none;">
+        <div class="admin-modal-content" style="max-width: 400px;">
+            <div class="admin-modal-header">
+                <h3>🔐 Доступ администратора</h3>
+                <button class="admin-modal-close" id="passwordModalClose">×</button>
+            </div>
+            <div class="admin-modal-body">
+                <p style="color: #6b7280; margin-bottom: 20px; text-align: center;">Введите пароль для доступа в админ-панель</p>
+                <div class="admin-form-group">
+                    <label>Пароль</label>
+                    <input type="password" id="passwordInput" class="admin-input" placeholder="Введите пароль..." autocomplete="off">
+                </div>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn-cancel" id="passwordCancelBtn">Отмена</button>
+                <button class="admin-btn-save-modal" id="passwordSubmitBtn">Войти в админ-панель</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="reviews-gallery.js"></script>
+</body>
+</html>

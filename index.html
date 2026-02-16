@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title data-i18n-key="site_title">Yevheniia Mykhailova - Special Education Teacher | Wroclaw</title>
+    <meta name="description" data-i18n-key="meta_description" content="Professional special education teacher in Wroclaw. Expert in ADHD support, dyslexia therapy, and individualized learning strategies for children with special needs. Book a consultation today!">
+    <meta name="keywords" content="special education teacher, Wroclaw, ADHD support, dyslexia therapy, special needs education, pedagog specjalny, nauczyciel wspomagający, Wrocław">
+    <meta name="author" content="Yevheniia Mykhailova">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com/">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:title" data-i18n-key="og_title" content="Yevheniia Mykhailova - Special Education Teacher | Wroclaw">
+    <meta property="og:description" data-i18n-key="og_description" content="Professional special education teacher specializing in ADHD, dyslexia, and individualized learning strategies. Helping children thrive academically and socially.">
+    <meta property="og:image" content="https://yourwebsite.com/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="uk_UA">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://yourwebsite.com/">
+    <meta name="twitter:title" data-i18n-key="twitter_title" content="Yevheniia Mykhailova - Special Education Teacher">
+    <meta name="twitter:description" data-i18n-key="twitter_description" content="Expert special education services for children with ADHD, dyslexia, and learning challenges in Wroclaw.">
+    <meta name="twitter:image" content="https://yourwebsite.com/img/og-image.jpg">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Yevheniia Mykhailova - Special Education Services",
+      "url": "https://yourwebsite.com",
+      "logo": "https://yourwebsite.com/img/logo.png",
+      "image": "https://yourwebsite.com/img/woman2.png",
+      "description": "Professional special education teacher providing individualized support for children with ADHD, dyslexia, and special learning needs in Wroclaw, Poland.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Wroclaw",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.08076168993011",
+        "longitude": "17.011999583705396"
+      },
+      "telephone": "+48355123456",
+      "email": "josephblazkowicz543@gmail.com",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://facebook.com/yourprofile",
+        "https://instagram.com/yourprofile"
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Yevheniia Mykhailova",
+      "jobTitle": "Special Education Teacher",
+      "description": "Professional special education teacher with expertise in ADHD support, dyslexia therapy, and individualized learning strategies.",
+      "image": "https://yourwebsite.com/img/woman2.png",
+      "url": "https://yourwebsite.com",
+      "telephone": "+48355123456",
+      "email": "josephblazkowicz543@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Wroclaw",
+        "addressCountry": "PL"
+      }
+    }
+    </script>
+</head>
+<body class="font-sans text-gray-800">
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="img/kaktusiaki-logo.png" alt="KakTUSiaki Logo" class="loader-logo-img">
+            </div>
+            <div class="loader-spinner"></div>
+            <p class="loader-text" data-translate="loading">Loading...</p>
+        </div>
+    </div>
+
+    <div id="progressBar" class="progress-bar"></div>
+
+    <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+    
+    <header class="sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center hover:scale-105 transition-transform" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                <img src="img/kaktusiaki-logo.png" alt="KakTUSiaki Logo" class="h-20 sm:h-24 md:h-32 w-auto">
+            </a>
+            
+            <button id="menuBtn" class="md:hidden text-orange-600 text-3xl hover:scale-110 transition-transform relative z-50">
+                <span id="menuIcon">☰</span>
+            </button>
+            
+            <div id="navMenu" class="hidden md:flex items-center flex-col md:flex-row space-y-0 md:space-y-0 md:space-x-8 md:bg-transparent">
+                <div class="mobile-menu-header md:hidden w-full">
+                    <img src="img/kaktusiaki-logo.png" alt="KakTUSiaki Logo" class="h-12 w-auto">
+                    <button class="mobile-close-btn" id="mobileCloseBtn">×</button>
+                </div>
+                
+                <div class="mobile-lang-selector md:hidden w-full">
+                    <button class="mobile-lang-btn" data-mobile-lang="en">EN</button>
+                    <button class="mobile-lang-btn" data-mobile-lang="uk">UA</button>
+                    <button class="mobile-lang-btn" data-mobile-lang="pl">PL</button>
+                </div>
+                
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 w-full md:w-auto p-6 md:p-0">
+                    <a href="reviews-gallery.html" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_reviews_gallery">Reviews & Gallery</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_services">Services & Pricing</a>
+                    <a href="#credentials" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_diplomas">Diplomas</a>
+                    <a href="#faq" class="nav-link text-gray-700 hover:text-orange-600 font-semibold text-base md:text-sm uppercase tracking-wide py-3 md:py-0 border-b border-orange-100 md:border-0" data-i18n-key="nav_faq">FAQ</a>
+                </div>
+                
+                <div class="language-switcher hidden md:block">
+                    <button class="globe-button" id="globeButton" aria-label="Change Language">
+                        🌐
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option" data-lang="en">
+                            <span class="flag-icon">EN</span>
+                            <span class="font-medium text-gray-700">English</span>
+                        </div>
+                        <div class="language-option" data-lang="uk">
+                            <span class="flag-icon">UA</span>
+                            <span class="font-medium text-gray-700">Українська</span>
+                        </div>
+                        <div class="language-option" data-lang="pl">
+                            <span class="flag-icon">PL</span>
+                            <span class="font-medium text-gray-700">Polski</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </nav>
+    </header>
+
+    <div id="diplomaModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Diploma">
+        </div>
+    </div>
+
+    <main>
+        <section id="hero" class="py-8 sm:py-12 md:py-24 bg-gradient-to-br from-orange-50 via-white to-amber-50 relative overflow-hidden">
+            <canvas id="particlesCanvas" class="particles-canvas"></canvas>
+            
+            <div class="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center gap-6 md:gap-12 relative z-10">
+                
+                <div class="md:w-1/2 z-10 space-y-4 text-center md:text-left hero-copy">
+                    <div class="inline-block px-3 py-1.5 bg-orange-100 rounded-full text-orange-700 font-semibold text-xs sm:text-sm mb-2 hero-badge">
+                        <span data-i18n-key="professional_badge"><i class="fas fa-star"></i> Special Education Teacher • TUS Trainer</span>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-orange-800 mb-4 leading-tight" data-i18n-key="heading_hero">
+                        TUS and Specialized Support for Children
+                    </h1>
+                    <p class="text-base sm:text-lg md:text-xl text-gray-600 mb-6 leading-relaxed" data-i18n-key="desc_hero">
+                        Support in relationships, communication, emotions, learning, and fine motor skills through TUS, hand therapy, corrective-compensatory classes, and fairy-tale therapy.
+                    </p>
+                    <div class="flex gap-3 flex-col sm:flex-row justify-center md:justify-start">
+                        <a href="#booking" class="inline-block bg-gradient-to-r from-orange-600 to-orange-500 text-white py-3 px-6 sm:py-4 sm:px-10 rounded-full hover:from-orange-700 hover:to-orange-600 active:scale-95 transition-all shadow-2xl hover:shadow-orange-500/50 font-bold text-base sm:text-lg text-center" data-i18n-key="nav_book">
+                            Book a Consultation
+                        </a>
+                        <a href="reviews-gallery.html" class="inline-block bg-white text-orange-600 border-2 border-orange-600 py-3 px-6 sm:py-4 sm:px-10 rounded-full hover:bg-orange-50 active:scale-95 transition-all shadow-lg font-bold text-base sm:text-lg text-center" data-i18n-key="read_reviews">
+                            Read Reviews ⭐
+                        </a>
+                    </div>
+                    <p class="cta-details text-sm sm:text-base text-gray-700" data-i18n-key="cta_details">Sessions 30-60 min • Prices from 0 PLN • Free initial parent consultation</p>
+
+                    <div class="mt-6 max-w-2xl">
+                        <div class="hero-info-card bg-white/90 border border-orange-100 rounded-2xl p-6 shadow-lg">
+                            <h3 class="text-sm font-semibold text-orange-700 flex items-center gap-2" data-i18n-key="badge_about">
+                                <i class="fas fa-user-graduate text-orange-500"></i>
+                                About Me
+                            </h3>
+                            <p class="mt-3 text-sm text-gray-600" data-i18n-key="about_p1">I am a special education teacher, a Social Skills Trainer (TUS) Level I and II, a Hand Therapy specialist Level I and II, and a Fairy-Tale Therapy trainer.</p>
+                            <p class="mt-2 text-sm text-gray-600" data-i18n-key="about_p2">Currently, I work as a co-teaching special educator.</p>
+                            <p class="mt-2 text-sm text-gray-600" data-i18n-key="about_p3">I am a teacher with 20 years of professional experience.</p>
+                            <p class="mt-2 text-sm text-gray-600" data-i18n-key="about_p4">I am also a mom.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="w-full md:w-1/2 hero-image-container">
+                    <div class="relative hero-image-frame">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-orange-400 to-amber-400 rounded-3xl blur-2xl opacity-30"></div>
+                        <img
+                            src="img/woman2.png"
+                            alt="Yevheniia Mykhailova - Special Education Teacher"
+                            class="hero-media rounded-3xl shadow-2xl w-full relative z-10 object-cover"
+                        >
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="services" class="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-white via-orange-50/40 to-amber-50/30">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10" data-aos="fade-up">
+                    <span class="inline-block px-6 py-2 bg-orange-100 rounded-full text-orange-700 font-bold text-sm mb-4">
+                        <i class="fas fa-tags"></i> <span data-i18n-key="badge_services">Services & Pricing</span>
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-800 mb-3" data-i18n-key="section_services">Services and Pricing</h2>
+                    <p class="text-base text-gray-600 max-w-2xl mx-auto" data-i18n-key="services_desc">Clear, transparent prices for each session.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                    <div class="group p-5 bg-white rounded-2xl shadow-lg border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                            <i class="fas fa-users text-white"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-orange-700 mb-2" data-i18n-key="service_tus_title">Social Skills Training (TUS)</h3>
+                        <p class="text-sm text-gray-600" data-i18n-key="service_tus_duration">Duration: 45 min</p>
+                        <p class="text-sm text-orange-700 font-semibold" data-i18n-key="service_tus_price">Price: 130 PLN</p>
+                    </div>
+
+                    <div class="group p-5 bg-white rounded-2xl shadow-lg border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="150">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                            <i class="fas fa-hand-holding-heart text-white"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-orange-700 mb-2" data-i18n-key="service_hand_title">Hand Therapy</h3>
+                        <p class="text-sm text-gray-600" data-i18n-key="service_hand_duration">Duration: 45 min</p>
+                        <p class="text-sm text-orange-700 font-semibold" data-i18n-key="service_hand_price">Price: 130 PLN</p>
+                    </div>
+
+                    <div class="group p-5 bg-white rounded-2xl shadow-lg border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                            <i class="fas fa-book-open text-white"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-orange-700 mb-2" data-i18n-key="service_ped_title">Pedagogical Therapy / Corrective-Compensatory Sessions</h3>
+                        <p class="text-sm text-gray-600" data-i18n-key="service_ped_duration">Duration: 45 min</p>
+                        <p class="text-sm text-orange-700 font-semibold" data-i18n-key="service_ped_price">Price: 130 PLN</p>
+                    </div>
+
+                    <div class="group p-5 bg-white rounded-2xl shadow-lg border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="250">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                            <i class="fas fa-wand-magic-sparkles text-white"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-orange-700 mb-2" data-i18n-key="service_fairy_title">Fairy-Tale Therapy</h3>
+                        <p class="text-sm text-gray-600" data-i18n-key="service_fairy_duration">Duration: 30-45 min</p>
+                        <p class="text-sm text-orange-700 font-semibold" data-i18n-key="service_fairy_price">Price: 130 PLN</p>
+                    </div>
+
+                    <div class="group p-5 bg-white rounded-2xl shadow-lg border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                            <i class="fas fa-comments text-white"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-orange-700 mb-2" data-i18n-key="service_parent_consult_title">Initial Consultation for Parents</h3>
+                        <p class="text-sm text-gray-600" data-i18n-key="service_parent_consult_duration">Duration: 30 min</p>
+                        <p class="text-sm text-orange-700 font-semibold" data-i18n-key="service_parent_consult_price">Price: 0 PLN</p>
+                    </div>
+
+                    <div class="group p-5 bg-white rounded-2xl shadow-lg border-2 border-orange-100 hover:border-orange-300" data-aos="fade-up" data-aos-delay="350">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                            <i class="fas fa-user-shield text-white"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-orange-700 mb-2" data-i18n-key="service_parent_counsel_title">Parent Counseling</h3>
+                        <p class="text-sm text-gray-600" data-i18n-key="service_parent_counsel_duration">Duration: 60 min</p>
+                        <p class="text-sm text-orange-700 font-semibold" data-i18n-key="service_parent_counsel_price">Price: 100 PLN (in-office)</p>
+                    </div>
+                </div>
+
+                <div class="mt-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-8">
+                        <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-orange-800 mb-3" data-i18n-key="service_kore_cards_title">Corrective-Compensatory Classes at a Glance</h3>
+                        <p class="text-base text-gray-600 max-w-2xl mx-auto" data-i18n-key="service_kore_cards_desc">Key information about who the classes are for, how they are organized, and what we develop.</p>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                        <div class="group p-5 bg-white rounded-2xl shadow-lg border-2 border-orange-100 hover:border-orange-300">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                                <i class="fas fa-user-check text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-orange-700 mb-2" data-i18n-key="service_kore_card1_title">Who Is It For</h4>
+                            <p class="text-sm text-gray-600 mb-4" data-i18n-key="service_kore_card1_desc">For students with developmental difficulties, learning challenges, autism spectrum, and specific issues like dyslexia or dyscalculia.</p>
+                            <div class="border-t border-orange-100 pt-4 mt-4">
+                                <h5 class="font-bold text-orange-700 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-brain text-orange-500"></i>
+                                    <span data-i18n-key="service_kore_card3_title">What We Develop</span>
+                                </h5>
+                                <p class="text-sm text-gray-600" data-i18n-key="service_kore_card3_desc">Perception, coordination, graphomotor skills, reading and writing techniques, and mathematical thinking.</p>
+                            </div>
+                        </div>
+                        <div class="group p-5 bg-white rounded-2xl shadow-lg border-2 border-orange-100 hover:border-orange-300">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                                <i class="fas fa-people-group text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-orange-700 mb-2" data-i18n-key="service_kore_card2_title">Format</h4>
+                            <p class="text-sm text-gray-600" data-i18n-key="service_kore_card2_desc">Individual sessions or small groups up to 5 students, with content adapted to each child.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="py-10 sm:py-12 md:py-16 bg-gradient-to-br from-orange-600 via-orange-500 to-amber-500 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+            </div>
+            <div class="container mx-auto px-4 sm:px-6 relative z-10">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="mb-3">
+                            <i class="fas fa-users text-3xl md:text-4xl text-white opacity-90"></i>
+                        </div>
+                        <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+                            <span class="counter" data-target="150">0</span>+
+                        </div>
+                        <p class="text-white/90 font-semibold text-sm md:text-base" data-i18n-key="stat_students">Happy Students</p>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="mb-3">
+                            <i class="fas fa-calendar-check text-3xl md:text-4xl text-white opacity-90"></i>
+                        </div>
+                        <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+                            <span class="counter" data-target="20">0</span>+
+                        </div>
+                        <p class="text-white/90 font-semibold text-sm md:text-base" data-i18n-key="stat_years">Years Experience</p>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="mb-3">
+                            <i class="fas fa-chart-line text-3xl md:text-4xl text-white opacity-90"></i>
+                        </div>
+                        <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+                            <span class="counter" data-target="95">0</span>%
+                        </div>
+                        <p class="text-white/90 font-semibold text-sm md:text-base" data-i18n-key="stat_success">Success Rate</p>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="mb-3">
+                            <i class="fas fa-book-open text-3xl md:text-4xl text-white opacity-90"></i>
+                        </div>
+                        <div class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+                            <span class="counter" data-target="500">0</span>+
+                        </div>
+                        <p class="text-white/90 font-semibold text-sm md:text-base" data-i18n-key="stat_sessions">Sessions Completed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-white via-orange-50/30 to-amber-50/30">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+                    <span class="inline-block px-6 py-2 bg-orange-100 rounded-full text-orange-700 font-bold text-sm mb-4">
+                        <i class="fas fa-lightbulb"></i> <span data-i18n-key="badge_how_it_works">How We Work</span>
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-orange-800 mb-4" data-i18n-key="section_how_it_works">How We Work</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n-key="how_it_works_desc">Three steps toward calmer progress.</p>
+                </div>
+
+                <div class="relative">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="relative inline-block mb-6">
+                                <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto shadow-2xl border-4 border-white transform hover:scale-110 transition-all duration-300">
+                                    <i class="fas fa-comments text-3xl md:text-4xl text-white"></i>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-black shadow-lg">1</div>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold text-orange-700 mb-3" data-i18n-key="step1_title">Free Consultation</h3>
+                            <p class="text-gray-600 leading-relaxed" data-i18n-key="step1_desc">We discuss your child's needs and challenges in a comfortable online or offline meeting.</p>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                            <div class="relative inline-block mb-6">
+                                <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto shadow-2xl border-4 border-white transform hover:scale-110 transition-all duration-300">
+                                    <i class="fas fa-clipboard-check text-3xl md:text-4xl text-white"></i>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-black shadow-lg">2</div>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold text-orange-700 mb-3" data-i18n-key="step2_title">Diagnostic Assessment</h3>
+                            <p class="text-gray-600 leading-relaxed" data-i18n-key="step2_desc">I evaluate the current level and create an individualized learning plan tailored to your child.</p>
+                            <p class="step-promise" data-i18n-key="step2_promise">Plan in 48 hours</p>
+                        </div>
+
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                            <div class="relative inline-block mb-6">
+                                <div class="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto shadow-2xl border-4 border-white transform hover:scale-110 transition-all duration-300">
+                                    <i class="fas fa-chalkboard-teacher text-3xl md:text-4xl text-white"></i>
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-black shadow-lg">3</div>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold text-orange-700 mb-3" data-i18n-key="step3_title">Individual Sessions</h3>
+                            <p class="text-gray-600 leading-relaxed" data-i18n-key="step3_desc">Regular 45-60 minute lessons using proven methods and engaging materials.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="credentials" class="py-8 sm:py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-orange-800 mb-4" data-i18n-key="section_credentials">Certificates and Qualifications</h2>
+                <p class="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8" data-i18n-key="diploma_desc">A selection of diplomas and trainings.</p>
+                
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="diploma-card">
+                            <img src="diploma/1.png" alt="Diploma 1" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma1_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma1_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/2.png" alt="Diploma 2" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma2_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma2_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/3.png" alt="Diploma 3" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma3_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma3_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/4.png" alt="Diploma 4" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/5.png" alt="Diploma 1" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma1_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma1_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/6.png" alt="Diploma 2" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma2_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma2_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/7.png" alt="Diploma 3" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma3_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma3_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/8.png" alt="Diploma 4" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/1.png" alt="Diploma 1" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma1_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma1_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/2.png" alt="Diploma 2" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma2_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma2_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/3.png" alt="Diploma 3" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma3_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma3_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/4.png" alt="Diploma 4" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/5.png" alt="Diploma 1" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma1_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma1_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/6.png" alt="Diploma 2" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma2_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma2_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/7.png" alt="Diploma 3" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma3_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma3_subtitle">University Certification</p>
+                        </div>
+                        <div class="diploma-card">
+                            <img src="diploma/8.png" alt="Diploma 4" loading="lazy">
+                            <p class="text-lg font-semibold text-orange-600" data-i18n-key="diploma4_title">Special Education Degree</p>
+                            <p class="text-sm text-gray-500 mt-2" data-i18n-key="diploma4_subtitle">University Certification</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-10 sm:py-16 md:py-24 bg-gradient-to-br from-white via-orange-50 to-amber-50">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12">
+                    <span class="inline-block px-6 py-2 bg-orange-100 rounded-full text-orange-700 font-bold text-sm mb-4">
+                        <i class="fas fa-question-circle"></i> <span data-i18n-key="badge_faq">FAQ</span>
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-800 mb-4" data-aos="fade-up" data-i18n-key="section_faq">Frequently Asked Questions</h2>
+                    <p class="text-base text-gray-600 max-w-2xl mx-auto" data-i18n-key="faq_desc">Answers to the most common questions.</p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
+                        <div class="faq-question">
+                            <h3 class="faq-question-text" data-i18n-key="faq1_question">How long does one session last?</h3>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text" data-i18n-key="faq1_answer">Each individual session lasts 45-60 minutes, depending on the child's needs and age. I create a comfortable pace for each student.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="faq-question">
+                            <h3 class="faq-question-text" data-i18n-key="faq2_question">What is the cost of services?</h3>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text" data-i18n-key="faq2_answer">The cost depends on the type of lessons (individual/group) and frequency. Contact me for detailed information about current rates and packages.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                        <div class="faq-question">
+                            <h3 class="faq-question-text" data-i18n-key="faq3_question">Do you offer online lessons?</h3>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text" data-i18n-key="faq3_answer">Yes! I conduct both in-person and online lessons via Zoom/Google Meet. Online format is especially convenient for families with busy schedules.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="faq-question">
+                            <h3 class="faq-question-text" data-i18n-key="faq4_question">How quickly will we see results?</h3>
+                            <div class="faq-icon">+</div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="faq-answer-text" data-i18n-key="faq4_answer">Each child is unique. Usually, the first improvements are noticeable after 4-6 weeks of regular lessons. I provide progress reports to parents every month.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="py-8 sm:py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 max-w-2xl">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-orange-800 mb-6 sm:mb-8" data-i18n-key="section_booking">Ready to Start? Schedule a Consultation</h2>
+                
+                <form id="bookingForm" class="p-5 sm:p-6 bg-white rounded-xl shadow-xl space-y-5">
+                </form>
+                
+                <div id="formMessage" class="mt-4 text-center text-sm sm:text-base"></div>
+                <p class="mt-4 text-xs sm:text-sm text-gray-500 text-center">
+                    <span data-i18n-key="form_privacy_prefix">By submitting, you agree to the</span>
+                    <a href="privacy.html" class="text-orange-700 hover:text-orange-800 underline" data-i18n-key="privacy_policy">Privacy Policy</a>
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div class="floating-actions" id="floatingActions">
+        <div class="floating-actions-menu" id="floatingActionsMenu">
+            <a href="#booking" class="floating-action floating-action-book" id="floatingBookBtn" aria-label="Book a Session" title="Book a Session">
+                <i class="fas fa-calendar-check"></i>
+                <span class="floating-action-label" data-i18n-key="nav_book">Book a Session</span>
+            </a>
+            <a id="whatsappFloating" href="https://wa.me/48355123456" target="_blank" class="floating-action floating-action-whatsapp" title="WhatsApp" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://t.me/yourusername" target="_blank" class="floating-action floating-action-telegram" title="Telegram" id="telegramBtn" aria-label="Telegram">
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div>
+        <button class="floating-toggle" id="floatingToggle" aria-label="Open quick actions" aria-expanded="false">
+            <i class="fas fa-ellipsis-v"></i>
+        </button>
+    </div>
+
+    <footer class="footer footer-light py-8 sm:py-12 md:py-16 relative">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                <div class="space-y-4 footer-col-narrow">
+                    <h3 class="text-2xl font-black footer-title" data-i18n-key="teacher_name">Yevheniia Mykhailova</h3>
+                    <p class="footer-text leading-relaxed text-sm" data-i18n-key="desc_hero">
+                        My individualized approach helps children overcome challenges and thrive socially and academically.
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-orange-700">
+                        <img src="img/kaktusiaki-logo.png" alt="KakTUSiaki Logo" class="h-32 sm:h-32 md:h-64 w-auto hover:scale-105 transition-transform duration-300 footer-logo">
+                    </div>
+                </div>
+                
+                <div class="space-y-4 footer-hours">
+                    <h4 class="text-lg font-bold footer-heading flex items-center gap-2">
+                        <i class="fas fa-clock"></i>
+                        <span data-i18n-key="working_hours">Working Hours</span>
+                    </h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex justify-between footer-text">
+                            <span data-i18n-key="monday_friday">Mon - Fri:</span>
+                            <span class="font-semibold">9:00 - 18:00</span>
+                        </li>
+                        <li class="flex justify-between footer-text">
+                            <span data-i18n-key="saturday">Sat - Sun:</span>
+                            <span class="font-semibold text-orange-300" data-i18n-key="closed">Closed</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold footer-heading flex items-center gap-2">
+                        <i class="fas fa-address-book"></i>
+                        <span data-i18n-key="contact_info">Contact</span>
+                    </h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3 footer-text">
+                            <i class="fas fa-envelope text-lg mt-0.5"></i>
+                            <a id="contactEmail" href="mailto:josephblazkowicz543@gmail.com" class="hover:text-white transition break-all">josephblazkowicz543@gmail.com</a>
+                        </li>
+                        <li class="flex flex-col gap-1 footer-text">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-phone text-lg mt-0.5"></i>
+                                <div>
+                                    <a id="contactPhone" href="tel:+48355123456" class="hover:text-white transition">+48 355 123 456</a>
+                                    <p id="callHours" class="text-sm mt-1 opacity-80"></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 footer-text">
+                            <i class="fas fa-map-marker-alt text-lg mt-0.5"></i>
+                            <span id="contactLocation">Wroclaw, Poland</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-3 mt-4">
+                        <a id="whatsappLink" href="https://wa.me/48355123456" target="_blank" class="w-10 h-10 bg-green-600 hover:bg-green-500 rounded-full flex items-center justify-center transition-all transform hover:scale-110" title="WhatsApp">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="https://t.me/yourusername" target="_blank" class="w-10 h-10 bg-blue-500 hover:bg-blue-400 rounded-full flex items-center justify-center transition-all transform hover:scale-110" title="Telegram">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold footer-heading flex items-center gap-2">
+                        <i class="fas fa-location-dot"></i>
+                        <span data-i18n-key="location">Location</span>
+                    </h4>
+                    <div class="rounded-lg overflow-hidden shadow-lg h-40">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2180.03587373013!2d17.011999583705396!3d51.08076168993011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc248c9cbbd09%3A0xcef878d6b636837!2sApteka%20pod%20Jaworami!5e1!3m2!1suk!2spl!4v1765445822597!5m2!1suk!2spl"
+                        width="600"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-orange-700 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="footer-muted text-sm" data-i18n-key="copyright">&copy; 2026 Yevheniia Mykhailova. All rights reserved.</p>
+                <div class="flex items-center gap-4">
+                    <a href="privacy.html" class="footer-link text-sm" data-i18n-key="privacy_policy">Privacy Policy</a>
+                    <a href="#booking" class="footer-cta" data-i18n-key="nav_book">Book a Session</a>
+                    <a href="https://facebook.com" target="_blank" class="footer-social-btn w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="footer-social-btn w-10 h-10 rounded-full flex items-center justify-center transition-all">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="adminPanel" class="admin-panel">
+        <div class="admin-panel-content">
+            <div class="admin-panel-header">
+                <h2>📊 Админ Панель</h2>
+                <button class="admin-close-btn" id="adminCloseBtn">×</button>
+            </div>
+            
+            <div class="admin-panel-tabs">
+                <button class="admin-tab active" data-tab="stats" id="statsTab">Статистика</button>
+                <button class="admin-tab" data-tab="contacts" id="contactsTab">Контакты</button>
+            </div>
+            
+            <div class="admin-panel-body">
+                <!-- Stats Tab -->
+                <div class="admin-tab-content active" id="stats-content">
+                    <div class="admin-form-group">
+                        <label>Количество студентов:</label>
+                        <input type="number" id="statsStudents" class="admin-input">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Лет опыта:</label>
+                        <input type="number" id="statsYears" class="admin-input">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Процент успеха (%):</label>
+                        <input type="number" id="statsSuccess" class="admin-input" min="0" max="100">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Завершено сеансов:</label>
+                        <input type="number" id="statsSessions" class="admin-input">
+                    </div>
+                </div>
+                
+                <!-- Contacts Tab -->
+                <div class="admin-tab-content" id="contacts-content" style="display:none;">
+                    <div class="admin-form-group">
+                        <label>Email:</label>
+                        <input type="email" id="contactsEmail" class="admin-input" placeholder="почта@example.com">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Телефон:</label>
+                        <input type="tel" id="contactsPhone" class="admin-input" placeholder="+48 355 123 456">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Время звонков (с какого часа до какого - на странице):</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="time" id="contactsCallFrom" class="admin-input" style="flex: 1;">
+                            <span style="display: flex; align-items: center;">—</span>
+                            <input type="time" id="contactsCallTo" class="admin-input" style="flex: 1;">
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label>График работы (Пн-Пт):</label>
+                        <input type="text" id="contactsWeekday" class="admin-input" placeholder="09:00-18:00">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>График работы (Сб-Вс):</label>
+                        <input type="text" id="contactsWeekend" class="admin-input" placeholder="Закрыто">
+                    </div>
+                    <div class="admin-form-group">
+                        <label>Местоположение:</label>
+                        <input type="text" id="contactsLocation" class="admin-input" placeholder="Вроцлав, Польша">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-modal" id="passwordModal" style="display:none;">
+                <div class="admin-modal-content" style="max-width: 400px;">
+                    <div class="admin-modal-header">
+                        <h3>🔐 Доступ администратора</h3>
+                        <button class="admin-modal-close" onclick="document.getElementById('passwordModal').style.display='none';">&times;</button>
+                    </div>
+                    <div class="admin-modal-body">
+                        <p style="color: #6b7280; margin-bottom: 20px; text-align: center;">Введите пароль для доступа в панель администратора</p>
+                        <div class="admin-form-group">
+                            <label>Пароль</label>
+                            <input type="password" id="passwordInput" class="admin-input" placeholder="Введите пароль..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="admin-modal-footer">
+                        <button class="admin-btn-cancel" onclick="document.getElementById('passwordModal').style.display='none';">Отмена</button>
+                        <button class="admin-btn-save-modal" id="passwordSubmitBtn">Открыть панель</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-panel-footer">
+                <button class="admin-btn-save" id="adminSaveBtn">💾 Сохранить изменения</button>
+                <button class="admin-btn-reset" id="adminResetBtn">Сбросить</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <i class="fas fa-cookie-bite"></i>
+                <p>
+                    <strong data-i18n-key="cookie_title">We use cookies</strong>
+                    <span data-i18n-key="cookie_text">This website uses cookies to ensure you get the best experience on our website. By continuing to use this site, you accept our use of cookies.</span>
+                </p>
+            </div>
+            <div class="cookie-consent-buttons">
+                <button id="cookieAccept" class="cookie-btn cookie-btn-accept" data-i18n-key="cookie_accept">Accept</button>
+                <button id="cookieDecline" class="cookie-btn cookie-btn-decline" data-i18n-key="cookie_decline">Decline</button>
+                <a href="privacy.html" class="cookie-link" data-i18n-key="cookie_learn_more">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="translations.js"></script>
+    <script src="main.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

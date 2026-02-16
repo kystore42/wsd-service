@@ -1,0 +1,62 @@
+{
+    "stats": {
+        "students": "150",
+        "years": "20",
+        "success_rate": "95",
+        "sessions": "500"
+    },
+    "testimonials": [
+        {
+            "name": "Anna P.",
+            "role": "Mom",
+            "text": "We came because of anxiety and meltdowns at school. Kiril cried often, avoided lessons, and was afraid to speak in class. After a few weeks he became calmer with difficult tasks, stopped fearing mistakes, and started raising his hand. We finally saw his confidence return. Thank you for the patience and support.",
+            "photo": null,
+            "video": null
+        },
+        {
+            "name": "Olga M.",
+            "role": "Mom",
+            "text": "My daughter had attention and speech difficulties, and it was hard for her to finish tasks. The sessions are gentle but very structured. She now focuses longer, speaks more clearly, and shares her day with interest. At home we have fewer conflicts because she understands instructions and gets tired less quickly. It is a huge relief for our family.",
+            "photo": null,
+            "video": null
+        },
+        {
+            "name": "Natalia K.",
+            "role": "Mom",
+            "text": "My son struggled with reading and writing, and he felt worse than others. With regular sessions he started reading more confidently and was less afraid of dictations. The most important part is that his motivation returned. He now picks up books on his own. Thank you for giving him his self belief back.",
+            "photo": null,
+            "video": null
+        },
+        {
+            "name": "Irina S.",
+            "role": "Mom",
+            "text": "My daughter had difficulties with fine motor skills and coordination, so even buttons and drawing were a struggle. After the course her handwriting became steadier and she completes school tasks faster. She is calmer and less frustrated when something does not work right away. We see real progress.",
+            "photo": null,
+            "video": null
+        },
+        {
+            "name": "Marina L.",
+            "role": "Mom",
+            "text": "My son had a hard time joining the group, often argued and reacted impulsively. The sessions focused on social skills and emotion regulation. Now he understands how to communicate, can pause, and negotiate. His teacher noticed he is calmer and friendlier. We are very grateful for the practical tools that really work.",
+            "photo": null,
+            "video": null
+        }
+    ],
+    "hero": {
+        "heading": "Empowering Children with Special Needs",
+        "description": "My individualized approach helps children overcome challenges and thrive socially and academically."
+    },
+    "contact": {
+        "email": "josephblazkowicz543@gmail.com",
+        "phone": "+48355123456",
+        "callHours": {
+            "from": "09:00",
+            "to": "18:00"
+        },
+        "workingHours": {
+            "weekday": "09:00-18:00",
+            "weekend": "Закрыто"
+        },
+        "location": "Вроцлав, Польша"
+    }
+}

@@ -1,0 +1,40 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+
+# Env
+.env
+.env.*
+
+# Editor
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local data
+admin-data.json
+
+# Docs sources
+*.docm
+
+# Misc
+*.tmp
+*.swp
